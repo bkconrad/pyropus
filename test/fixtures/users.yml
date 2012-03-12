@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  username: MyString
-  password: MyString
+  username: username
+  password: password
   group: 1
 
 two:
-  username: MyString
-  password: MyString
+  username: username
+  password: password
   group: 1
