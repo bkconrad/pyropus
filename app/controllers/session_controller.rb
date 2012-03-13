@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  skip_before_filter :authorize
   def new
   end
 
@@ -15,6 +16,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:group_id] = nil
     redirect_to users_url, notice: "You have been logged out"
   end
 end
