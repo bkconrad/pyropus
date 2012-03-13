@@ -1,20 +1,24 @@
+<div id="nav_login">
 <% if logged_in %>
   Logged in as <%= username %>. <%= link_to "Log out", session_destroy_path %>
 <% else %>
 <%= form_tag login_url do %>
-  <div>
-    <label for="name">Name:</label>
-    <%= text_field_tag :name, params[:name] %>
-  </div>
+  <span id="login_credentials">
+    <span>
+      <label for="name">Name:</label>
+      <%= text_field_tag :name, params[:name] %>
+    </span>
 
-  <div>
-    <label for="password">Password:</label>
-    <%= password_field_tag :password, params[:password] %>
-  </div>
+    <span>
+      <label for="password">Password:</label>
+      <%= password_field_tag :password, params[:password] %>
+    </span>
+  </span>
 
-  <div>
+  <span>
     <%= hidden_field_tag :redirect_on_login, request.url %>
     <%= submit_tag "Login" %>
-  </div>
+  </span>
 <% end %>
 <% end %>
+</div>

@@ -1,0 +1,24 @@
+#nav_login {
+
+  #login_credentials {
+    input {
+      width: 80px;
+    }
+  }
+
+  form {
+    display: inline;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  label, input {
+    font-size: 8pt;
+  }
+
+  input {
+    border: 1px solid black;
+  }
+}
