@@ -6,6 +6,7 @@ class SessionController < ApplicationController
     user = User.find_by_name(params[:name])
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
+      session[:group_id] = user.group_id
       redirect_to users_path, notice: "logged in as #{user.name}"
     else
       redirect_to login_url, alert: "Incorrect user/password"

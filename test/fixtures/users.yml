@@ -3,11 +3,14 @@
 alice:
   name: alice
   password_digest: <%= BCrypt::Password.create('secret') %>
+  group_id: 1
 
 one:
   name: MyString
   password_digest: <%= BCrypt::Password.create('secret') %>
+  group_id: 1
 
 two:
   name: MyString
   password_digest: MyString
+  group_id: 1
