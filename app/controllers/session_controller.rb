@@ -1,6 +1,7 @@
 class SessionController < ApplicationController
   skip_before_filter :authorize
   def new
+    redirect = params[:redirect]
   end
 
   def create
@@ -8,6 +9,10 @@ class SessionController < ApplicationController
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:group_id] = user.group_id
+      if params[:redirect]
+        redirect_to params[:redirect]
+        return
+      end
       redirect_to users_path, notice: "logged in as #{user.name}"
     else
       redirect_to login_url, alert: "Incorrect user/password"

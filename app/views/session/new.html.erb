@@ -18,6 +18,9 @@
   </div>
 
   <div>
+    <% if params[:redirect] %>
+    <%= hidden_field_tag "redirect", params[:redirect] %><%= params[:redirect] %>
+    <% end %>
     <%= submit_tag "Login" %>
   </div>
 

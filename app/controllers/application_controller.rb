@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
     if session[:group_id] != nil
       return session[:group_id] > 1
     end
-    redirect_to login_url, alert: "Please login to do that"
+    redirect_to login_url, alert: "Please login to do that", redirect: "test"
   end
 end

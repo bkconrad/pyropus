@@ -8,6 +8,9 @@ class UsersControllerTest < ActionController::TestCase
       password_confirmation: "password"
     }
     @user = users(:alice)
+
+    # set ourselves as admin
+    session[:group_id] = 2
   end
 
   test "should get index" do

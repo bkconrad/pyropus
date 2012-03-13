@@ -3,6 +3,8 @@ require 'test_helper'
 class PostsControllerTest < ActionController::TestCase
   setup do
     @post = posts(:one)
+    # set ourselves as admin
+    session[:group_id] = 2
   end
 
   test "should get index" do
