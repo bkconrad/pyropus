@@ -1,5 +1,16 @@
 #header {
   h1 {
     display: inline-block;
+    margin-bottom: 0px;
   }
+
+  font-size: 12px;
+}
+
+#titlebar {
+  border-bottom: 1px solid #8fbbdc;
+}
+
+#navlinks {
+  float: left;
 }

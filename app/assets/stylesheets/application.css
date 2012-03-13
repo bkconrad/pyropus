@@ -11,6 +11,42 @@
  *= require_self
  *= require_tree .
 */
+/* 8fbbdc
+ * 3170a0
+ * fffefe
+ * b5b5b5
+ */
+* {
+  line-height: 14px;
+  font-height: 12px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  line-height: 42px;
+  font-height: 28px;
+}
+a, a:hover, a:visited {
+  color: #FFF;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  background: #3170a0;
+  color: #8fbbdc;
+}
+
 #wrapper {
   width: 640px;
   margin: auto;

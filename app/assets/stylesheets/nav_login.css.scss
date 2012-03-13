@@ -1,9 +1,23 @@
 #nav_login {
   display: inline-block;
+  float: right;
+
+  label, input {
+    color: white;
+  }
+
+  input {
+    border: 1px solid #8fbbdc;
+    background: none;
+    line-height: 12px;
+    font-size: 10px;
+    padding: 0px 2px;
+  }
 
   #login_credentials {
     input {
       width: 80px;
+      background: none;
     }
   }
 
@@ -15,11 +29,4 @@
     display: inline-block;
   }
 
-  label, input {
-    font-size: 8pt;
-  }
-
-  input {
-    border: 1px solid black;
-  }
 }
