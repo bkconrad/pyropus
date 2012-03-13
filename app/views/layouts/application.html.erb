@@ -8,8 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: 'users/login' %>
+<%= render partial: 'shared/header' %>
+<%= render partial: 'shared/login' %>
+
 <%= yield %>
 
+<%= render partial: 'shared/footer' %>
 </body>
 </html>
