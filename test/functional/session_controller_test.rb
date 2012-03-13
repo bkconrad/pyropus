@@ -1,19 +1,15 @@
 require 'test_helper'
 
 class SessionControllerTest < ActionController::TestCase
+    
   test "should get new" do
     get :new
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "should log in" do
+    alice = users(:alice)
+    post :create, name: alice.name, password: "secret"
+    assert_equal session[:user_id], alice.id
   end
-
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
-
 end
