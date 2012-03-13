@@ -1,12 +1,7 @@
-<h1>Session#new</h1>
-<% if flash[:alert] %>
-  <p id="notice"><%= flash[:alert] %></p>
-<% end %>
-
+<% if logged_in %>
+  Logged in as <%= username %>. <%= link_to "Log out", session_destroy_path %>
+<% else %>
 <%= form_tag login_url do %>
-  <fieldset>
-  <legend>User Login</legend>
-
   <div>
     <label for="name">Name:</label>
     <%= text_field_tag :name, params[:name] %>
@@ -20,6 +15,5 @@
   <div>
     <%= submit_tag "Login" %>
   </div>
-
-  </fieldset>
+<% end %>
 <% end %>
