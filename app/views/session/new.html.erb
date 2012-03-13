@@ -18,8 +18,8 @@
   </div>
 
   <div>
-    <% if params[:redirect] %>
-    <%= hidden_field_tag "redirect", params[:redirect] %><%= params[:redirect] %>
+    <% if session[:redirect_on_log] %>
+    <%= hidden_field_tag "redirect_on_log", session[:redirect_on_log] %>
     <% end %>
     <%= submit_tag "Login" %>
   </div>

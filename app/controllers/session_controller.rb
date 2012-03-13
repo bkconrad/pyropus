@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  skip_before_filter :authorize
+  skip_before_filter :authorize, :store_return_to
   def new
     redirect = params[:redirect]
   end
@@ -9,11 +9,7 @@ class SessionController < ApplicationController
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:group_id] = user.group_id
-      if params[:redirect]
-        redirect_to params[:redirect]
-        return
-      end
-      redirect_to users_path, notice: "logged in as #{user.name}"
+      redirect_back
     else
       redirect_to login_url, alert: "Incorrect user/password"
     end
@@ -22,6 +18,6 @@ class SessionController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:group_id] = nil
-    redirect_to users_url, notice: "You have been logged out"
+    redirect_back
   end
 end
