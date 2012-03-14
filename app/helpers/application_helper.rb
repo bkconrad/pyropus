@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Authorization
+
   def username
     if session[:user_id] == nil
       return nil
@@ -16,5 +18,11 @@ module ApplicationHelper
     end
     user = User.find(session[:user_id])
     return user != nil
+  end
+
+  def admin?
+    if user_level != nil
+      user_level >= user_level(:admin)
+    end
   end
 end
