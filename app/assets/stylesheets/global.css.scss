@@ -64,11 +64,13 @@ a:hover {
 
 #wrapper {
   background: $wrapperbg;
-  max-width: 612px;
+  max-width: 640px;
   padding: $basesize;
   margin: auto;
   margin-top: $basesize;
   font-size: 12px;
+  box-shadow: 2px 4px 24px -4px #444;
+  border: 1px solid white;
 }
 
 #content {
