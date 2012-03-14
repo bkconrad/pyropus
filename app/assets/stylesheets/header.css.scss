@@ -29,6 +29,13 @@
   float: left;
 }
 
+#page_title {
+  font-size: 18px;
+  line-height: 42px;
+  text-decoration: underline;
+  float: right;
+}
+
 body {
   background: $bg;
 }
