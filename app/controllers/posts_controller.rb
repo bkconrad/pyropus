@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     page_title @post.title
-
+    @content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(@post.content)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
