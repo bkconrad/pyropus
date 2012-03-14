@@ -75,4 +75,10 @@ a:hover {
 
 #content {
   clear: both;
+  > div {
+    background: white;
+    color: black;
+    margin-top: $basesize;
+    padding: $basesize;
+  }
 }
