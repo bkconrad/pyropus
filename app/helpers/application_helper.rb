@@ -2,6 +2,11 @@ module ApplicationHelper
   include Authorization
   include Titles
 
+  def render_and_replace(partial_name, elementId=nil)
+    elementId ||= partial_name
+    raw "$('##{elementId}').html(\"" + escape_javascript(render partial: "shared/#{partial_name}") + "\");"
+  end
+
   def username
     if user_level == nil
       return nil

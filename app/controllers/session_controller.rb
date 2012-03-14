@@ -9,15 +9,25 @@ class SessionController < ApplicationController
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:group_id] = user.group_id
-      redirect_back
-    else
-      redirect_to login_url, alert: "Incorrect user/password"
+      @successful = true
+    end
+    respond_to do |format|
+      if @successful
+        format.html { redirect_back }
+        format.js
+      else
+        format.html { redirect_to login_url, alert: "Incorrect user/password" }
+        format.js
+      end
     end
   end
 
   def destroy
     session[:user_id] = nil
     session[:group_id] = nil
-    redirect_back
+    respond_to { |format|
+      format.html { redirect_back }
+      format.js
+    }
   end
 end
