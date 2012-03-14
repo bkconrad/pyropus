@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.order(:name)
+    page_title "View all users"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    page_title @user.name + "'s profile"
 
     respond_to do |format|
       format.html # show.html.erb
