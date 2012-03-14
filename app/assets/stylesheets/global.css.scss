@@ -9,18 +9,29 @@
  * a95256
  * a9a552
  * 7e7e7e
+ *
+ * alt 2
+ * 6180a8
+ * a88961
+ * a3ab61
+ * 61a866
  */
-$bg: #a95256;
-$input_border: #a9a552;
-$titlebar_divider: #a9a552;
-$maintextcolor: #000000;
-$linkcolor: #a95256;
-$loginlabeltextcolor: $linkcolor;
-$wrapperbg: white;
+$bg: #6180a8;
+$wrapperbg: #bdcad8;
+$maintextcolor: #FFF;
+$linkcolor: #8ca2c0;
+$input_border: #fff;
+
+$titlebar_divider: none;
+$menubarcolor: #8ca2c0;
+$menubartextcolor: #FFFFFF;
+$loginlabeltextcolor: $menubartextcolor;
+$basesize: 14px;
 
 * {
-  line-height: 14px;
+  line-height: $basesize;
   font-height: 12px;
+  margin: 0;
 }
 
 body {
@@ -32,6 +43,12 @@ body {
 h1 {
   line-height: 42px;
   font-height: 28px;
+}
+
+h3 {
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: bold;
 }
 a, a:hover, a:visited {
   color: $linkcolor;
@@ -47,12 +64,11 @@ a:hover {
 
 #wrapper {
   background: $wrapperbg;
-  width: 640px;
+  max-width: 612px;
+  padding: $basesize;
   margin: auto;
-  margin-top: 1em;
-  * {
-    margin: 0;
-  }
+  margin-top: $basesize;
+  font-size: 12px;
 }
 
 #content {

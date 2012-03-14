@@ -1,15 +1,28 @@
 @import "global";
 #header {
-  h1 {
-    display: inline-block;
-    margin-bottom: 0px;
-  }
 
   font-size: 12px;
 }
 
 #titlebar {
   border-bottom: 1px solid $titlebar_divider;
+  h1 {
+    margin-right: $basesize;
+  }
+  h1,h2 {
+    display: inline-block;
+    margin-bottom: 0px;
+  }
+}
+
+#menubar {
+  background: $menubarcolor;
+  height: $basesize;
+  padding: 7px $basesize;
+  color: $menubartextcolor;
+  a {
+    color: $menubartextcolor;
+  }
 }
 
 #navlinks {
