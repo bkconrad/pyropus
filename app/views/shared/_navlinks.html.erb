@@ -1,4 +1,6 @@
 <ul id="navlinks">
 <li><%= link_to "Posts", posts_url %></li>
+<% if admin? %>
 <li><%= link_to "Users", users_url %></li>
+<% end %>
 </ul>
