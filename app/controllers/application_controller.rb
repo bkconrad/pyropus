@@ -4,5 +4,5 @@ class ApplicationController < ActionController::Base
 
   include LoginRedirection
   include Authorization
-
+  include Titles
 end

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    page_title "View all posts"
 
     respond_to do |format|
       format.html # index.html.erb

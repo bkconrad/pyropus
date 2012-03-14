@@ -1,5 +1,6 @@
 module ApplicationHelper
   include Authorization
+  include Titles
 
   def username
     if user_level == nil
