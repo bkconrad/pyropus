@@ -1,7 +1,9 @@
 set :user, "ec2-user"
+set :group, "apache"
 set :application, "pyropus"
 set :repository,  "/home/ec2-user/pyropus.git"
 set :deploy_to,   "/var/www/pyropus"
+set :use_sudo, false
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
