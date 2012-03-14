@@ -1,7 +1,7 @@
 set :user, "ec2-user"
 set :group, "apache"
 set :application, "pyropus"
-set :repository,  "/home/ec2-user/pyropus.git"
+set :repository,  "localhost:pyropus.git"
 set :deploy_to,   "/var/www/pyropus"
 set :use_sudo, false
 
