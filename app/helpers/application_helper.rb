@@ -2,7 +2,7 @@ module ApplicationHelper
   include Authorization
 
   def username
-    if session[:user_id] == nil
+    if user_level == nil
       return nil
     end
 
