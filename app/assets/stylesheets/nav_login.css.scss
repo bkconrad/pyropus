@@ -1,13 +1,14 @@
+@import "global";
 #nav_login {
   display: inline-block;
   float: right;
 
   label, input {
-    color: white;
+    color: $loginlabeltextcolor;
   }
 
   input {
-    border: 1px solid #8fbbdc;
+    border: 1px solid $input_border;
     background: none;
     line-height: 12px;
     font-size: 10px;

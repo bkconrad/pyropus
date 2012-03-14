@@ -1,3 +1,4 @@
+@import "global";
 #header {
   h1 {
     display: inline-block;
@@ -8,9 +9,13 @@
 }
 
 #titlebar {
-  border-bottom: 1px solid #8fbbdc;
+  border-bottom: 1px solid $titlebar_divider;
 }
 
 #navlinks {
   float: left;
+}
+
+body {
+  background: $bg;
 }

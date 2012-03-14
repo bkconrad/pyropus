@@ -1,0 +1,60 @@
+/* 8fbbdc
+ * 3170a0
+ * fffefe
+ * b5b5b5
+ *
+ * alt scheme
+ * 5382a9
+ * 5265a9
+ * a95256
+ * a9a552
+ * 7e7e7e
+ */
+$bg: #a95256;
+$input_border: #a9a552;
+$titlebar_divider: #a9a552;
+$maintextcolor: #000000;
+$linkcolor: #a95256;
+$loginlabeltextcolor: $linkcolor;
+$wrapperbg: white;
+
+* {
+  line-height: 14px;
+  font-height: 12px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: $maintextcolor;
+}
+
+h1 {
+  line-height: 42px;
+  font-height: 28px;
+}
+a, a:hover, a:visited {
+  color: $linkcolor;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#wrapper {
+  background: $wrapperbg;
+  width: 640px;
+  margin: auto;
+  margin-top: 1em;
+  * {
+    margin: 0;
+  }
+}
+
+#content {
+  clear: both;
+}
