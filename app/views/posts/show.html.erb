@@ -1,16 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
+<div class="post">
+<%= @post.content %>
+</div>
 
 <% if admin? %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>
-<%= link_to 'Back', posts_path %>
