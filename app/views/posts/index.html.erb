@@ -4,7 +4,7 @@
     <div class="postcontent"><%= post.content %></div>
     <%= ajax_link_to 'Show', post %>
     <% if admin? %>
-      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= ajax_link_to 'Edit', edit_post_path(post) %>
       <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
     <% end %>
   </div>
@@ -12,5 +12,5 @@
 
 <br />
 <% if admin? %>
-<%= link_to 'New Post', new_post_path %>
+<%= ajax_link_to 'New Post', new_post_path %>
 <% end %>
