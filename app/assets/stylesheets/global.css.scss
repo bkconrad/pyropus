@@ -19,24 +19,24 @@
  * newly risen moon
  * 
  */
-$bg: #45484b;
+$bg: #f8f8f8;
 
-$menubarcolor: #36393B;
-$menubartextcolor: #eee6ab;
+$menubarcolor: black;
+$menubartextcolor: white;
 
 $wrapperbg: none;
-$contentdivbackground: $menubarcolor;
-$contentdivtextcolor: #eee6ab;
-$maintextcolor: #FFF;
-$linkcolor: white;
-$input_border: #fff;
+$contentdivbackground: white;
+$contentdivtextcolor: #222;
+$maintextcolor: black;
+$linkcolor: #888;
+$input_border: white;
 
 $titlebar_divider: none;
 $loginlabeltextcolor: $menubartextcolor;
-$basesize: 16px;
+$basesize: 14px;
 
 * {
-  line-height: $basesize;
+  line-height: 2*$basesize;
   font-size: 14px;
   margin: 0;
 }
@@ -69,9 +69,17 @@ a:hover {
   text-decoration: underline;
 }
 
+p {
+  margin-bottom: $basesize;
+}
+
+textarea {
+  width: 100%;
+}
+
 #wrapper {
   background: $wrapperbg;
-  max-width: 640px;
+  max-width: 960px;
   padding: $basesize;
   margin: auto;
   margin-top: $basesize;
@@ -85,5 +93,7 @@ a:hover {
     color: $contentdivtextcolor;
     margin-top: $basesize;
     padding: $basesize;
+    box-shadow: 3px 3px 18px -2px #999;
   }
+
 }

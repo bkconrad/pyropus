@@ -17,8 +17,8 @@
 
 #menubar {
   background: $menubarcolor;
-  height: $basesize;
-  padding: 7px $basesize;
+  height: 2*$basesize;
+  padding: $basesize/2 $basesize;
   color: $menubartextcolor;
   a {
     color: $menubartextcolor;
