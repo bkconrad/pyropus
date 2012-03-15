@@ -19,9 +19,16 @@ function retrievePage(sourceUrl) {
     contentType: "text/html",
     success: function (data) {
       dom = $(data);
+
+      // replace the content and header
       $("#content").html($("#content", dom).html());
       $("#header").html($("#header", dom).html());
+
+      // rebind all ajaxed navigation links
       $(".ajaxLink").click(ajaxNavigationLink);
+
+      // (hopefully) set the url to reflect the fetched page
+      window.history.pushState("string", "Pyrop.us", sourceUrl);
     },
     // TODO: write a real error function for this
     error: function (one, two, error) {
@@ -31,7 +38,7 @@ function retrievePage(sourceUrl) {
 }
 
 function ajaxNavigationLink () {
-	var href = $(this).context.href;
+  var href = $(this).context.href;
   retrievePage(href);
   return false;
 }
