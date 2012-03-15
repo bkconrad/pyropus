@@ -17,14 +17,25 @@ function retrievePage(sourceUrl) {
   $.ajax({
     url: sourceUrl,
     contentType: "text/html",
-    success: function (data, two, three) {
-      console.log(data, two, three);
+    success: function (data) {
       dom = $(data);
       $("#content").html($("#content", dom).html());
       $("#header").html($("#header", dom).html());
+      $(".ajaxLink").click(ajaxNavigationLink);
     },
-    error: function (one, two, three) {
+    // TODO: write a real error function for this
+    error: function (one, two, error) {
       console.log(three);
     }
   });
 }
+
+function ajaxNavigationLink () {
+	var href = $(this).context.href;
+  retrievePage(href);
+  return false;
+}
+
+$(window).ready(function () {
+  $(".ajaxLink").click(ajaxNavigationLink);
+});
