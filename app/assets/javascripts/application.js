@@ -13,36 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-function retrievePage(sourceUrl) {
-  $.ajax({
-    url: sourceUrl,
-    contentType: "text/html",
-    success: function (data) {
-      dom = $(data);
+function retrievePage(ev, e) {
 
-      // replace the content and header
-      $("#content").html($("#content", dom).html());
-      $("#header").html($("#header", dom).html());
+  $("#notice").hide();
 
-      // rebind all ajaxed navigation links
-      $(".ajaxLink").click(ajaxNavigationLink);
+  // get the url from the link or form
+  var sourceUrl = $(this).context.href;
+  if (sourceUrl == undefined) {
+    sourceUrl = $(this).context.action;
+  }
+  var dom = $(e.responseText);
 
-      // (hopefully) set the url to reflect the fetched page
-      window.history.pushState("string", "Pyrop.us", sourceUrl);
-    },
-    // TODO: write a real error function for this
-    error: function (one, two, error) {
-      console.log(three);
-    }
-  });
+  // replace the content and header
+  $("#content").html($("#content", dom).html());
+  $("#header").html($("#header", dom).html());
+
+  // rebind the new elements with this callback
+  $("[data-remote]=true").bind("ajax:complete", retrievePage);
 }
-
-function ajaxNavigationLink () {
-  var href = $(this).context.href;
-  retrievePage(href);
-  return false;
-}
-
 $(window).ready(function () {
-  $(".ajaxLink").click(ajaxNavigationLink);
+//  $(".ajaxLink").click(ajaxNavigationLink);
+  $("[data-remote]=true").bind("ajax:complete", retrievePage);
 });

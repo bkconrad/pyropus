@@ -10,7 +10,8 @@ module ApplicationHelper
     else
       name         = args[0]
       options      = args[1] || {}
-      html_options = args[2]
+      html_options = args[2] || {}
+      html_options['remote'] = true
 
       html_options = convert_options_to_data_attributes(options, html_options)
       url = url_for(options)
@@ -19,7 +20,8 @@ module ApplicationHelper
       tag_options = tag_options(html_options)
 
       href_attr = "href=\"#{ERB::Util.html_escape(url)}\"" unless href
-      "<a class=\"ajaxLink\" #{href_attr}#{tag_options}>#{ERB::Util.html_escape(name || url)}</a>".html_safe
+      #"<a class=\"ajaxLink\" #{href_attr}#{tag_options}>#{ERB::Util.html_escape(name || url)}</a>".html_safe
+      "<a #{href_attr}#{tag_options}>#{ERB::Util.html_escape(name || url)}</a>".html_safe
     end
   end
 

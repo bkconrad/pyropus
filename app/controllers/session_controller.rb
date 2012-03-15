@@ -1,7 +1,6 @@
 class SessionController < ApplicationController
   skip_before_filter :authorize, :store_return_to
   def new
-    redirect = params[:redirect]
   end
 
   def create
@@ -14,10 +13,8 @@ class SessionController < ApplicationController
     respond_to do |format|
       if @successful
         format.html { redirect_back }
-        format.js
       else
         format.html { redirect_to login_url, alert: "Incorrect user/password" }
-        format.js
       end
     end
   end
@@ -27,7 +24,6 @@ class SessionController < ApplicationController
     session[:group_id] = nil
     respond_to { |format|
       format.html { redirect_back }
-      format.js
     }
   end
 end
