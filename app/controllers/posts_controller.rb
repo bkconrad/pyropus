@@ -6,6 +6,10 @@ class PostsController < ApplicationController
     @posts = Post.all
     page_title "View all posts"
 
+    @posts.each do |post|
+      post.content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(post.content)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
