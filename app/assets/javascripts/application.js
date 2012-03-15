@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-function getContent(sourceUrl) {
+function retrievePage(sourceUrl) {
   $.ajax({
     url: sourceUrl,
     contentType: "text/html",
@@ -21,6 +21,7 @@ function getContent(sourceUrl) {
       console.log(data, two, three);
       dom = $(data);
       $("#content").html($("#content", dom).html());
+      $("#header").html($("#header", dom).html());
     },
     error: function (one, two, three) {
       console.log(three);
