@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function getContent(sourceUrl) {
+  $.ajax({
+    url: sourceUrl,
+    contentType: "text/html",
+    success: function (data, two, three) {
+      console.log(data, two, three);
+      dom = $(data);
+      $("#content").html($("#content", dom).html());
+    },
+    error: function (one, two, three) {
+      console.log(three);
+    }
+  });
+}
