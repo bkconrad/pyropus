@@ -25,11 +25,14 @@ function retrievePage(ev, e) {
   var dom = $(e.responseText);
 
   // replace the content and header
-  $("#content").html($("#content", dom).html());
-  $("#header").html($("#header", dom).html());
+  $("#content").fadeOut(100, function () {
+    $("#content").html($("#content", dom).html());
+    $("#content").fadeIn(100);
 
-  // rebind the new elements with this callback
-  $("[data-remote]=true").bind("ajax:complete", retrievePage);
+    // rebind the new elements with this callback
+    $("[data-remote]=true").bind("ajax:complete", retrievePage);
+  });
+  $("#header").html($("#header", dom).html());
 }
 $(window).ready(function () {
 //  $(".ajaxLink").click(ajaxNavigationLink);
