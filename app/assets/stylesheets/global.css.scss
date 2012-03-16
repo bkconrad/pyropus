@@ -19,6 +19,18 @@
  * newly risen moon
  * 
  */
+@font-face {
+  font-family: "Sans Sara";
+  src: url('../fonts/sans-sara.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: url('../fonts/BebasNeue.otf');
+  font-weight: normal;
+  font-style: normal;
+}
 $bg: #36393B;
 
 $menubarcolor: #45484B;
@@ -37,9 +49,9 @@ $basesize: 14px;
 
 * {
   line-height: 2*$basesize;
-  font-size: 16px;
+  font-size: $basesize;
   margin: 0;
-  font-family: "Karla";
+  font-family: "Jesfin Slab";
   text-rendering: optimizeLegibility;
 }
 
@@ -98,6 +110,6 @@ textarea {
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
     padding: $basesize;
+    font-family: "Droid Sans";
   }
-  text-shadow: 1px 1px 0px #222;
 }
