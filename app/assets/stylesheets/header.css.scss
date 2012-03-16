@@ -1,13 +1,13 @@
 @import "global";
 #header {
-
-  font-size: 12px;
 }
 
 #titlebar {
   border-bottom: 1px solid $titlebar_divider;
   h1 {
     margin-right: $basesize;
+    font-family: "Cutive";
+    font-size: 2*$basesize;
   }
   h1,h2 {
     display: inline-block;

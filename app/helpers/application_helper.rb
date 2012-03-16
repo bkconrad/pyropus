@@ -1,6 +1,7 @@
 module ApplicationHelper
   include Authorization
   include Titles
+  include GoogleFontsHelper
 
   def ajax_link_to (*args, &block)
     if block_given?

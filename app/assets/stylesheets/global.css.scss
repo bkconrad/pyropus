@@ -37,7 +37,7 @@ $basesize: 14px;
 
 * {
   line-height: 2*$basesize;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
 }
 
@@ -79,7 +79,7 @@ textarea {
 
 #wrapper {
   background: $wrapperbg;
-  max-width: 960px;
+  max-width: 960px-(2*$basesize);
   padding: $basesize;
   margin: auto;
   margin-top: $basesize;
@@ -94,6 +94,7 @@ textarea {
     margin-top: $basesize;
     padding: $basesize;
     box-shadow: 3px 3px 18px -2px #999;
+    font-family: "Cabin";
   }
 
 }
