@@ -22,11 +22,12 @@
 var ajaxLoadingState = 0;
 var intervalId;
 var fadeTime = 75;
+var sourceUrl;
 
 function retrievePage(ev, e) {
 
   // get the url from the link or form
-  var sourceUrl = $(this).context.href;
+  sourceUrl = $(this).context.href;
   if (sourceUrl == undefined) {
     sourceUrl = $(this).context.action;
   }
@@ -44,6 +45,8 @@ function retrievePage(ev, e) {
     // rebind the new elements with this callback
     $("[data-remote]=true").bind("ajax:complete", retrievePage);
     $("[data-remote]=true").bind("ajax:before", ajaxLoading);
+
+    window.history.pushState(null, "Pyropus", sourceUrl);
 
     clearInterval(intervalId);
   }, 25);
