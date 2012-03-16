@@ -87,7 +87,8 @@ a:hover {
 }
 
 p {
-  margin-bottom: 2*$basesize;
+  /*margin-bottom: 2*$basesize;*/
+  margin-top: $basesize;
 }
 
 textarea {
@@ -115,5 +116,9 @@ textarea {
   }
   a {
     color: $contentlinkcolor;
+  }
+  ul {
+    padding-left: 2*$basesize;
+    list-style-type: square;
   }
 }
