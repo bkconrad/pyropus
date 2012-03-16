@@ -37,7 +37,7 @@ $menubarcolor: #45484B;
 $menubartextcolor: white;
 
 $wrapperbg: none;
-$contentdivbackground: #777;
+$contentdivbackground: none;
 $contentdivtextcolor: white;
 $maintextcolor: #FFF;
 $linkcolor: #eee6ab;
@@ -94,7 +94,7 @@ textarea {
 
 #wrapper {
   background: $wrapperbg;
-  max-width: 960px-(2*$basesize);
+  max-width: 640px-(2*$basesize);
   padding: $basesize;
   margin: auto;
   margin-top: $basesize;
