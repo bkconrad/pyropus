@@ -1,9 +1,12 @@
 @import "global";
 #header {
+  z-index: 2;
+  margin-bottom: 0;
 }
 
 #titlebar {
-  border-bottom: 1px solid $titlebar_divider;
+  text-shadow: 2px 2px 0 #888;
+  /*border-bottom: 1px solid $titlebar_divider;*/
   h1 {
     margin-right: $basesize;
     font-family: "Cutive";
@@ -20,9 +23,6 @@
   height: 2*$basesize;
   padding: $basesize/2 $basesize;
   color: $menubartextcolor;
-  a {
-    color: $menubartextcolor;
-  }
 }
 
 #navlinks {
@@ -40,8 +40,4 @@
   line-height: 42px;
   text-decoration: underline;
   float: right;
-}
-
-body {
-  background: $bg;
 }

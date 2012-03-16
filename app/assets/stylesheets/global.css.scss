@@ -19,16 +19,16 @@
  * newly risen moon
  * 
  */
-$bg: #f8f8f8;
+$bg: #36393B;
 
-$menubarcolor: black;
+$menubarcolor: #45484B;
 $menubartextcolor: white;
 
 $wrapperbg: none;
-$contentdivbackground: white;
-$contentdivtextcolor: #222;
-$maintextcolor: black;
-$linkcolor: #888;
+$contentdivbackground: #777;
+$contentdivtextcolor: white;
+$maintextcolor: #FFF;
+$linkcolor: #eee6ab;
 $input_border: white;
 
 $titlebar_divider: none;
@@ -39,7 +39,7 @@ $basesize: 14px;
   line-height: 2*$basesize;
   font-size: 16px;
   margin: 0;
-  font-family: "Cabin";
+  font-family: "Karla";
   text-rendering: optimizeLegibility;
 }
 
@@ -47,6 +47,7 @@ body {
   padding: 0;
   margin: 0;
   color: $maintextcolor;
+  background: $bg;
 }
 
 h1 {
@@ -64,15 +65,16 @@ a, a:hover, a:visited {
 }
 
 a, a:visited, a:active {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
   text-decoration: underline;
+  color: white;
 }
 
 p {
-  margin-bottom: $basesize;
+  margin-bottom: 2*$basesize;
 }
 
 textarea {
@@ -89,14 +91,13 @@ textarea {
 }
 
 #content {
+  z-index: 1;
   clear: both;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
-    margin-top: $basesize;
+    margin-bottom: $basesize;
     padding: $basesize;
-    box-shadow: 3px 3px 18px -2px #999;
-    font-family: "Cabin";
   }
-
+  text-shadow: 1px 1px 0px #222;
 }
