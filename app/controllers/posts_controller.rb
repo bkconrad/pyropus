@@ -7,6 +7,11 @@ class PostsController < ApplicationController
     page_title "View all posts"
 
     @posts.each do |post|
+      post.content = post.content[0..500]
+      # remove the last word (fragment)
+      post.content = post.content.split(" ")
+      post.content = post.content[0..-1]
+      post.content = post.content.join(" ")
       post.content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(post.content)
     end
 
