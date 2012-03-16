@@ -11,7 +11,8 @@
 }
 
 .posttitle {
-  text-shadow: 1px 1px 0px #000;
+  text-shadow: 1px 1px 0px $linkcolor;
   font-weight: bold;
   font-size: 2*$basesize;
+  color: $contentdivtextcolor;
 }

@@ -37,15 +37,16 @@ $menubarcolor: #45484B;
 $menubartextcolor: white;
 
 $wrapperbg: none;
-$contentdivbackground: none;
-$contentdivtextcolor: white;
+$contentdivbackground: white;
+$contentdivtextcolor: black;
+$contentlinkcolor: #45484B;
 $maintextcolor: #FFF;
 $linkcolor: #eee6ab;
 $input_border: white;
 
 $titlebar_divider: none;
 $loginlabeltextcolor: $menubartextcolor;
-$basesize: 14px;
+$basesize: 12px;
 
 * {
   line-height: 2*$basesize;
@@ -110,6 +111,9 @@ textarea {
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
     padding: $basesize;
-    font-family: "Droid Sans";
+    font-family: "Arial", "Helvetica", sans-serif;
+  }
+  a {
+    color: $contentlinkcolor;
   }
 }
