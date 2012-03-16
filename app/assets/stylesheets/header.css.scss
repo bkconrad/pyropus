@@ -27,10 +27,16 @@
 
 #navlinks {
   float: left;
+  font-family: "Syncopate";
+  font-weight: 700;
+  li {
+    margin-right: $basesize;
+  }
 }
 
 #page_title {
-  font-size: 18px;
+  font-size: 1.5*$basesize;
+  font-family: "Graduate";
   line-height: 42px;
   text-decoration: underline;
   float: right;

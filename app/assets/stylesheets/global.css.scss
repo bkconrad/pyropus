@@ -39,6 +39,8 @@ $basesize: 14px;
   line-height: 2*$basesize;
   font-size: 16px;
   margin: 0;
+  font-family: "Cabin";
+  text-rendering: optimizeLegibility;
 }
 
 body {
