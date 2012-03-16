@@ -1,16 +1,4 @@
-<h1>Listing users</h1>
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div>
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
@@ -21,7 +9,7 @@
     <% end %>
   </tr>
 <% end %>
-</table>
+</div>
 
 <br />
 

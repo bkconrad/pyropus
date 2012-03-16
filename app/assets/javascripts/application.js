@@ -13,9 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-function retrievePage(ev, e) {
 
-  $("#notice").hide();
+/* 0 = no request in progress
+ * 1 = pre-request effect
+ * 2 = pre-request effect completed
+ * 3 = post-rquest effect
+ */
+var ajaxLoadingState = 0;
+var intervalId;
+var fadeTime = 75;
+
+function retrievePage(ev, e) {
 
   // get the url from the link or form
   var sourceUrl = $(this).context.href;
@@ -24,17 +32,35 @@ function retrievePage(ev, e) {
   }
   var dom = $(e.responseText);
 
-  // replace the content and header
-  $("#content").fadeOut(100, function () {
+  intervalId = setInterval(function() {
+    if (ajaxLoadingState != 2)
+      return;
+
+    // replace the content and header
+    $("#header").html($("#header", dom).html());
     $("#content").html($("#content", dom).html());
-    $("#content").fadeIn(100);
+    $("#content").fadeIn(fadeTime);
 
     // rebind the new elements with this callback
     $("[data-remote]=true").bind("ajax:complete", retrievePage);
-  });
-  $("#header").html($("#header", dom).html());
+    $("[data-remote]=true").bind("ajax:before", ajaxLoading);
+
+    clearInterval(intervalId);
+  }, 25);
 }
+
+function ajaxLoading(ev, e) {
+  ajaxLoadingState = 1;
+
+  $("#notice").hide();
+
+  $("#content").fadeOut(fadeTime, function() {
+    ajaxLoadingState = 2;
+  });
+}
+
 $(window).ready(function () {
 //  $(".ajaxLink").click(ajaxNavigationLink);
   $("[data-remote]=true").bind("ajax:complete", retrievePage);
+  $("[data-remote]=true").bind("ajax:before", ajaxLoading);
 });
