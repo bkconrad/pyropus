@@ -1,8 +1,5 @@
-<% if flash[:alert] %>
-  <p id="notice"><%= flash[:alert] %></p>
-<% end %>
-
-<%= form_tag do %>
+<div>
+<%= form_tag remote: true do %>
   <fieldset>
   <legend>User Login</legend>
 
@@ -25,3 +22,4 @@
 
   </fieldset>
 <% end %>
+</div>

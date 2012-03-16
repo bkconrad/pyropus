@@ -1,15 +1,13 @@
-<div>
 <% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= ajax_link_to 'Show', user %></td>
+<div class="user">
+    <h1 class="username"><%= user.name %></h1>
+    <%= ajax_link_to 'Show', user %>
     <% if admin? %>
-      <td><%= ajax_link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= ajax_link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+      <%= ajax_link_to 'Edit', edit_user_path(user) %>
+      <%= ajax_link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %>
     <% end %>
-  </tr>
-<% end %>
 </div>
+<% end %>
 
 <br />
 
