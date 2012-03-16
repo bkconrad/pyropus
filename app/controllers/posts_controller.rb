@@ -8,6 +8,11 @@ class PostsController < ApplicationController
 
     @posts.each do |post|
       post.content = post.content[0..500]
+
+      # stop at the end of the first paragraph
+      post.content = post.content.split("\r\n\r\n")
+      post.content = post.content[0]
+
       # remove the last word (fragment)
       post.content = post.content.split(" ")
       post.content = post.content[0..-1]
