@@ -1,11 +1,11 @@
 @import "global";
 #header {
-  z-index: 2;
   margin-bottom: 0;
 }
 
 #titlebar {
-  text-shadow: 2px 2px 0 #888;
+  text-shadow: 2px 2px 0 #000;
+  height: 4*$basesize;
   /*border-bottom: 1px solid $titlebar_divider;*/
   > * {
     display: inline-block;
@@ -20,11 +20,11 @@
 
 #site_title {
   position: relative;
-  top: $basesize/2;
+  top: $basesize;
   font-family: "Sans Sara";
   font-size: 5*$basesize;
   line-height: 3*$basesize;
-  color: #bada55;
+  color: #EEEEEE;
 }
 
 #page_title {
@@ -33,7 +33,7 @@
   font-family: "Bebas Neue";
   float: right;
   line-height: 2*$basesize;
-  top: $basesize*1.5;
+  top: $basesize*2;
 
   /* set it below everything so it doesn't interfere with the login form*/
   z-index: -1;

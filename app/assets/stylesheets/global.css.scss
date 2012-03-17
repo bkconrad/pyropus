@@ -33,11 +33,11 @@
 }
 $bg: #36393B;
 
-$menubarcolor: #45484B;
+$menubarcolor: #60666B;
 $menubartextcolor: white;
 
 $wrapperbg: none;
-$contentdivbackground: white;
+$contentdivbackground: #EEE;
 $contentdivtextcolor: black;
 $contentlinkcolor: #45484B;
 $maintextcolor: #FFF;
@@ -60,17 +60,18 @@ body {
   margin: 0;
   color: $maintextcolor;
   background: $bg;
+  background-image: url(noise.png);
   overflow: scroll;
 }
 
 h1 {
-  line-height: 42px;
-  font-height: 28px;
+  line-height: 4*$basesize;
+  font-height: 3*$basesize;
 }
 
 h3 {
-  line-height: 28px;
-  font-size: 14px;
+  line-height: 2*$basesize;
+  font-size: 1.5*$basesize;
   font-weight: bold;
 }
 a, a:hover, a:visited {
@@ -110,7 +111,7 @@ textarea {
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
-    margin-bottom: $basesize;
+    margin-top: $basesize;
     padding: $basesize;
     font-family: "Arial", "Helvetica", sans-serif;
   }
