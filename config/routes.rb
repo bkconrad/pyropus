@@ -5,11 +5,8 @@ Pyropus::Application.routes.draw do
     get "login" => :new
     post "login" => :create
     delete "logout" => :destroy
+    get "logout" => :destroy
   end
-  get "session/new"
-  get "session/create"
-
-  get "session/destroy"
 
   resources :users
 

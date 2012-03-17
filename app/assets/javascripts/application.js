@@ -17,7 +17,7 @@
 /* 0 = no request in progress
  * 1 = pre-request effect
  * 2 = pre-request effect completed
- * 3 = post-rquest effect
+ * 3 = post-request effect
  */
 var ajaxLoadingState = 0;
 var intervalId;
@@ -56,6 +56,7 @@ function ajaxLoading(ev, e) {
   ajaxLoadingState = 1;
 
   $("#notice").hide();
+  $("#alert").hide();
 
   $("#content").fadeOut(fadeTime, function() {
     ajaxLoadingState = 2;

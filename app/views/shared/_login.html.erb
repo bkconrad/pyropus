@@ -1,6 +1,6 @@
 <div id="nav_login">
 <% if logged_in %>
-  Logged in as <%= username %>. <%= link_to "Log out", session_destroy_path, remote: true %>
+  Logged in as <%= username %>. <%= link_to "Log out", logout_url, remote: true %>
 <% else %>
   <%= form_tag login_url, remote: true do %>
     <div>
