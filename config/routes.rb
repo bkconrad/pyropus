@@ -1,4 +1,6 @@
 Pyropus::Application.routes.draw do
+  resources :things
+
   root to: 'posts#index'
 
   controller :session do
