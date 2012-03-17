@@ -2,7 +2,7 @@
   <div class="post">
     <h3 class="posttitle"><%= post.title %></h3>
     <div class="postcontent"><%= raw post.content %></div>
-    <%= ajax_link_to 'Show', post %>
+    <%= ajax_link_to 'View Post', post %>
     <% if admin? %>
       <%= ajax_link_to 'Edit', edit_post_path(post) %>
       <%= ajax_link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
