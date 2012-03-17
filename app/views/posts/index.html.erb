@@ -1,6 +1,7 @@
 <% @posts.each do |post| %>
   <div class="post">
     <h3 class="posttitle"><%= post.title %></h3>
+    <span class="post-date"><%= post.created_at.strftime "%b %d, %Y" %></span>
     <div class="postcontent"><%= raw post.content %></div>
     <%= ajax_link_to 'View Post', post %>
     <% if admin? %>
