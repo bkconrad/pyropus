@@ -1,33 +1,38 @@
 @import "global";
 #nav_login {
+  text-align: right;
+  text-transform: uppercase;
+  font-family: "Droid Sans Mono", "Nova Mono", monospace;
+  font-size: $basesize*.8;
   display: inline-block;
   float: right;
+  div {
+    margin: 0;
+    line-height: $basesize;
+  }
 
   label, input {
+    outline: none;
     color: $loginlabeltextcolor;
+  }
+  label, input, a {
+    font-size: $basesize*.8;
+    line-height: $basesize*.8;
+    margin-top: 2px;
+  }
+
+  input[type=submit] {
+    width: auto;
   }
 
   input {
+    width: 6*$basesize;
     border: 1px solid $input_border;
     background: none;
-    line-height: 12px;
-    font-size: 10px;
-    padding: 0px 2px;
-  }
-
-  #login_credentials {
-    input {
-      width: 80px;
-      background: none;
-    }
+    padding: 0 2px;
   }
 
   form {
     display: inline;
   }
-
-  span {
-    display: inline-block;
-  }
-
 }

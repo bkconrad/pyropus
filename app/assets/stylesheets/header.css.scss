@@ -14,23 +14,29 @@
 
 #menubar {
   background: $menubarcolor;
-  height: 2*$basesize;
-  padding: $basesize/2 $basesize;
+  padding: 0 $basesize;
   color: $menubartextcolor;
 }
 
 #site_title {
+  position: relative;
+  top: $basesize/2;
   font-family: "Sans Sara";
-  font-size: 4*$basesize;
-
+  font-size: 5*$basesize;
+  line-height: 3*$basesize;
+  color: #bada55;
 }
 
 #page_title {
+  position: relative;
   font-size: 3*$basesize;
   font-family: "Bebas Neue";
-  text-decoration: underline;
   float: right;
-  line-height: 3*$basesize;
+  line-height: 2*$basesize;
+  top: $basesize*1.5;
+
+  /* set it below everything so it doesn't interfere with the login form*/
+  z-index: -1;
 }
 #navlinks {
   display: inline-block;
@@ -40,6 +46,7 @@
     display: inline-block;
     margin-right: $basesize;
     list-style-type: none;
+    line-height: 4*$basesize;
   }
 }
 
