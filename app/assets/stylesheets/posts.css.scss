@@ -6,13 +6,17 @@
 .post {
 }
 
-.postcontent {
+.post-content {
   margin: $basesize 0;
 }
 
-.posttitle {
+.post-title {
   text-shadow: 1px 1px 0px $linkcolor;
   font-weight: bold;
   font-size: 2*$basesize;
   color: $contentdivtextcolor;
+}
+
+.post-date {
+  font-size: $basesize*0.8;
 }
