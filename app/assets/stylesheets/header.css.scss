@@ -1,12 +1,8 @@
 @import "global";
-#header {
-  margin-bottom: 0;
-}
 
 #titlebar {
   text-shadow: 2px 2px 0 #000;
   height: 4*$basesize;
-  /*border-bottom: 1px solid $titlebar_divider;*/
   > * {
     display: inline-block;
   }
@@ -14,8 +10,8 @@
 
 #menubar {
   background: $menubarcolor;
-  padding: 0 $basesize;
   color: $menubartextcolor;
+  padding: 0 $basesize;
 }
 
 #site_title {
@@ -28,20 +24,18 @@
 }
 
 #page_title {
+  float: right;
   position: relative;
+  top: $basesize*2;
   font-size: 3*$basesize;
   font-family: "Bebas Neue";
-  float: right;
   line-height: 2*$basesize;
-  top: $basesize*2;
 
   /* set it below everything so it doesn't interfere with the login form*/
   z-index: -1;
 }
 #navlinks {
   display: inline-block;
-  padding-left: 0;
-  margin-left: 0;
   li {
     display: inline-block;
     margin-right: $basesize;
@@ -51,8 +45,6 @@
 }
 
 #navlinks a {
-  padding-left: 0;
-  margin-top: 0;
   display: inline-block;
   font-family: "Bebas Neue";
   font-size: 1.5*$basesize;

@@ -1,24 +1,3 @@
-/* 8fbbdc
- * 3170a0
- * fffefe
- * b5b5b5
- *
- * alt scheme
- * 5382a9
- * 5265a9
- * a95256
- * a9a552
- * 7e7e7e
- *
- * alt 2
- * 6180a8
- * a88961
- * a3ab61
- * 61a866
- *
- * newly risen moon
- * 
- */
 @font-face {
   font-family: "Sans Sara";
   src: url('../fonts/sans-sara.ttf') format('truetype');
@@ -35,60 +14,69 @@ $bg: #36393B;
 
 $menubarcolor: #60666B;
 $menubartextcolor: white;
+$loginlabeltextcolor: $menubartextcolor;
+$input_border: white;
 
 $wrapperbg: none;
+
 $contentdivbackground: #EEE;
 $contentdivtextcolor: black;
 $contentlinkcolor: #45484B;
+
 $maintextcolor: #FFF;
 $linkcolor: #eee6ab;
-$input_border: white;
 
-$titlebar_divider: none;
-$loginlabeltextcolor: $menubartextcolor;
+/* The base unit for scheme */
 $basesize: 12px;
 
 * {
+  /* Should be all the reset we need */
   line-height: 2*$basesize;
   font-size: $basesize;
   margin: 0;
+  padding: 0;
+
+  /* Invalid CSS, but worth it because Mozilla looks a lot better */
   text-rendering: optimizeLegibility;
 }
 
 body {
-  padding: 0;
-  margin: 0;
   color: $maintextcolor;
   background: $bg;
   background-image: url(noise.png);
+
+  /* always want a scrollbar, otherwise the page jumps as they turn on/off */
   overflow: scroll;
 }
 
 h1 {
-  line-height: 4*$basesize;
+  line-height: 3*$basesize;
   font-size: 3*$basesize;
+  font-weight: bold;
+}
+
+h2 {
+  line-height: 3*$basesize;
+  font-size: 2*$basesize;
+  font-weight: bold;
 }
 
 h3 {
   line-height: 2*$basesize;
   font-size: 1.5*$basesize;
-  font-weight: bold;
-}
-a, a:hover, a:visited {
-  color: $linkcolor;
 }
 
 a, a:visited, a:active {
+  color: $linkcolor;
   text-decoration: underline;
 }
 
 a:hover {
-  text-decoration: underline;
   color: white;
+  text-decoration: underline;
 }
 
 p {
-  /*margin-bottom: 2*$basesize;*/
   margin-top: $basesize;
 }
 
@@ -108,12 +96,12 @@ textarea {
 #content {
   z-index: 1;
   clear: both;
+  font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-top: $basesize;
     padding: $basesize;
-    font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
   }
   a {
     color: $contentlinkcolor;
