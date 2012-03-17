@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bill: MyString
+  congress: 1
+  title: MyString
+  sponsor: MyString
+  introduced_date: 2012-03-17
+  committees: MyString
+  latest_major_action_date: 2012-03-17
+  latest_major_action: MyString
+
+two:
+  bill: MyString
+  congress: 1
+  title: MyString
+  sponsor: MyString
+  introduced_date: 2012-03-17
+  committees: MyString
+  latest_major_action_date: 2012-03-17
+  latest_major_action: MyString

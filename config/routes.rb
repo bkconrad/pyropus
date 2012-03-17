@@ -1,4 +1,6 @@
 Pyropus::Application.routes.draw do
+  get "congress/index"
+
   resources :things
 
   root to: 'posts#index'
