@@ -1,5 +1,30 @@
-<h1>Congress#index</h1>
-<p>Find me in app/views/congress/index.html.erb</p>
-<% @bills.each do |bill| %>
-  <%= render partial: "congress/bill" %>
-<% end %>
+<script type="text/javascript">
+var $displayDiv;
+function clearDisplay () {
+  $displayDiv.html("");
+}
+function showBills (data) {
+  bills = eval(data);
+  console.log(bills);
+  var element;
+  for (var i = 0; i < bills.length; i++) {
+    element = $('<div class="bill"></div>'); 
+    element.html(bills[i]["number"]);
+    $("#congress-display").append(element);
+  }
+}
+
+function showError (request, state, error) {
+  console.log(error);
+}
+
+$().ready(function () {
+  $displayDiv = $("#congress-display");
+  $.ajax("/congress/query/recent-bills/house/introduced",
+      { "success" : showBills,
+        "error" : showError });
+});
+</script>
+<div id="congress-display">
+
+</div>
