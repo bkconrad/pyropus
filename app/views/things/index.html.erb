@@ -1,25 +1,17 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Path</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div>
 <% @things.each do |thing| %>
-  <tr>
-    <td><%= thing.name %></td>
-    <td><%= thing.path %></td>
-    <td><%= thing.description %></td>
-    <td><%= link_to 'Show', thing %></td>
-    <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
-    <td><%= link_to 'Destroy', thing, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <span><%= thing.name %></span>
+    <span><%= thing.path %></span>
+    <span><%= thing.description %></span>
+    <span><%= ajax_link_to 'Show', thing %></span>
+    <% if admin? %>
+      <span><%= ajax_link_to 'Edit', edit_thing_path(thing) %></span>
+      <span><%= ajax_link_to 'Destroy', thing, confirm: 'Are you sure?', method: :delete %></span>
+    <% end %>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Thing', new_thing_path %>
+<% if admin? %>
+  <%= ajax_link_to 'New Thing', new_thing_path %>
+<% end %>
+</div>
