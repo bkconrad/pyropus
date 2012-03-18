@@ -28,14 +28,15 @@ function retrievePage(ev, e) {
 
   // get the url from the link or form
   sourceUrl = $(this).context.href;
-  if (sourceUrl == undefined) {
+  if (sourceUrl === undefined) {
     sourceUrl = $(this).context.action;
   }
   var dom = $(e.responseText);
 
   intervalId = setInterval(function() {
-    if (ajaxLoadingState != 2)
+    if (ajaxLoadingState !== 2) {
       return;
+    }
 
     // replace the content and header
     $("#header").html($("#header", dom).html());

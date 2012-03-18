@@ -1,6 +1,6 @@
 <div>
 <% @things.each do |thing| %>
-    <span><%= thing.name %></span>
+    <h1><%= thing.name %></h1>
     <span><%= thing.path %></span>
     <span><%= thing.description %></span>
     <span><%= ajax_link_to 'Show', thing %></span>
