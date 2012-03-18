@@ -1,16 +1,82 @@
+<style type="text/css">
+.congress-header {
+  font-family: "Bebas Neue";
+  font-size: 24px;
+}
+
+#house-bills, #senate-bills {
+  display: inline-block;
+  height: 640px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 12px;
+}
+
+#house-bills {
+}
+
+#senate-bills {
+}
+
+.bill {
+  height: 5em;
+  padding: .5em 0;
+}
+
+.bill > div {
+  padding: 0 1em;
+  line-height: 1em;
+}
+
+.bill-number {
+  display: inline-block;
+}
+
+.bill-date {
+  float: right;
+}
+
+.odd {
+  background: #DDDDDD;
+}
+
+.clearfix {
+  clear: both;
+}
+
+</style>
+
 <script type="text/javascript">
 var $displayDiv;
+function toggleWidth() {
+  if ($("#wrapper").css("max-width") == "960px") {
+    $("#wrapper").css("max-width", "640px");
+  } else {
+    $("#wrapper").css("max-width", "960px");
+  }
+}
+
 function clearDisplay () {
   $displayDiv.html("");
 }
-function showBills (data) {
-  bills = eval(data);
-  console.log(bills);
-  var element;
-  for (var i = 0; i < bills.length; i++) {
-    element = $('<div class="bill"></div>'); 
-    element.html(bills[i]["number"]);
-    $("#congress-display").append(element);
+
+function showHouseBills (data) {
+  showBills (data, $("#house-bills"));
+}
+
+function showSenateBills (data) {
+  showBills (data, $("#senate-bills"));
+}
+
+function showBills (data, $displayElement) {
+  console.log (data);
+  var $element;
+  var bill;
+  for (var i = 0; i < data.length; i++) {
+    bill = data[i];
+    $element = $("<div class=\"bill " + ["even","odd"][i%2] + "\"><h6 class=\"bill-number\">" + bill.number + "</h6><div class=\"bill-date\">" + bill.introduced_date + "</div><div>" + bill.title + "</div><div class=\"bill-content\"></div>"); 
+    $displayElement.append($element);
   }
 }
 
@@ -21,10 +87,25 @@ function showError (request, state, error) {
 $().ready(function () {
   $displayDiv = $("#congress-display");
   $.ajax("/congress/query/recent-bills/house/introduced",
-      { "success" : showBills,
+      { "success" : showHouseBills,
+        "error" : showError });
+  $.ajax("/congress/query/recent-bills/senate/introduced",
+      { "success" : showSenateBills,
         "error" : showError });
 });
 </script>
 <div id="congress-display">
-
+  <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Widen</a>
+  <div id="bill-display">
+    <div id="house-bills-wrapper">
+      <div id="house-bills-header" class="congress-header">Recently Introduced House Bills</div>
+      <div id="house-bills"></div>
+    </div>
+    <div id="senate-bills-wrapper">
+      <div id="senate-bills-header" class="congress-header">Recently Introduced Senate Bills</div>
+      <div id="senate-bills-header"><div>
+      <div id="senate-bills"></div>
+    </div>
+  </div>
+  <div class="clearfix">&nbsp;</div>
 </div>
