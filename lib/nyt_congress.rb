@@ -4,12 +4,6 @@ require 'net/http'
 module NytCongress
   CURRENT_SESSION = 112
 
-  def recent_bills
-
-    # introduced | updated | passed | major
-    type = "introduced"
-  end
-
   # return true if the passed string looks like a bill id
   def bill_id? arg
     /(hr|s)\d*\Z/ =~ arg
@@ -20,7 +14,9 @@ module NytCongress
     result["results"][0]["bills"]
   end
 
-  def bill_details (chamber, bill_id)
+  def bill_details (bill_id, *args)
+    result = run_query "#{NytCongress::CURRENT_SESSION}/bills/#{bill_id}.json"
+    result["results"][0]
   end
 
   # query_path must include everything after /congress/
