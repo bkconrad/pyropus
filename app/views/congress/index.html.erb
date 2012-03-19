@@ -56,6 +56,16 @@ div.bill-date {
 
 </style>
 
+<script id="bills-template" type="text/x-mustache-template">
+<div class="bill {{parity}}">
+  <h6 class="bill-number">
+    <a href="#" onclick="billDetails('{{bill_id}}'); return false;">{{bill_number}}</a>
+  </h6>
+<div class="bill-date">{{bill_date}}</div>
+<div>{{bill_title}}</div>
+<div class="bill-content"></div>
+</script>
+
 <script type="text/javascript">
 var $displayDiv;
 function toggleWidth() {
@@ -98,10 +108,20 @@ function showBills (data, $displayElement) {
   console.log (data);
   var $element;
   var bill;
+  //var template = $("#bills-template").html();
+  var template = Handlebars.compile($("#bills-template").html());
+  var html;
   for (var i = 0; i < data.length; i++) {
     bill = data[i];
-    $element = $("<div class=\"bill " + ["even","odd"][i%2] + "\"><h6 class=\"bill-number\"><a href=\"#\" onclick=\"billDetails('" + formalizeBillId(bill.number) +"'); return false;\">" + bill.number + "</h6></a><div class=\"bill-date\">" + bill.introduced_date + "</div><div>" + bill.title + "</div><div class=\"bill-content\"></div>"); 
-    $displayElement.append($element);
+    bill.id = formalizeBillId(bill.number);
+   // html = Mustache.render(template,
+   html = template(
+                    {parity: ["even","odd"][i%2],
+                     bill_id: bill.id,
+                     bill_number: bill.number,
+                     bill_title: bill.title,
+                     bill_date: bill.introduced_date});
+    $(html).appendTo($displayElement);
   }
 }
 
