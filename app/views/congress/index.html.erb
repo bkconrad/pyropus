@@ -166,18 +166,21 @@ $().ready(function () {
       { "success" : showHouseBills });
   $.ajax("/congress/query/recent-bills/senate/introduced",
       { "success" : showSenateBills });
+  $displayDiv.tabs();
 });
 </script>
 <div id="congress-display">
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <div id="bill-details"></div>
   <div id="bill-display">
-    <div id="house-bills-wrapper">
-      <div id="house-bills-header" class="congress-header">Recently Introduced House Bills</div>
+    <ul>
+      <li class="congress-header"><a href="#bill-display-1">Recently Introduced House Bills</a></li>
+      <li class="congress-header"><a href="#bill-display-2">Recently Introduced Senate Bills</a></li>
+    </ul>
+    <div id="bill-display-1">
       <div id="house-bills"></div>
     </div>
-    <div id="senate-bills-wrapper">
-      <div id="senate-bills-header" class="congress-header">Recently Introduced Senate Bills</div>
+    <div id="bill-display-2">
       <div id="senate-bills"></div>
     </div>
   </div>
