@@ -66,6 +66,21 @@ div.bill-date {
 <div class="bill-content"></div>
 </script>
 
+<script id="bill-details-template" type="text/x-mustache-template">
+  <h6 class="bill-number">
+    {{bill}}
+  </h6>
+<div class="bill-date">{{introduced_date}}</div>
+<div class="bill-title">{{title}}</div>
+<div class="member">{{sponsor}}</div>
+<div class="cosponsors">{{cosponsers}}</div>
+<div class="bill-actions">
+{{#each actions}}
+  <div class="bill-action">{{this.description}}</div>
+{{/each}}
+</div>
+</script>
+
 <script type="text/javascript">
 var $displayDiv;
 function toggleWidth() {
@@ -92,8 +107,10 @@ function billDetails (billId) {
         "error" : showError });
 }
 
-function showBillDetails (data) {
-  $("#bill-details").html(data.gpo_pdf_uri);
+function showBillDetails (details) {
+  var template = Handlebars.compile($("#bill-details-template").html());
+  var html = template(details);
+  $("#bill-details").html(html);
 }
 
 function showHouseBills (data) {
