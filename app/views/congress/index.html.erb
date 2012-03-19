@@ -12,22 +12,25 @@ div.congress-header {
 }
 
 #house-bills, #senate-bills {
+  height: 480px;
   display: inline-block;
-  height: 640px;
   border: 1px solid black;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 12px;
 }
 
-#house-bills {
+#house-bills-wrapper {
+  width: 50%;
+  float: left;
 }
 
-#senate-bills {
+#senate-bills-wrapper {
+  width: 50%;
+  float: right;
 }
 
 .bill {
-  height: 5em;
   padding: .5em 0;
 }
 
@@ -67,17 +70,27 @@ div.bill-date {
 </script>
 
 <script id="bill-details-template" type="text/x-mustache-template">
-  <h6 class="bill-number">
-    {{bill}}
-  </h6>
-<div class="bill-date">{{introduced_date}}</div>
+<h6 class="bill-number">{{bill}}</h6>
+<div class="bill-date">First introduced {{introduced_date}}</div>
 <div class="bill-title">{{title}}</div>
-<div class="member">{{sponsor}}</div>
-<div class="cosponsors">{{cosponsers}}</div>
+<div class="member">Sponsored by {{sponsor}}</div>
+<div class="cosponsors">Cosponsors: {{cosponsors}}</div>
+
 <div class="bill-actions">
-{{#each actions}}
-  <div class="bill-action">{{this.description}}</div>
-{{/each}}
+  <h4>Recent Actions</h4>
+  {{#each actions}}
+    <div class="bill-date">{{this.datetime}}</div>
+    <div class="bill-action">{{this.description}}</div>
+  {{/each}}
+</div>
+
+<div class="bill-versions">
+  <h4>Versions</h4>
+  {{#each versions}}
+    <div class="bill-status">{{this.status}}</div>
+    <div class="bill-title">{{this.title}}</div>
+    <a href="{{this.thomas_url}}">Read Version</a>
+  {{/each}}
 </div>
 </script>
 
@@ -157,6 +170,7 @@ $().ready(function () {
 </script>
 <div id="congress-display">
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
+  <div id="bill-details"></div>
   <div id="bill-display">
     <div id="house-bills-wrapper">
       <div id="house-bills-header" class="congress-header">Recently Introduced House Bills</div>
@@ -164,10 +178,8 @@ $().ready(function () {
     </div>
     <div id="senate-bills-wrapper">
       <div id="senate-bills-header" class="congress-header">Recently Introduced Senate Bills</div>
-      <div id="senate-bills-header"><div>
       <div id="senate-bills"></div>
     </div>
   </div>
-  <div id="bill-details"></div>
   <div class="clearfix">&nbsp;</div>
 </div>
