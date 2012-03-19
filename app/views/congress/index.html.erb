@@ -1,7 +1,14 @@
 <style type="text/css">
-.congress-header {
+div#congress-display {
+  background: white;
+}
+#congress-display > div {
+  color: #555555;
+}
+div.congress-header {
   font-family: "Bebas Neue";
   font-size: 24px;
+  color: black;
 }
 
 #house-bills, #senate-bills {
@@ -33,12 +40,14 @@
   display: inline-block;
 }
 
-.bill-date {
+/* needs to override .bill > div */
+div.bill-date {
+  line-height: 2em;
   float: right;
 }
 
 .odd {
-  background: #DDDDDD;
+  background: #EEEEEE;
 }
 
 .clearfix {
@@ -50,10 +59,16 @@
 <script type="text/javascript">
 var $displayDiv;
 function toggleWidth() {
-  if ($("#wrapper").css("max-width") == "960px") {
-    $("#wrapper").css("max-width", "640px");
+
+  var width = parseInt($("#wrapper").css("max-width"));
+  if (width <= 640) {
+    // widen
+    $("#wrapper").css("max-width", "100%");
+    $("#widthToggler").html("-> Shrink <-");
   } else {
-    $("#wrapper").css("max-width", "960px");
+    // shrink
+    $("#widthToggler").html("<- Expand ->");
+    $("#wrapper").css("max-width", "640px");
   }
 }
 
