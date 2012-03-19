@@ -59,15 +59,10 @@ div.bill-date {
 <script type="text/javascript">
 var $displayDiv;
 function toggleWidth() {
-
   var width = parseInt($("#wrapper").css("max-width"));
   if (width <= 640) {
-    // widen
     $("#wrapper").css("max-width", "100%");
-    $("#widthToggler").html("-> Shrink <-");
   } else {
-    // shrink
-    $("#widthToggler").html("<- Expand ->");
     $("#wrapper").css("max-width", "640px");
   }
 }
@@ -76,9 +71,11 @@ function clearDisplay () {
   $displayDiv.html("");
 }
 
+/* converts a bill.number to a bill-id used in API calls */
 function formalizeBillId (str) {
   return str.replace(/\./g,"").toLowerCase();
 }
+
 function billDetails (billId) {
   $.ajax("/congress/query/bill-details/" + billId,
       { "success" : showBillDetails,
@@ -113,17 +110,16 @@ function showError (request, state, error) {
 }
 
 $().ready(function () {
+  $.ajaxSetup({ error: showError });
   $displayDiv = $("#congress-display");
   $.ajax("/congress/query/recent-bills/house/introduced",
-      { "success" : showHouseBills,
-        "error" : showError });
+      { "success" : showHouseBills });
   $.ajax("/congress/query/recent-bills/senate/introduced",
-      { "success" : showSenateBills,
-        "error" : showError });
+      { "success" : showSenateBills });
 });
 </script>
 <div id="congress-display">
-  <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Widen</a>
+  <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <div id="bill-display">
     <div id="house-bills-wrapper">
       <div id="house-bills-header" class="congress-header">Recently Introduced House Bills</div>
