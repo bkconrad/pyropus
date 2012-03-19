@@ -126,33 +126,43 @@ function showBillDetails (details) {
   $("#bill-details").html(html);
 }
 
-function showHouseBills (data) {
-  showBills (data, $("#house-bills"));
-}
-
-function showSenateBills (data) {
-  showBills (data, $("#senate-bills"));
-}
-
-function showBills (data, $displayElement) {
+function showBills (data, chamber) {
   console.log (data);
-  var $element;
+  var $element = $("#" + chamber + "-bills");
+  $element.html("&nbsp;");
   var bill;
-  //var template = $("#bills-template").html();
   var template = Handlebars.compile($("#bills-template").html());
   var html;
   for (var i = 0; i < data.length; i++) {
     bill = data[i];
     bill.id = formalizeBillId(bill.number);
-   // html = Mustache.render(template,
    html = template(
                     {parity: ["even","odd"][i%2],
                      bill_id: bill.id,
                      bill_number: bill.number,
                      bill_title: bill.title,
                      bill_date: bill.introduced_date});
-    $(html).appendTo($displayElement);
+    $(html).appendTo($element);
   }
+}
+
+/* gets recent bills for both chambers of the selected type */
+function getBills () {
+  var type = $("#bill-types :checked").attr("id");
+  $.ajax("/congress/query/recent-bills/house/" + type,
+      { "success" :
+        function (data) {
+          showBills (data, "house");
+        }
+      }
+  );
+  $.ajax("/congress/query/recent-bills/senate/" + type,
+      { "success" :
+        function (data) {
+          showBills (data, "senate");
+        }
+      }
+  );
 }
 
 function showError (request, state, error) {
@@ -160,22 +170,30 @@ function showError (request, state, error) {
 }
 
 $().ready(function () {
-  $.ajaxSetup({ error: showError });
+
+  // UI prep
   $displayDiv = $("#congress-display");
-  $.ajax("/congress/query/recent-bills/house/introduced",
-      { "success" : showHouseBills });
-  $.ajax("/congress/query/recent-bills/senate/introduced",
-      { "success" : showSenateBills });
   $displayDiv.tabs();
+  $("#bill-types").buttonset();
+  $("#bill-types :radio").change(getBills);
+
+  $.ajaxSetup({ error: showError });
+  getBills("house", "introduced");
+  getBills("senate", "introduced");
 });
 </script>
 <div id="congress-display">
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <div id="bill-details"></div>
+  <div id="bill-types">
+    <input type="radio" id="introduced" name="radio" checked="checked" /><label for="introduced">Introduced</label>
+		<input type="radio" id="updated" name="radio" /><label for="updated">Updated</label>
+		<input type="radio" id="passed" name="radio" /><label for="passed">Passed</label>
+	</div>
   <div id="bill-display">
     <ul>
-      <li class="congress-header"><a href="#bill-display-1">Recently Introduced House Bills</a></li>
-      <li class="congress-header"><a href="#bill-display-2">Recently Introduced Senate Bills</a></li>
+      <li class="congress-header"><a href="#bill-display-1">House Bills</a></li>
+      <li class="congress-header"><a href="#bill-display-2">Senate Bills</a></li>
     </ul>
     <div id="bill-display-1">
       <div id="house-bills"></div>
