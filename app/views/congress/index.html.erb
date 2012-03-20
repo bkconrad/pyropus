@@ -1,4 +1,12 @@
 <style type="text/css">
+#directions.hidden {
+  border: 0;
+}
+
+#directions.hidden p {
+  display: none;
+}
+
 div#congress-display {
   background: white;
 }
@@ -193,13 +201,28 @@ $().ready(function () {
 
   // UI prep
   $displayDiv = $("#congress-display");
-  $("#congress-accordion").accordion({autoHeight: false,
-                                      collapsible: true,
-                                      icons: false});
+
+  $("#congress-accordion").accordion({
+    autoHeight: false,
+    collapsible: true,
+    icons: false
+  });
+
+  $("#directions legend a").click(function() {
+    var $element = $("#directions");
+    if ($element.hasClass("hidden"))
+      $element.removeClass("hidden");
+    else
+      $element.addClass("hidden");
+      return false;
+  });
+
   $("#bill-search").submit(function () {
-                             searchBill($("#bill-search-text").val());
-                           });
+    searchBill($("#bill-search-text").val());
+  });
+
   $displayDiv.tabs();
+
   $("#bill-types").buttonset();
   $("#bill-types :radio").change(getBills);
 
@@ -215,7 +238,7 @@ $().ready(function () {
 });
 </script>
 <div id="congress-display">
-  <fieldset><legend>Directions</legend>
+  <fieldset id="directions"><legend><a href="#">Directions</a></legend>
     <p>
     This tool queries the New York Times' Congress API to retrieve information 
     about recent legislation in the US Senate and US House of Representatives.
