@@ -204,11 +204,34 @@ $().ready(function () {
   $("#bill-types :radio").change(getBills);
 
   $.ajaxSetup({ error: showError });
+  $("#busy").ajaxStart (function () {
+    $(this).show();
+  });
+  $("#busy").ajaxStop (function () {
+    $(this).hide();
+  });
   getBills();
   billDetails("s1");
 });
 </script>
 <div id="congress-display">
+  <fieldset><legend>Directions</legend>
+    <p>
+    This tool queries the New York Times' Congress API to retrieve information 
+    about recent legislation in the US Senate and US House of Representatives.
+    </p>
+    <p>
+    You can search for a specific bill or browse recently introduced, updated,
+    or passed bills, or bills the New York Times considers 'major'. Only data
+    from the 112th congress is available for now, but data from the 101st
+    congress and later will be available soon.
+    </p>
+    <p>
+    Bill details include the name, introduction date, sponsor, number of
+    cosponsors, list of 'recent major actions', and revised versions of the
+    bill, including links their full texts at the THOMAS website.
+    </p>
+  </fieldset>
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <form action="#" method="get" id="bill-search"><input type=text id="bill-search-text"><input type="submit" value="View Bill"></form>
   <div id="congress-accordion">
