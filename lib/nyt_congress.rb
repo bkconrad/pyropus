@@ -15,6 +15,9 @@ module NytCongress
   end
 
   def recent_bills (chamber, type)
+    is_chamber = ["house","senate"].include?(chamber)
+    is_valid_type = ["introduced","passed","updated","major"].include?(type)
+    return nil unless(is_chamber && is_valid_type)
     result = run_query "#{NytCongress::CURRENT_SESSION}/#{chamber}/bills/#{type}.json"
     result["results"][0]["bills"]
   end
