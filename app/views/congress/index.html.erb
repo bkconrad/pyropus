@@ -184,7 +184,7 @@ function showError (request, state, error) {
 }
 
 function searchBill(billNumber) {
-  billNumber = $.trim(billNumber);
+  billNumber = billNumber.replace(/[ .]+/g, "");
   billId = billNumber.toLowerCase();
   billDetails(billId);
 }
