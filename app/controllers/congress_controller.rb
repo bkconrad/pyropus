@@ -15,7 +15,12 @@ class CongressController < ApplicationController
     end
     method_symbol = args[0].tr("-","_").to_sym
     NytCongress.method_defined?(method_symbol)
-    render json: self.method(method_symbol).call(args[1], args[2])
+    result = self.method(method_symbol).call(args[1], args[2])
+    if result
+      render json: result
+    else
+      head :not_found
+    end
  
   end
 end

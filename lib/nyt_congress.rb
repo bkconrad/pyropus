@@ -4,9 +4,14 @@ require 'net/http'
 module NytCongress
   CURRENT_SESSION = 112
 
-  # return true if the passed string looks like a bill id
+  # returns nil if passed string looks nothing like a bill id,
+  # returns the bill id otherwise.
   def bill_id? arg
-    /(hr|s)\d*\Z/ =~ arg
+    result = /(hr|hres|s|sres)\d{1,4}/.match(arg).to_s
+    if result == ""
+      return nil
+    end
+    result
   end
 
   def recent_bills (chamber, type)
@@ -15,6 +20,7 @@ module NytCongress
   end
 
   def bill_details (bill_id, *args)
+    return nil unless bill_id? bill_id
     result = run_query "#{NytCongress::CURRENT_SESSION}/bills/#{bill_id}.json"
     result["results"][0]
   end
