@@ -13,6 +13,7 @@ div.congress-header {
 
 #house-bills, #senate-bills {
   height: 480px;
+  width: 100%;
   display: inline-block;
   border: 1px solid black;
   overflow-y: scroll;
@@ -21,12 +22,10 @@ div.congress-header {
 }
 
 #house-bills-wrapper {
-  width: 50%;
   float: left;
 }
 
 #senate-bills-wrapper {
-  width: 50%;
   float: right;
 }
 
@@ -180,27 +179,34 @@ $().ready(function () {
   $.ajaxSetup({ error: showError });
   getBills("house", "introduced");
   getBills("senate", "introduced");
+  $("#congress-accordion").accordion({autoHeight: false});
 });
 </script>
 <div id="congress-display">
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
-  <div id="bill-details"></div>
-  <div id="bill-types">
-    <input type="radio" id="introduced" name="radio" checked="checked" /><label for="introduced">Introduced</label>
-		<input type="radio" id="updated" name="radio" /><label for="updated">Updated</label>
-		<input type="radio" id="passed" name="radio" /><label for="passed">Passed</label>
-	</div>
-  <div id="bill-display">
-    <ul>
-      <li class="congress-header"><a href="#bill-display-1">House Bills</a></li>
-      <li class="congress-header"><a href="#bill-display-2">Senate Bills</a></li>
-    </ul>
-    <div id="bill-display-1">
-      <div id="house-bills"></div>
-    </div>
-    <div id="bill-display-2">
-      <div id="senate-bills"></div>
+  <div id="congress-accordion">
+    <h3><a href="#">Bill Details</a></h3>
+    <div id="bill-details"></div>
+    <h3><a href="#">Bill List</a></h3>
+    <div id="bill-list">
+      <div id="bill-types">
+        <input type="radio" id="introduced" name="radio" checked="checked" /><label for="introduced">Introduced</label>
+        <input type="radio" id="updated" name="radio" /><label for="updated">Updated</label>
+        <input type="radio" id="passed" name="radio" /><label for="passed">Passed</label>
+        <input type="radio" id="major" name="radio" /><label for="major">Major</label>
+      </div>
+      <div id="bill-display">
+        <ul>
+          <li class="congress-header"><a href="#bill-display-1">House Bills</a></li>
+          <li class="congress-header"><a href="#bill-display-2">Senate Bills</a></li>
+        </ul>
+        <div id="bill-display-1">
+          <div id="house-bills"></div>
+        </div>
+        <div id="bill-display-2">
+          <div id="senate-bills"></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="clearfix">&nbsp;</div>
 </div>
