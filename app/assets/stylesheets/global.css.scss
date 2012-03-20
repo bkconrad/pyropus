@@ -1,4 +1,17 @@
 @import "defs";
+#busy {
+  margin: 0;
+  padding: 0;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background-image: url(busy.gif);
+  background-repeat: no-repeat;
+  border: 1px solid #AAA;
+}
 * {
   /* Should be all the reset we need */
   line-height: 2*$basesize;
