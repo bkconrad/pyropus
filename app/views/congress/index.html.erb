@@ -187,16 +187,15 @@ $().ready(function () {
 
   // UI prep
   $displayDiv = $("#congress-display");
+  $("#congress-accordion").accordion({autoHeight: false,
+                                      collapsible: true});
   $displayDiv.tabs();
   $("#bill-types").buttonset();
   $("#bill-types :radio").change(getBills);
 
   $.ajaxSetup({ error: showError });
-  getBills("house", "introduced");
-  getBills("senate", "introduced");
+  getBills();
   billDetails("s1");
-  $("#congress-accordion").accordion({autoHeight: false,
-                                      collapsible: true});
 });
 </script>
 <div id="congress-display">
