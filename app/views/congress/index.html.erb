@@ -81,6 +81,8 @@ div.bill-date {
 
 <div class="bill-actions">
   <h4>Recent Actions</h4>
+  <div class="bill-date">{{latest_major_action_date}}</div>
+  <div class="bill-action">{{latest_major_action}}</div>
   {{#each actions}}
     <div class="bill-date">{{this.datetime}}</div>
     <div class="bill-action">{{this.description}}</div>
