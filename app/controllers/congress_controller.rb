@@ -4,6 +4,7 @@ class CongressController < ApplicationController
   include NytCongress
 
   def index
+    page_title "Congress Info"
   end
 
   def query
