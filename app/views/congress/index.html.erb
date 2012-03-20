@@ -4,6 +4,10 @@ div#congress-display {
 }
 #congress-display > div {
   color: #555555;
+  padding: 0;
+}
+#congress-display ul {
+  padding: 0;
 }
 div.congress-header {
   font-family: "Bebas Neue";
@@ -122,6 +126,7 @@ function billDetails (billId) {
 function showBillDetails (details) {
   var template = Handlebars.compile($("#bill-details-template").html());
   var html = template(details);
+  $("#current-bill").html("- " + details.bill);
   $("#bill-details").html(html);
 }
 
@@ -179,13 +184,15 @@ $().ready(function () {
   $.ajaxSetup({ error: showError });
   getBills("house", "introduced");
   getBills("senate", "introduced");
-  $("#congress-accordion").accordion({autoHeight: false});
+  billDetails("s1");
+  $("#congress-accordion").accordion({autoHeight: false,
+                                      collapsible: true});
 });
 </script>
 <div id="congress-display">
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <div id="congress-accordion">
-    <h3><a href="#">Bill Details</a></h3>
+    <h3><a href="#">Bill Details <span id="current-bill">&nbsp;</span></a></h3>
     <div id="bill-details"></div>
     <h3><a href="#">Bill List</a></h3>
     <div id="bill-list">
