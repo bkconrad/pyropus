@@ -116,10 +116,11 @@ function clearDisplay () {
 
 /* converts a bill.number to a bill-id used in API calls */
 function formalizeBillId (str) {
-  return str.replace(/\./g,"").toLowerCase();
+  return str.replace(/[ .]+/g, "").toLowerCase();
 }
 
 function billDetails (billId) {
+  billId = formalizeBillId(billId);
   $.ajax("/congress/query/bill-details/" + billId,
       { "success" : showBillDetails,
         "error" : showError });
@@ -187,8 +188,6 @@ function showError (request, state, error) {
 }
 
 function searchBill(billNumber) {
-  billNumber = billNumber.replace(/[ .]+/g, "");
-  billId = billNumber.toLowerCase();
   billDetails(billId);
 }
 
