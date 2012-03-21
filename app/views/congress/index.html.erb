@@ -196,10 +196,6 @@ function showError (request, state, error) {
   console.log(error);
 }
 
-function searchBill(billNumber) {
-  billDetails(billId);
-}
-
 $().ready(function () {
 
   // UI prep
@@ -213,7 +209,7 @@ $().ready(function () {
   });
 
   $("#bill-search").submit(function () {
-    searchBill($("#bill-search-text").val());
+    billDetails($("#bill-search-text").val());
   });
 
   $displayDiv.tabs();
