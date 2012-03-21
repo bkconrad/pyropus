@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Sans Sara";
+  src: url('../fonts/sans-sara.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: url('../fonts/BebasNeue.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+$bg: #36393B;
+
+$menubarcolor: #60666B;
+$menubartextcolor: white;
+$loginlabeltextcolor: $menubartextcolor;
+$input_border: white;
+
+$wrapperbg: none;
+
+$contentdivbackground: #EEE;
+$contentdivtextcolor: black;
+$contentlinkcolor: #45484B;
+
+$maintextcolor: #FFF;
+$linkcolor: #eee6ab;
+
+/* The base unit for scheme */
+$basesize: 12px;
