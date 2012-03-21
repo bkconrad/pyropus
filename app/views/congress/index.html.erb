@@ -88,8 +88,6 @@ div.bill-date {
       <div class="bill-date">{{latest_major_action_date}}</div>
       <div class="bill-action-description">{{latest_major_action}}</div>
     </div>
-  <div class="bill-date">{{latest_major_action_date}}</div>
-  <div class="bill-action">{{latest_major_action}}</div>
   {{#each actions}}
     <div class="bill-action">
       <div class="bill-date">{{this.datetime}}</div>
@@ -197,6 +195,9 @@ function showError (request, state, error) {
 }
 
 $().ready(function () {
+  // Handlebars setup
+  Handlebars.registerHelper("trim_date", function () {
+  });
 
   // UI prep
   $displayDiv = $("#congress-display");
