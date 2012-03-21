@@ -90,7 +90,7 @@ div.bill-date {
     </div>
   {{#each actions}}
     <div class="bill-action">
-      <div class="bill-date">{{this.datetime}}</div>
+      <div class="bill-date">{{trim_date}}</div>
       <div class="bill-action-description">{{this.description}}</div>
     </div>
   {{/each}}
@@ -197,6 +197,7 @@ function showError (request, state, error) {
 $().ready(function () {
   // Handlebars setup
   Handlebars.registerHelper("trim_date", function () {
+    return this.datetime.split(" ")[0];
   });
 
   // UI prep
