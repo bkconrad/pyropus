@@ -9,6 +9,9 @@ div#congress-display {
 #congress-display ul {
   padding: 0;
 }
+#congress-display table {
+  width: 100%;
+}
 div.congress-header {
   font-family: "Bebas Neue";
   font-size: 24px;
@@ -46,9 +49,10 @@ div.congress-header {
 }
 
 /* needs to override .bill > div */
-div.bill-date {
+.bill-date {
   line-height: 2em;
   float: right;
+  vertical-align: top;
 }
 
 .bill-action:hover {
@@ -84,16 +88,18 @@ div.bill-date {
 
 <div class="bill-actions">
   <h4>Recent Actions</h4>
-    <div class="bill-action">
-      <div class="bill-date">{{latest_major_action_date}}</div>
-      <div class="bill-action-description">{{latest_major_action}}</div>
-    </div>
+  <table>
+    <tr class="bill-action">
+      <td class="bill-action-description">{{latest_major_action}}</td>
+      <td class="bill-date">{{latest_major_action_date}}</td>
+    </tr>
   {{#each actions}}
-    <div class="bill-action">
-      <div class="bill-date">{{trim_date}}</div>
-      <div class="bill-action-description">{{this.description}}</div>
-    </div>
+    <tr class="bill-action">
+      <td class="bill-action-description">{{this.description}}</td>
+      <td class="bill-date">{{trim_date}}</td>
+    </tr>
   {{/each}}
+  </table>
 </div>
 
 <div class="bill-versions">
