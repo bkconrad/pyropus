@@ -1,7 +1,7 @@
 Pyropus::Application.routes.draw do
-  get "congress/index"
   controller :congress do
     get "congress/query/*args" => :query
+    get "congress/" => :index
   end
 
   resources :things
