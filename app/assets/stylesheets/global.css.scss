@@ -1,16 +1,14 @@
 @import "defs";
 #busy {
-  margin: 0;
+  font-family: "Sans Sara";
+  height: 32px;
   padding: 0;
+  padding-left: 16px;
+  line-height: 24px;
+  font-size: 24px;
+  border: none;
+  float: right;
   display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 16px;
-  height: 16px;
-  background-image: url(busy.gif);
-  background-repeat: no-repeat;
-  border: 1px solid #AAA;
 }
 * {
   /* Should be all the reset we need */

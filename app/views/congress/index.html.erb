@@ -226,6 +226,7 @@ $().ready(function () {
   $("#bill-types").buttonset();
   $("#bill-types :radio").change(getBills);
 
+  // TODO: move busy indicator code to global js
   $.ajaxSetup({ error: showError });
   $("#busy").ajaxStart (function () {
     $(this).show();
@@ -238,20 +239,17 @@ $().ready(function () {
 });
 </script>
 <div id="congress-display">
+  <div id="busy">Loading...</div>
   <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <div id="congress-accordion">
     <h3><a href="#">Directions</a></h3>
     <div id="directions">
-      <p>
       This tool queries the New York Times' Congress API to retrieve information 
       about recent legislation in the US Senate and US House of Representatives.
-      </p>
-      <p>
       You can search for a specific bill or browse recently introduced, updated,
       or passed bills, or bills the New York Times considers 'major'. Only data
       from the 112th congress is available for now, but data from the 101st
       congress forward will be available soon.
-      </p>
     </div>
     <h3 id="bill-details-header"><a href="#">Bill Details <span id="current-bill">&nbsp;</span></a></h3>
     <div id="bill-details-pane">
