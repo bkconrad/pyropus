@@ -3,7 +3,7 @@
     <h1><%= thing.name %></h1>
     <p><%= raw thing.description %></p>
     <span><%= ajax_link_to 'Read More', thing %></span>
-    <span><%= link_to "View Thing", controller: thing.path %></span>
+    <span><%= ajax_link_to "View Thing", controller: thing.path %></span>
     <% if admin? %>
       <span><%= ajax_link_to 'Edit', edit_thing_path(thing) %></span>
       <span><%= ajax_link_to 'Destroy', thing, confirm: 'Are you sure?', method: :delete %></span>
