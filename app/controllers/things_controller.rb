@@ -32,6 +32,7 @@ class ThingsController < ApplicationController
   def show
     @thing = Thing.find(params[:id])
     @thing.description = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(@thing.description)
+    page_title "About the " + @thing.name + " thing"
 
     respond_to do |format|
       format.html # show.html.erb
