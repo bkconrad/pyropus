@@ -1,13 +1,9 @@
-<div>
-<p>
-  <%= link_to @thing.name, :controller => @thing.path %>
-</p>
+<div class="thing">
+<%= raw @thing.description %>
 
-<p>
-  <%= raw @thing.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_thing_path(@thing) %> |
+<% if admin? %>
+  <%= link_to 'Edit', edit_thing_path(@thing) %> |
+<% end %>
+<%= link_to 'View Thing', :controller => @thing.path %>
 <%= link_to 'Back', things_path %>
 </div>
