@@ -1,20 +1,13 @@
-<p id="notice"><%= notice %></p>
-
+<div>
 <p>
-  <b>Name:</b>
-  <%= @thing.name %>
+  <%= link_to @thing.name, :controller => @thing.path %>
 </p>
 
 <p>
-  <b>Path:</b>
-  <%= @thing.path %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @thing.description %>
+  <%= raw @thing.description %>
 </p>
 
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> |
 <%= link_to 'Back', things_path %>
+</div>

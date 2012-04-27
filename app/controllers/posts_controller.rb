@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     page_title "View all posts"
 
     @posts.each do |post|
+      # TODO: make this into a helper
       post.content = post.content[0..500]
 
       # stop at the end of the first paragraph

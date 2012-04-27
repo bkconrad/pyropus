@@ -30,7 +30,7 @@ body {
   overflow: scroll;
 }
 
-h1 {
+h1, h1 > a {
   line-height: 3*$basesize;
   font-size: 3*$basesize;
   font-weight: bold;

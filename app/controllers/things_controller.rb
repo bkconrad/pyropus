@@ -6,6 +6,21 @@ class ThingsController < ApplicationController
     page_title "View all things"
     @things = Thing.all
 
+    @things.each do |thing|
+      # TODO: make this into a helper
+      thing.description = thing.description[0..500]
+
+      # stop at the end of the first paragraph
+      thing.description = thing.description.split("\r\n\r\n")
+      thing.description = thing.description[0]
+
+      # remove the last word (fragment)
+      thing.description = thing.description.split(" ")
+      thing.description = thing.description[0..-1]
+      thing.description = thing.description.join(" ")
+      thing.description = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(thing.description)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @things }
@@ -16,6 +31,7 @@ class ThingsController < ApplicationController
   # GET /things/1.json
   def show
     @thing = Thing.find(params[:id])
+    @thing.description = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(@thing.description)
 
     respond_to do |format|
       format.html # show.html.erb
