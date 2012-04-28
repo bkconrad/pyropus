@@ -65,6 +65,15 @@ textarea {
   width: 100%;
 }
 
+#alert, #notice {
+  padding: .5*$basesize;
+  background: #FFF;
+  max-width: 640px-(2*$basesize);
+  margin: 0 auto $basesize auto;
+  /* TODO: re-enable notice and alert */
+  display: none;
+}
+
 #wrapper {
   background: $wrapperbg;
   max-width: 640px-(2*$basesize);
