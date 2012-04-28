@@ -44,6 +44,10 @@
   a {
     display: block;
     width: 160px;
+    -o-transition: background-color 250ms ease-in-out;
+    -webkit-transition: background-color 250ms ease-in-out;
+    -moz-transition: background-color 250ms ease-in-out;
+    transition: background-color 250ms ease-in-out;
   }
   a:hover {
     background: $shadowcolor;
