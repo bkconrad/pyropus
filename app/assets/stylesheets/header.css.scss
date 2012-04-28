@@ -12,8 +12,8 @@
   display: inline-block;
   background: $menubarcolor;
   color: $menubartextcolor;
-  padding: 0 $basesize 0 0;
-  max-width: 160px - $basesize;
+  padding: 0;
+  max-width: 160px;
   text-align: right;
 }
 
@@ -37,7 +37,14 @@
   li {
     display: block;
     list-style-type: none;
-    line-height: 4*$basesize;
+    line-height: 2*$basesize;
+  }
+  a {
+    display: block;
+    width: 160px-$basesize;
+  }
+  a:hover {
+    background: $shadowcolor;
   }
 }
 
