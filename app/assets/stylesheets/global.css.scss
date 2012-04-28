@@ -87,8 +87,8 @@ textarea {
 #content {
   margin: 0;
   padding: 0;
-  clear: right;
-  float: right;
+  clear: left;
+  float: left;
   font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
   max-width: 480px-$basesize;
   width: 480px-$basesize;
@@ -97,10 +97,13 @@ textarea {
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
     padding-bottom: $basesize - 2;
-    border-bottom: 1px dotted $contentlinkcolor;
+    border-bottom: 1px dotted $shadowcolor;
   }
   a {
     color: $contentlinkcolor;
+  }
+  a:hover {
+    color: white;
   }
   ul {
     padding-left: 2*$basesize;

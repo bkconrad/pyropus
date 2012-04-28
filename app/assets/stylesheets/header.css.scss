@@ -2,16 +2,16 @@
 
 #titlebar {
   text-shadow: 2px 2px 0 #000;
-  height: 4*$basesize;
-  margin-bottom: $basesize;
+  height: 3*$basesize;
+  margin-bottom: 2*$basesize;
   > * {
     display: inline-block;
   }
 }
 
 #menubar {
+  float: right;
   display: inline-block;
-  background: $menubarcolor;
   color: $menubartextcolor;
   padding: 0;
   max-width: 160px;
@@ -22,7 +22,7 @@
   font-family: "Sans Sara";
   font-size: 5*$basesize;
   line-height: 3*$basesize;
-  color: $menubartextcolor;
+  color: white;
 }
 
 #page_title {
@@ -44,10 +44,12 @@
   a {
     display: block;
     width: 160px;
+    /*
     -o-transition: background-color 250ms ease-in-out;
     -webkit-transition: background-color 250ms ease-in-out;
     -moz-transition: background-color 250ms ease-in-out;
     transition: background-color 250ms ease-in-out;
+    */
   }
   a:hover {
     background: $shadowcolor;

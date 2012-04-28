@@ -10,10 +10,9 @@
   font-weight: normal;
   font-style: normal;
 }
-$bg: #1a2539;
+$bg: #50627d;
 
-$shadowcolor: #415b8c;
-
+$shadowcolor: #293240;
 $menubarcolor: none;
 $menubartextcolor: white;
 $loginlabeltextcolor: $menubartextcolor;
@@ -22,13 +21,13 @@ $input_border: white;
 $wrapperbg: $bg;
 $wrapperbordercolor: #0f1521;
 
+$maintextcolor: #FFF;
+$linkcolor: #b0bdd1;
 
 $contentdivbackground: none;
 $contentdivtextcolor: #EAF2EE;
-$contentlinkcolor: #FFF;
+$contentlinkcolor: $linkcolor;
 
-$maintextcolor: #FFF;
-$linkcolor: #ece7a5;
 
 /* The base unit for scheme */
 $basesize: 12px;
