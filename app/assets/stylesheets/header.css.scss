@@ -9,43 +9,39 @@
 }
 
 #menubar {
+  display: inline-block;
   background: $menubarcolor;
   color: $menubartextcolor;
-  padding: 0 $basesize;
+  padding: 0 $basesize 0 0;
+  max-width: 160px - $basesize;
+  text-align: right;
 }
 
 #site_title {
-  position: relative;
-  top: $basesize;
   font-family: "Sans Sara";
   font-size: 5*$basesize;
   line-height: 3*$basesize;
-  color: #EEEEEE;
+  color: $menubartextcolor;
 }
 
 #page_title {
   float: right;
-  position: relative;
-  top: $basesize*2;
   font-size: 3*$basesize;
   font-family: "Bebas Neue";
   line-height: 2*$basesize;
-
-  /* set it below everything so it doesn't interfere with the login form*/
-  z-index: -1;
+  margin-top: $basesize;
 }
 #navlinks {
-  display: inline-block;
+  clear: both;
+  float: right;
   li {
-    display: inline-block;
-    margin-right: $basesize;
+    display: block;
     list-style-type: none;
     line-height: 4*$basesize;
   }
 }
 
 #navlinks a {
-  display: inline-block;
   font-family: "Bebas Neue";
   font-size: 1.5*$basesize;
 }

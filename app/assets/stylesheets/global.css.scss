@@ -75,23 +75,31 @@ textarea {
 }
 
 #wrapper {
-  background: $wrapperbg;
-  max-width: 640px-(2*$basesize);
+  background: rgba(26,37,57,0.8);
+  box-shadow: 1px 1px 0px #334870 inset, -1px -1px 0px #202c45 inset, 1px 1px 6px 2px #111;
+  max-width: 640px;
   padding: $basesize;
   margin: auto;
   margin-top: $basesize;
+  margin-bottom: $basesize;
   font-size: 12px;
+  border: 1px $wrapperbordercolor solid;
 }
 
 #content {
-  z-index: 1;
-  clear: both;
+  margin: 0;
+  padding: 0;
+  clear: right;
+  float: right;
   font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
+  max-width: 480px;
+  width: 480px;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-top: $basesize;
-    padding: $basesize;
+    padding-bottom: $basesize - 2;
+    border-bottom: 1px dotted $contentlinkcolor;
   }
   a {
     color: $contentlinkcolor;
@@ -100,4 +108,8 @@ textarea {
     padding-left: 2*$basesize;
     list-style-type: square;
   }
+}
+
+.clearfix {
+  clear: both;
 }

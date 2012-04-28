@@ -11,8 +11,9 @@
 }
 
 .post-title {
-  text-shadow: 1px 1px 0px $linkcolor;
-  color: $contentdivtextcolor;
+  /* text-shadow: 2px 2px 0px $shadowcolor;*/
+  text-shadow: 2px 2px 0px #000;
+  color: white;
 }
 
 .post-date {
