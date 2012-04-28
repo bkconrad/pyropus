@@ -97,7 +97,7 @@ textarea {
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
-    margin-top: $basesize;
+    margin-bottom: $basesize;
     padding-bottom: $basesize - 2;
     border-bottom: 1px dotted $contentlinkcolor;
   }
