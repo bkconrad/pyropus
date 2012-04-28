@@ -3,6 +3,7 @@
 #titlebar {
   text-shadow: 2px 2px 0 #000;
   height: 4*$basesize;
+  margin-bottom: $basesize;
   > * {
     display: inline-block;
   }
@@ -34,6 +35,7 @@
 #navlinks {
   clear: both;
   float: right;
+  width: 100%;
   li {
     display: block;
     list-style-type: none;
@@ -41,7 +43,7 @@
   }
   a {
     display: block;
-    width: 160px-$basesize;
+    width: 160px;
   }
   a:hover {
     background: $shadowcolor;
