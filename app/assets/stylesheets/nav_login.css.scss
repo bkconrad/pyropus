@@ -24,6 +24,8 @@ background: -o-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,
 background: -ms-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* IE10+ */
 background: linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54ffffff', endColorstr='#36000000',GradientType=0 ); /* IE6-9 */
+  
+  box-shadow: 1px 1px $basesize -2px black;
 
 background-color: $linkcolor;
 
@@ -38,7 +40,8 @@ background-color: $linkcolor;
   }
   div {
     margin: 0;
-    line-height: $basesize;
+    font-size: inherit;
+    font-family: inherit;
   }
 
   label, input {
@@ -115,4 +118,15 @@ background-color: $linkcolor;
   form {
     display: inline;
   }
+  #username {
+    float: left;
+  }
+  #logout {
+    float: right;
+    visibility: hidden;
+  }
+}
+
+#nav_login:hover #logout {
+  visibility: visible;
 }
