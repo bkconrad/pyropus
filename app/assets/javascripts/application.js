@@ -39,14 +39,16 @@ function retrievePage(ev, e) {
     }
 
     // replace the content and header
-    $("#header").html($("#header", dom).html());
+    $("#menubar").html($("#menubar", dom).html());
     $("#content").html($("#content", dom).html());
     $("#content").fadeIn(fadeTime);
 
     // rebind the new elements with this callback
-    $("[data-remote]=true").bind("ajax:complete", retrievePage);
-    $("[data-remote]=true").bind("ajax:before", ajaxLoading);
+    $("#content [data-remote]=true").bind("ajax:complete", retrievePage);
+    $("#content [data-remote]=true").bind("ajax:before", ajaxLoading);
 
+    $("#menubar [data-remote]=true").bind("ajax:complete", retrievePage);
+    $("#menubar [data-remote]=true").bind("ajax:before", ajaxLoading);
     window.history.pushState(null, "Pyropus", sourceUrl);
 
     clearInterval(intervalId);
