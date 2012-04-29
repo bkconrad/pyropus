@@ -6,7 +6,6 @@
   border-bottom: 1px solid darken($linkcolor, 25%);
   width: 160px-$basesize - 2px;
   color: $shadowcolor;
-  background: $linkcolor;
   text-align: right;
   text-transform: uppercase;
   display: block;
@@ -15,8 +14,18 @@
   font-family: "Droid Sans Mono", "Nova Mono", monospace;
   font-size: $basesize*.8;
   $loginshadowsize: 6*$basesize;
-  box-shadow: 0px -1*$loginshadowsize $loginshadowsize -1*$loginshadowsize $shadowcolor inset, 0px 1.5*$loginshadowsize $loginshadowsize -1*$loginshadowsize white inset, 3px 3px $basesize -2px black;
-  border-radius: $basesize/4;
+  border-radius: $basesize/4 $basesize/4;
+
+background: -moz-linear-gradient(top,  rgba(255,255,255,0.33) 0%, rgba(128,128,128,0) 50%, rgba(0,0,0,0.21) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.33)), color-stop(50%,rgba(128,128,128,0)), color-stop(100%,rgba(0,0,0,0.21))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54ffffff', endColorstr='#36000000',GradientType=0 ); /* IE6-9 */
+
+background-color: $linkcolor;
+
   a {
     color: $shadowcolor;
     font-size: inherit;
