@@ -10,21 +10,24 @@
   font-weight: normal;
   font-style: normal;
 }
-$bg: #36393B;
+$bg: #50627d;
 
-$menubarcolor: #60666B;
+$shadowcolor: #293240;
+$menubarcolor: none;
 $menubartextcolor: white;
-$loginlabeltextcolor: $menubartextcolor;
+$loginlabeltextcolor: $shadowcolor;
 $input_border: white;
 
-$wrapperbg: none;
-
-$contentdivbackground: #EEE;
-$contentdivtextcolor: black;
-$contentlinkcolor: #45484B;
+$wrapperbg: $bg;
+$wrapperbordercolor: #0f1521;
 
 $maintextcolor: #FFF;
-$linkcolor: #eee6ab;
+$linkcolor: #b0bdd1;
+
+$contentdivbackground: none;
+$contentdivtextcolor: #EAF2EE;
+$contentlinkcolor: $linkcolor;
+
 
 /* The base unit for scheme */
 $basesize: 12px;

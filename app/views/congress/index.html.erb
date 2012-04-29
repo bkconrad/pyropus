@@ -12,7 +12,11 @@ div#congress-display {
   padding: 0;
 }
 #congress-display ul {
+  color: black;
   padding: 0;
+}
+#congress-display a {
+  color: black;
 }
 #congress-display table {
   width: 100%;
@@ -22,6 +26,11 @@ div#congress-display {
   font-size: 18px;
   font-weight: bold;
   color: black;
+}
+
+#congress-display h4 {
+  background: #AAA;
+  color: white;
 }
 
 #house-bills, #senate-bills {
@@ -61,8 +70,27 @@ div#congress-display {
   vertical-align: top;
 }
 
+.bill-action, .bill-version {
+  padding-top: 12px;
+  padding-bottom: 11px;
+  border-bottom: 1px dotted black;
+}
+
 .bill-action:hover {
   background: #EEEEEE;
+}
+
+.bill-action > span {
+  display: block;
+}
+
+.bill-action-description {
+  clear: both;
+}
+
+.bill-date {
+  float: right;
+  font-weight: bold;
 }
 
 .odd {
@@ -94,26 +122,26 @@ div#congress-display {
 
 <div class="bill-actions">
   <h4>Recent Actions</h4>
-  <table>
-    <tr class="bill-action">
-      <td class="bill-action-description">{{latest_major_action}}</td>
-      <td class="bill-date">{{latest_major_action_date}}</td>
-    </tr>
+    <div class="bill-action">
+    <span class="bill-date">{{latest_major_action_date}}</span>
+      <span class="bill-action-description">{{latest_major_action}}</span>
+    </div>
   {{#each actions}}
-    <tr class="bill-action">
-      <td class="bill-action-description">{{this.description}}</td>
-      <td class="bill-date">{{trim_date}}</td>
-    </tr>
+    <div class="bill-action">
+      <span class="bill-date">{{trim_date}}</span>
+      <span class="bill-action-description">{{this.description}}</span>
+    </div>
   {{/each}}
-  </table>
 </div>
 
 <div class="bill-versions">
   <h4>Versions</h4>
   {{#each versions}}
-    <div class="bill-status">{{this.status}}</div>
-    <div class="bill-title">{{this.title}}</div>
-    <a href="{{this.thomas_url}}">Read Version</a>
+    <div class="bill-version">
+      <div class="bill-status">{{this.status}}</div>
+      <div class="bill-title">{{this.title}}</div>
+      <a href="{{this.thomas_url}}">Read Version</a>
+    </div>
   {{/each}}
 </div>
 </script>
