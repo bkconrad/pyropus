@@ -1,5 +1,6 @@
 @import "defs";
 #nav_login {
+    text-shadow: 1px 1px 1px lighten($shadowcolor, 75%);
   border-top: 1px solid lighten($linkcolor, 15%);
   border-left: 1px solid lighten($linkcolor, 15%);
   border-right: 1px solid darken($linkcolor, 25%);
@@ -33,6 +34,7 @@ background-color: $linkcolor;
   }
   a:hover {
     color: white;
+    text-shadow: none;
   }
   div {
     margin: 0;
