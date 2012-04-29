@@ -10,6 +10,7 @@
 }
 
 #menubar {
+  background: $shadowcolor;
   float: right;
   display: inline-block;
   color: $menubartextcolor;
@@ -43,7 +44,8 @@
   }
   a {
     display: block;
-    width: 160px;
+    width: 160px-$basesize;
+    padding-right: $basesize;
     /*
     -o-transition: background-color 250ms ease-in-out;
     -webkit-transition: background-color 250ms ease-in-out;

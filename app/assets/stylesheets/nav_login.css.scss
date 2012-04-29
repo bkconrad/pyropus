@@ -1,36 +1,87 @@
 @import "defs";
 #nav_login {
+  border-top: 1px solid lighten($linkcolor, 15%);
+  border-left: 1px solid lighten($linkcolor, 15%);
+  border-right: 1px solid darken($linkcolor, 25%);
+  border-bottom: 1px solid darken($linkcolor, 25%);
+  width: 160px-3*$basesize;
+  color: $shadowcolor;
+  background: $linkcolor;
   text-align: right;
   text-transform: uppercase;
+  display: block;
+  margin: $basesize;
+  padding: .5*$basesize;
   font-family: "Droid Sans Mono", "Nova Mono", monospace;
   font-size: $basesize*.8;
-  display: inline-block;
-  float: right;
-  margin-bottom: $basesize;
+  $loginshadowsize: 6*$basesize;
+  box-shadow: 0px -1*$loginshadowsize $loginshadowsize -1*$loginshadowsize $shadowcolor inset, 0px 1.5*$loginshadowsize $loginshadowsize -1*$loginshadowsize white inset, 3px 3px $basesize -2px black;
+  border-radius: $basesize/4;
+  a {
+    color: $shadowcolor;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  a:hover {
+    color: white;
+  }
   div {
     margin: 0;
     line-height: $basesize;
   }
 
   label, input {
-    outline: none;
-    color: $loginlabeltextcolor;
+    color: $shadowcolor;
+    width: 160px-2*$basesize;
+    border: 1px solid black;
+    font-size: $basesize;
+    line-height: $basesize;
+    height: (2*$basesize) - 4px;
+    margin-bottom: 4px;
+    text-align: center;
   }
-  label, input, a {
-    font-size: $basesize*.8;
-    line-height: $basesize*.8;
-    margin-top: 2px;
+  label {
+    display: none;
   }
-
-  input[type=submit] {
-    width: auto;
+  input:focus {
+    outline: 0px;
+    background: white;
   }
 
   input {
-    width: 6*$basesize;
-    border: 1px solid $input_border;
+    border: 0px solid white;
     background: none;
     padding: 0 2px;
+    display: block;
+    width: 160px-(3*$basesize+4px+2px);
+
+    /* Oh, Opera */
+    box-sizing: content-box;
+  }
+  /* TODO: give this an class instead */
+  input[type=text], input[type=password] {
+    box-shadow: 4px 4px 16px -8px black inset, -1px -1px 2px 0px white inset;
+    background: darken($linkcolor, 15%);
+    color: white;
+  }
+
+  /* TODO: give this an id instead */
+  input[type=submit] {
+    margin-top: $basesize*1.5;
+    text-shadow: 1px 1px 1px lighten($shadowcolor, 75%);
+  border-top: 1px solid lighten($linkcolor, 5%);
+  border-left: 1px solid lighten($linkcolor, 5%);
+  border-right: 1px solid darken($linkcolor, 25%);
+  border-bottom: 1px solid darken($linkcolor, 25%);
+  }
+
+  input[type=submit]:active {
+    position: relative;
+    top: 1px;
+  border-top: 1px solid darken($linkcolor, 25%);
+  border-left: 1px solid darken($linkcolor, 25%);
+  border-right: 1px solid lighten($linkcolor, 5%);
+  border-bottom: 1px solid lighten($linkcolor, 5%);
   }
 
   form {
