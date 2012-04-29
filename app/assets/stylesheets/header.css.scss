@@ -10,7 +10,6 @@
 }
 
 #menubar {
-  background: $shadowcolor;
   float: right;
   display: inline-block;
   color: $menubartextcolor;
@@ -34,6 +33,7 @@
   margin-top: $basesize;
 }
 #navlinks {
+  background: $shadowcolor;
   clear: both;
   float: right;
   width: 100%;
@@ -53,8 +53,10 @@
     transition: background-color 250ms ease-in-out;
     */
   }
-  a:hover {
-    background: $shadowcolor;
+  a:hover, a:focus {
+    background: $linkcolor;
+    color: $shadowcolor;
+    outline: 0px;
   }
 }
 
