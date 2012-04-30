@@ -173,10 +173,12 @@ function billDetails (billId) {
         "error" : showError });
 }
 
-function showBillDetails (details, switchToDetails) {
+function showBillDetails (details) {
+  console.log(details);
   var template = Handlebars.compile($("#bill-details-template").html());
   var html = template(details);
-  $("#current-bill").html("- " + details.bill);
+  if (details.bill)
+    $("#current-bill").html("- " + details.bill);
   $("#bill-details").html(html);
 }
 
@@ -273,7 +275,7 @@ document.bootstrap = function () {
   billDetails("s365");
 };
 
-$(document).load(document.bootstrap);
+$(document).ready(document.bootstrap);
 </script>
 <div id="congress-display">
   <div id="busy">Loading...</div>
