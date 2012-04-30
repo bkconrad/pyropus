@@ -137,14 +137,6 @@ div#congress-display {
 
 <script type="text/javascript">
 var $displayDiv;
-function toggleWidth() {
-  var width = parseInt($("#wrapper").css("max-width"));
-  if (width <= 640) {
-    $("#wrapper").css("max-width", "100%");
-  } else {
-    $("#wrapper").css("max-width", "640px");
-  }
-}
 
 function clearDisplay () {
   $displayDiv.html("");
@@ -273,7 +265,6 @@ $(document).ready(document.bootstrap);
 </script>
 <div id="congress-display">
   <div id="busy">Loading...</div>
-  <a href="#" id="widthToggler" onclick="toggleWidth(); return false;">Toggle Width</a>
   <div id="congress-accordion">
     <h3 id="bill-details-header"><a href="#">Bill Details <span id="current-bill">&nbsp;</span></a></h3>
     <div id="bill-details-pane">
