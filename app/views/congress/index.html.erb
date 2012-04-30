@@ -183,7 +183,7 @@ function showBillDetails (details, switchToDetails) {
 function showBills (data, chamber) {
   console.log (data);
   if (typeof(data) === "string")
-    data = $().parseJson(data);
+    data = $.parseJson(data);
   var $element = $("#" + chamber + "-bills");
   $element.html("&nbsp;");
   var bill;
