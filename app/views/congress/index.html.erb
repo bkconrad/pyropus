@@ -175,6 +175,11 @@ function billDetails (billId) {
 
 function showBillDetails (details) {
   console.log(details);
+
+  // TODO: sometimes the details come as a string?
+  if (typeof(details) == "string")
+    details = jQuery.parseJSON(details);
+
   var template = Handlebars.compile($("#bill-details-template").html());
   var html = template(details);
   if (details.bill)
