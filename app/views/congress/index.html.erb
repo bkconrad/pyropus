@@ -233,7 +233,7 @@ function showError (request, state, error) {
   console.log(error);
 }
 
-$().ready(function () {
+document.bootstrap = function () {
   // Handlebars setup
   Handlebars.registerHelper("trim_date", function () {
     return this.datetime.split(" ")[0];
@@ -269,7 +269,9 @@ $().ready(function () {
   });
   getBills();
   billDetails("s365");
-});
+};
+
+$(document).ready(document.bootstrap);
 </script>
 <div id="congress-display">
   <div id="busy">Loading...</div>

@@ -21,7 +21,7 @@
  */
 var ajaxLoadingState = 0;
 var intervalId;
-var fadeTime = 75;
+var fadeTime = 75
 var sourceUrl;
 
 function retrievePage(ev, e) {
@@ -52,6 +52,12 @@ function retrievePage(ev, e) {
     window.history.pushState(null, "Pyropus", sourceUrl);
 
     clearInterval(intervalId);
+
+    // this is the main hook for "Things"
+    try {
+      document.bootstrap();
+    } catch (e) {}
+
   }, 25);
 }
 
