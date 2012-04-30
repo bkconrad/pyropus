@@ -11,7 +11,7 @@
   text-transform: uppercase;
   display: block;
   margin-bottom: $basesize;
-  padding: .5*$basesize;
+  padding: .5*$basesize - 1px;
   font-family: "Droid Sans Mono", "Nova Mono", monospace;
   font-size: $basesize*.8;
   $loginshadowsize: 6*$basesize;
@@ -82,6 +82,7 @@ background-color: $linkcolor;
   /* TODO: give this an id instead */
   input[type=submit] {
     margin-top: $basesize*1.5;
+    margin-bottom: 0px;
     text-shadow: 1px 1px 1px lighten($shadowcolor, 75%);
     border-width: 1px;
     border-style: solid;
@@ -100,15 +101,15 @@ background-color: $linkcolor;
     position: relative;
     top: 1px;
 
-background: -moz-linear-gradient(top,  rgba(0,0,0,0.14) 0%, rgba(255,255,255,0.05) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.14)), color-stop(100%,rgba(255,255,255,0.05))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24000000', endColorstr='#0dffffff',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.14) 0%, rgba(255,255,255,0.05) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.14)), color-stop(100%,rgba(255,255,255,0.05))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(255,255,255,0.05) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24000000', endColorstr='#0dffffff',GradientType=0 ); /* IE6-9 */
 
-background-color: $linkcolor;
+    background-color: $linkcolor;
 
   }
   input[type=submit]:focus {
