@@ -41,6 +41,7 @@ function retrievePage(ev, e) {
     // replace the content and header
     $("#menubar").html($("#menubar", dom).html());
     $("#content").html($("#content", dom).html());
+    $("#page_title").html($("#page_title", dom).html());
     $("#content").fadeIn(fadeTime);
 
     // rebind the new elements with this callback
