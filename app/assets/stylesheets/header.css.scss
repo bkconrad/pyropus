@@ -53,7 +53,7 @@
     transition: background-color 250ms ease-in-out;
     */
   }
-  a:hover, a:focus {
+  a:hover, a:focus, a:active {
     background: $linkcolor;
     color: $shadowcolor;
     outline: 0px;
