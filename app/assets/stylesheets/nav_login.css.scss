@@ -81,7 +81,7 @@ background-color: $linkcolor;
 
   /* TODO: give this an id instead */
   input[type=submit] {
-    margin-top: $basesize*1.5;
+    margin-top: $basesize*.5;
     margin-bottom: 0px;
     text-shadow: 1px 1px 1px lighten($shadowcolor, 75%);
     border-width: 1px;
