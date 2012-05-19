@@ -1,13 +1,40 @@
 <script src="/pfxed.js"></script>
 <script>
+
 $(function () {
+  function saveSample () {
+    var data = {
+      id: $("#sample-id").val(),
+      sample: {
+        init_function: $("#init-function").val(),
+        draw_function: $("#draw-function").val(),
+        update_function: $("#update-function").val(),
+      }
+    };
+
+    $.ajax({
+      url: "/pfxed/" + data.id,
+      type: "PUT",
+      dataType: "json",
+      data: data,
+      success: function (d) {
+        console.log(d);
+      }
+    });
+
+    return false;
+  }
+
   init($("#content"));
 
   <% if @sample %>
-  $("#init-function").val("<%= @sample.init_function %>");
-  $("#draw-function").val("<%= @sample.draw_function %>");
-  $("#update-function").val("<%= @sample.update_function %>");
+  $("#init-function").val("<%=j @sample.init_function %>");
+  $("#draw-function").val("<%=j @sample.draw_function %>");
+  $("#update-function").val("<%=j @sample.update_function %>");
+  $("#sample-id").val("<%= @sample.id %>");
   <% end %>
+
+  $("#pfxed-admin").submit(saveSample);
 
 });
 </script>
@@ -16,3 +43,11 @@ $(function () {
   height: 10em;
 }
 </style>
+
+<form id="pfxed-admin">
+  <input type="hidden" id="sample-id" name="id">
+  <input type="hidden" id="function" name="id">
+  <input type="hidden" id="sample-id" name="id">
+  <input type="hidden" id="sample-id" name="id">
+  <input type="submit" value="save">
+</form>
