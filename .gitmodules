@@ -1,0 +1,3 @@
+[submodule "pfxed"]
+	path = pfxed
+	url = git://github.com/kaen/pfxed.git
