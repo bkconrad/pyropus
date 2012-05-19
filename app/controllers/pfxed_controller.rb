@@ -9,7 +9,7 @@ class PfxedController < ApplicationController
     @sample = PfxedSample.find(params[:id])
 
     respond_to do |format|
-      format.html
+      format.html { render :index }
       format.json { render json: @sample }
     end
   end

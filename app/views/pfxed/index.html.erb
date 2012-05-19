@@ -1,12 +1,14 @@
-<%=
-if @sample
-  render @sample 
-end
-%>
-<script src="pfxed.js"></script>
+<script src="/pfxed.js"></script>
 <script>
 $(function () {
   init($("#content"));
+
+  <% if @sample %>
+  $("#init-function").val("<%= @sample.init_function %>");
+  $("#draw-function").val("<%= @sample.draw_function %>");
+  $("#update-function").val("<%= @sample.update_function %>");
+  <% end %>
+
 });
 </script>
 <style>
