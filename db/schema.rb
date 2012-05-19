@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120317172201) do
+ActiveRecord::Schema.define(:version => 20120519202240) do
+
+  create_table "bills", :force => true do |t|
+    t.string   "bill"
+    t.integer  "congress"
+    t.string   "title"
+    t.string   "sponsor"
+    t.date     "introduced_date"
+    t.string   "committees"
+    t.date     "latest_major_action_date"
+    t.string   "latest_major_action"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "pfxed_samples", :force => true do |t|
+    t.string   "name"
+    t.text     "init_function"
+    t.text     "draw_function"
+    t.text     "update_function"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
