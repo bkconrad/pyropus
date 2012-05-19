@@ -6,6 +6,10 @@ Pyropus::Application.routes.draw do
 
   resources :things
 
+  controller :pfxed do
+    get "pfxed/" => :index
+  end
+
   root to: 'posts#index'
 
   controller :session do
