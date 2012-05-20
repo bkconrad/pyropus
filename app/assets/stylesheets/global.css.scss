@@ -121,6 +121,18 @@ textarea {
     padding-left: 2*$basesize;
     list-style-type: square;
   }
+
+  code {
+    background: $shadowcolor;
+    padding: 0px .5*$basesize;
+  }
+
+  pre > code {
+    margin-bottom: $basesize;
+    padding: $basesize 0 $basesize $basesize - 1;
+    border: $shadowcolor 1px solid;
+    display: block;
+  }
 }
 
 .clearfix {
