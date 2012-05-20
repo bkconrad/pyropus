@@ -111,6 +111,9 @@ textarea {
     padding-bottom: $basesize - 2;
     border-bottom: 1px dotted $shadowcolor;
   }
+  p {
+    text-align: justify;
+  }
   a {
     color: $contentlinkcolor;
   }
