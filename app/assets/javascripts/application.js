@@ -47,7 +47,10 @@ function retrievePage(ev, e) {
   $("#content").html($("#content", dom).html());
   $("#page_title").html($("#page_title", dom).html());
   $("#content").fadeIn(fadeTime);
-  Pyropus.error($("#alert", dom).html());
+
+  var errors = $("#alert", dom).html();
+  if (errors)
+    Pyropus.error(errors);
 
   // rebind the new elements with this callback
   $("#content [data-remote]=true").bind("ajax:complete", retrievePage);
@@ -66,8 +69,8 @@ function retrievePage(ev, e) {
 function ajaxLoading(ev, e) {
   ajaxLoadingState = 1;
 
-  $("#notice").hide();
-  $("#alert").hide();
+  $("#notice").fadeOut();
+  $("#alert").fadeOut();
 
   $("#content").fadeOut(fadeTime, function() {
     ajaxLoadingState = 2;
