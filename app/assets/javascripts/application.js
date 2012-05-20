@@ -22,7 +22,6 @@
 
 (function () {
 var ajaxLoadingState = 0;
-var intervalId;
 var fadeTime = 75
 var sourceUrl;
 
@@ -35,33 +34,24 @@ function retrievePage(ev, e) {
   }
   var dom = $(e.responseText);
 
-  intervalId = setInterval(function() {
-    if (ajaxLoadingState !== 2) {
-      return;
-    }
+  // replace the content and header
+  $("#menubar").html($("#menubar", dom).html());
+  $("#content").html($("#content", dom).html());
+  $("#page_title").html($("#page_title", dom).html());
+  $("#content").fadeIn(fadeTime);
 
-    // replace the content and header
-    $("#menubar").html($("#menubar", dom).html());
-    $("#content").html($("#content", dom).html());
-    $("#page_title").html($("#page_title", dom).html());
-    $("#content").fadeIn(fadeTime);
+  // rebind the new elements with this callback
+  $("#content [data-remote]=true").bind("ajax:complete", retrievePage);
+  $("#content [data-remote]=true").bind("ajax:before", ajaxLoading);
 
-    // rebind the new elements with this callback
-    $("#content [data-remote]=true").bind("ajax:complete", retrievePage);
-    $("#content [data-remote]=true").bind("ajax:before", ajaxLoading);
+  $("#menubar [data-remote]=true").bind("ajax:complete", retrievePage);
+  $("#menubar [data-remote]=true").bind("ajax:before", ajaxLoading);
+  window.history.pushState(null, "Pyropus", sourceUrl);
 
-    $("#menubar [data-remote]=true").bind("ajax:complete", retrievePage);
-    $("#menubar [data-remote]=true").bind("ajax:before", ajaxLoading);
-    window.history.pushState(null, "Pyropus", sourceUrl);
-
-    clearInterval(intervalId);
-
-    // this is the main hook for "Things"
-    try {
-      document.bootstrap();
-    } catch (e) {}
-
-  }, 25);
+  // this is the main hook for "Things"
+  try {
+    document.bootstrap();
+  } catch (e) {}
 }
 
 function ajaxLoading(ev, e) {
