@@ -34,7 +34,7 @@ $(function () {
   $("#sample-id").val("<%= @sample.id %>");
   <% end %>
 
-  $("#pfxed-admin").submit(saveSample);
+  $("#save-sample").click(saveSample);
 
   // get sample list
   $.ajax({
@@ -58,12 +58,8 @@ $(function () {
 }
 </style>
 
-<form id="pfxed-admin">
-  <select id="sample-select">
-  </select>
-  <input type="hidden" id="sample-id" name="id">
-  <input type="hidden" id="function" name="id">
-  <input type="hidden" id="sample-id" name="id">
-  <input type="hidden" id="sample-id" name="id">
-  <input type="submit" value="save">
-</form>
+<select id="sample-select">
+</select>
+<input type="hidden" id="sample-id" name="id">
+<button id="#new-sample">New</button>
+<button id="#save-sample">Save</button>
