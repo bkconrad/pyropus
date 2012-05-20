@@ -5,6 +5,13 @@ class PfxedController < ApplicationController
     page_title "Particle Effects"
   end
 
+  def list
+    @list = PfxedSample.select([:name, :id])
+    respond_to do |format|
+      format.json { render json: @list }
+    end
+  end
+
   def show
     @sample = PfxedSample.find(params[:id])
 

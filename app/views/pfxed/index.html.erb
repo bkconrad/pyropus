@@ -36,6 +36,20 @@ $(function () {
 
   $("#pfxed-admin").submit(saveSample);
 
+  // get sample list
+  $.ajax({
+    url: "/pfxed/list",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      for (var i in data) {
+        $("#sample-select").append(
+          $("<option value='" + data[i].id + "'>" + data[i].name + "</option>")
+        );
+      }
+    }
+  });
+
 });
 </script>
 <style>
@@ -45,6 +59,8 @@ $(function () {
 </style>
 
 <form id="pfxed-admin">
+  <select id="sample-select">
+  </select>
   <input type="hidden" id="sample-id" name="id">
   <input type="hidden" id="function" name="id">
   <input type="hidden" id="sample-id" name="id">

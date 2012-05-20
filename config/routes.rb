@@ -5,7 +5,11 @@ Pyropus::Application.routes.draw do
   end
 
   resources :things
-  resources :pfxed
+  resources :pfxed do
+    collection do
+      get "list"
+    end
+  end
 
   root to: 'posts#index'
 
