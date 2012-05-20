@@ -88,7 +88,7 @@ textarea {
 
 #wrapper {
   /* background: rgba(26,37,57,0.6); */
-  max-width: 640px;
+  max-width: 800px;
   padding: $basesize;
   margin: auto;
   margin-top: $basesize;
@@ -102,8 +102,8 @@ textarea {
   clear: left;
   float: left;
   font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
-  max-width: 480px-$basesize;
-  width: 480px-$basesize;
+  max-width: 640px-(2*$basesize);
+  width: 640px-(2*$basesize);
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;

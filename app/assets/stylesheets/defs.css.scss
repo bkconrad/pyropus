@@ -30,7 +30,7 @@ $contentlinkcolor: $linkcolor;
 
 
 /* The base unit for scheme */
-$basesize: 12px;
+$basesize: 14px;
 
 @mixin hardware($light, $dark) {
   text-shadow: 1px 1px 1px lighten($dark, 65%);
