@@ -14,6 +14,7 @@ $(function () {
             $("<option value='" + data[i].id + "'>" + data[i].name + "</option>")
           );
         }
+        $("#sample-select").val($("#sample-id").val());
       }
     });
   }
@@ -38,6 +39,7 @@ $(function () {
         $("#draw-function").val(data.draw_function);
         $("#update-function").val(data.update_function);
         $("#sample-id").val(data.id);
+        $("#sample-name").val(data.name);
       }
     });
 
@@ -51,6 +53,7 @@ $(function () {
         init_function: $("#init-function").val(),
         draw_function: $("#draw-function").val(),
         update_function: $("#update-function").val(),
+        name: $("#sample-name").val()
       }
     };
 
@@ -60,7 +63,7 @@ $(function () {
       dataType: "json",
       data: data,
       success: function (d) {
-        console.log(d);
+        listSamples();
       }
     });
 
@@ -74,6 +77,7 @@ $(function () {
   $("#draw-function").val("<%=j @sample.draw_function %>");
   $("#update-function").val("<%=j @sample.update_function %>");
   $("#sample-id").val("<%= @sample.id %>");
+  $("#sample-name").val("<%= @sample.name %>");
   <% end %>
 
   listSamples();
@@ -93,5 +97,6 @@ $(function () {
 <select id="sample-select">
 </select>
 <input type="hidden" id="sample-id" name="id">
+<input type="text" id="sample-name">
 <button id="new-sample">New</button>
 <button id="save-sample">Save</button>
