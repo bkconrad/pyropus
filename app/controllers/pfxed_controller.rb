@@ -23,6 +23,15 @@ class PfxedController < ApplicationController
     end
   end
 
+  def destroy
+    @sample = PfxedSample.find(params[:id])
+    @sample.destroy
+
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
   def show
     @sample = PfxedSample.find(params[:id])
 

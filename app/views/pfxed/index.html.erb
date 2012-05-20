@@ -46,6 +46,17 @@ $(function () {
     return false;
   }
 
+  function deleteSample () {
+    $.ajax({
+      url: "/pfxed/" + $("#sample-id").val(),
+      type: "DELETE",
+      dataType: "json",
+      success: function (d) {
+        listSamples();
+      }
+    });
+  }
+
   function saveSample () {
     var data = {
       id: $("#sample-id").val(),
@@ -84,6 +95,7 @@ $(function () {
 
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
+  $("#delete-sample").click(deleteSample);
   $("#sample-select").change(loadSample);
 
 });
@@ -100,3 +112,4 @@ $(function () {
 <input type="text" id="sample-name">
 <button id="new-sample">New</button>
 <button id="save-sample">Save</button>
+<button id="delete-sample">Delete</button>
