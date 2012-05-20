@@ -1,5 +1,5 @@
 class PfxedController < ApplicationController
-  skip_before_filter :authorize, only: [:index, :show]
+  skip_before_filter :authorize, only: [:index, :show, :list]
 
   def index
     page_title "Particle Effects"
