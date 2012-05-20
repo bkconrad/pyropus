@@ -5,6 +5,7 @@ Pyropus::Application.routes.draw do
   end
 
   resources :things
+  match "pfxed" => "pfxed#show"
   resources :pfxed do
     collection do
       get "list"

@@ -35,7 +35,7 @@ class PfxedController < ApplicationController
   def show
     page_title "Particle Effects"
 
-    id = params[:id]
+    id = params[:id] || "random"
     if id == "random"
       ids = PfxedSample.select(:id)
       id = ids[rand ids.length]
