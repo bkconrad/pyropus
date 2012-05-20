@@ -83,7 +83,7 @@ textarea {
   font-family: sans-serif;
   font-size: $basesize;
   text-transform: none;
-  text-shadow: none;
+  text-shadow: 1px 1px 1px $shadowcolor;
 }
 
 #wrapper {
