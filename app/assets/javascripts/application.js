@@ -19,6 +19,8 @@
  * 2 = pre-request effect completed
  * 3 = post-request effect
  */
+
+(function () {
 var ajaxLoadingState = 0;
 var intervalId;
 var fadeTime = 75
@@ -78,3 +80,5 @@ $(window).ready(function () {
   $("[data-remote]=true").bind("ajax:complete", retrievePage);
   $("[data-remote]=true").bind("ajax:before", ajaxLoading);
 });
+
+})();
