@@ -28,8 +28,9 @@ $(document).ready(function () {
   }
 
   function loadSample () {
+    var id = $("#sample-select").val() || $("#sample-id").val();
     $.ajax({
-      url: "/pfxed/" + $("#sample-select").val(),
+      url: "/pfxed/" + id,
       dataType: "json",
       success: function (data) {
         $("#init-function").val(data.init_function);
@@ -94,6 +95,7 @@ $(document).ready(function () {
   init($("#content"));
 
   listSamples();
+  loadSample();
 
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
