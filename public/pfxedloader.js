@@ -92,7 +92,7 @@ $(document).ready(function () {
     return false;
   }
 
-  init($("#content"));
+  PfxEd.init($("#content"));
 
   listSamples();
   loadSample();
