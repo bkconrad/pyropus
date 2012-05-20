@@ -2,13 +2,29 @@
 <script>
 
 $(function () {
+  function listSamples () {
+    $.ajax({
+      url: "/pfxed/list",
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        $("#sample-select").html("");
+        for (var i in data) {
+          $("#sample-select").append(
+            $("<option value='" + data[i].id + "'>" + data[i].name + "</option>")
+          );
+        }
+      }
+    });
+  }
+
   function newSample () {
     $.ajax({
       url: "/pfxed",
       type: "POST",
       dataType: "json",
       success: function (d) {
-        console.log(d);
+        listSamples();
       }
     });
   }
@@ -60,23 +76,11 @@ $(function () {
   $("#sample-id").val("<%= @sample.id %>");
   <% end %>
 
+  listSamples();
+
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
   $("#sample-select").change(loadSample);
-
-  // get sample list
-  $.ajax({
-    url: "/pfxed/list",
-    dataType: "json",
-    success: function (data) {
-      console.log(data);
-      for (var i in data) {
-        $("#sample-select").append(
-          $("<option value='" + data[i].id + "'>" + data[i].name + "</option>")
-        );
-      }
-    }
-  });
 
 });
 </script>
