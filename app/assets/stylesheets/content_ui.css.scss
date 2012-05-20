@@ -1,6 +1,6 @@
 @import "defs";
 #content button, #content input, #content select {
-  @include hardware;
+  @include hardware($linkcolor, $shadowcolor);
   margin: 0 $basesize .5*$basesize 0;
   margin-right: .5*$basesize;
   line-height: $basesize - 2;

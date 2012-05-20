@@ -81,3 +81,23 @@ $(window).ready(function () {
 });
 
 })();
+
+var Pyropus = (function () {
+  var errorTimeout;
+
+  function error (str) {
+    clearTimeout(errorTimeout);
+    $("#alert").html(str);
+    $("#alert").fadeIn();
+    $("#alert").click(function () {
+      $(this).fadeOut();
+    });
+    errorTimeout = setTimeout(function () {
+      $("#alert").fadeOut();
+    }, 5000);
+  }
+
+  return {
+    error: error
+  };
+})();

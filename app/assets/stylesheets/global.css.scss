@@ -71,12 +71,19 @@ textarea {
 }
 
 #alert, #notice {
+  @include hardware(#c1665a, white);
   padding: .5*$basesize;
-  background: #FFF;
   max-width: 640px-(2*$basesize);
   margin: 0 auto $basesize auto;
   /* TODO: re-enable notice and alert */
   display: none;
+  position: fixed;
+  right: $basesize;
+  top: $basesize;
+  font-family: sans-serif;
+  font-size: $basesize;
+  text-transform: none;
+  text-shadow: none;
 }
 
 #wrapper {

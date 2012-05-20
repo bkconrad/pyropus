@@ -1,6 +1,6 @@
 @import "defs";
 #nav_login {
-  @include hardware;
+  @include hardware($linkcolor, $shadowcolor);
 
   width: 160px-$basesize;
   display: block;
