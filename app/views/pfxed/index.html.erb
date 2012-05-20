@@ -2,6 +2,17 @@
 <script>
 
 $(function () {
+  function newSample () {
+    $.ajax({
+      url: "/pfxed",
+      type: "POST",
+      dataType: "json",
+      success: function (d) {
+        console.log(d);
+      }
+    });
+  }
+
   function saveSample () {
     var data = {
       id: $("#sample-id").val(),
@@ -35,6 +46,7 @@ $(function () {
   <% end %>
 
   $("#save-sample").click(saveSample);
+  $("#new-sample").click(newSample);
 
   // get sample list
   $.ajax({
@@ -61,5 +73,5 @@ $(function () {
 <select id="sample-select">
 </select>
 <input type="hidden" id="sample-id" name="id">
-<button id="#new-sample">New</button>
-<button id="#save-sample">Save</button>
+<button id="new-sample">New</button>
+<button id="save-sample">Save</button>

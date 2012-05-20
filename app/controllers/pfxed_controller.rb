@@ -5,6 +5,17 @@ class PfxedController < ApplicationController
     page_title "Particle Effects"
   end
 
+  def create
+    @sample = PfxedSample.new(params[:sample])
+    respond_to do |format|
+      if @sample.save
+        format.json { render json: @sample, status: :created }
+      else
+        format.json { render json: @sample.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def list
     @list = PfxedSample.select([:name, :id])
     respond_to do |format|
