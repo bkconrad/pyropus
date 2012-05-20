@@ -38,6 +38,11 @@ $(document).ready(function () {
         $("#update-function").val(data.update_function);
         $("#sample-id").val(data.id);
         $("#sample-name").val(data.name);
+
+        PfxEd.stop();
+        PfxEd.start();
+        PfxEd.run();
+
       }
     });
   }
@@ -53,6 +58,10 @@ $(document).ready(function () {
         $("#sample-id").val(data.id);
         $("#sample-name").val(data.name);
         $("#sample-select").val($("#sample-id").val());
+
+        PfxEd.stop();
+        PfxEd.start();
+        PfxEd.run();
       }
     });
   }
