@@ -94,7 +94,7 @@ var Pyropus = (function () {
     });
     errorTimeout = setTimeout(function () {
       $("#alert").fadeOut();
-    }, 5000);
+    }, 15000);
   }
 
   return {
