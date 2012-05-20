@@ -42,8 +42,21 @@ $(function () {
         $("#sample-name").val(data.name);
       }
     });
+  }
 
-    return false;
+  function loadRandomSample () {
+    $.ajax({
+      url: "/pfxed/random",
+      dataType: "json",
+      success: function (data) {
+        $("#init-function").val(data.init_function);
+        $("#draw-function").val(data.draw_function);
+        $("#update-function").val(data.update_function);
+        $("#sample-id").val(data.id);
+        $("#sample-name").val(data.name);
+        $("#sample-select").val($("#sample-id").val());
+      }
+    });
   }
 
   function deleteSample () {
@@ -96,6 +109,7 @@ $(function () {
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
   $("#delete-sample").click(deleteSample);
+  $("#random-sample").click(loadRandomSample);
   $("#sample-select").change(loadSample);
 
 });
@@ -113,3 +127,4 @@ $(function () {
 <button id="new-sample">New</button>
 <button id="save-sample">Save</button>
 <button id="delete-sample">Delete</button>
+<button id="random-sample">Random</button>

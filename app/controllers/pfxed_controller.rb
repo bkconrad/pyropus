@@ -33,7 +33,14 @@ class PfxedController < ApplicationController
   end
 
   def show
-    @sample = PfxedSample.find(params[:id])
+    id = params[:id]
+
+    if id == "random"
+      ids = PfxedSample.select(:id)
+      id = ids[rand ids.length]
+    end
+
+    @sample = PfxedSample.find(id)
 
     respond_to do |format|
       format.html { render :index }
