@@ -1,3 +1,4 @@
+<div class="thing">
 <%= raw @thing.description %>
 
 <% if admin? %>
@@ -5,3 +6,4 @@
 <% end %>
 <%= link_to 'View Thing', :controller => @thing.path %>
 <%= link_to 'Back', things_path %>
+</div>

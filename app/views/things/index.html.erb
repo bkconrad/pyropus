@@ -1,5 +1,5 @@
-<div>
 <% @things.each do |thing| %>
+  <div class="thing">
     <h1><%= thing.name %></h1>
     <p><%= raw thing.description %></p>
     <span><%= ajax_link_to 'Read More', thing %></span>
@@ -8,6 +8,7 @@
       <span><%= ajax_link_to 'Edit', edit_thing_path(thing) %></span>
       <span><%= ajax_link_to 'Destroy', thing, confirm: 'Are you sure?', method: :delete %></span>
     <% end %>
+  </div>
 <% end %>
 
 <% if admin? %>
@@ -15,4 +16,3 @@
     <%= ajax_link_to 'New Thing', new_thing_path %>
   </p>
 <% end %>
-</div>

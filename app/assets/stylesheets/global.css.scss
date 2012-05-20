@@ -137,6 +137,11 @@ textarea {
     border: $shadowcolor 1px solid;
     display: block;
   }
+
+  h1 {
+    text-shadow: 2px 2px 0px #000;
+    color: white;
+  }
 }
 
 .clearfix {
