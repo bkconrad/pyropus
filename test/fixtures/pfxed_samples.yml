@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  init: MyText
+  draw: MyText
+  update: MyText
+
+two:
+  name: MyString
+  init: MyText
+  draw: MyText
+  update: MyText
