@@ -1,33 +1,9 @@
 @import "defs";
 #nav_login {
-    text-shadow: 1px 1px 1px lighten($shadowcolor, 75%);
-  border-top: 1px solid lighten($linkcolor, 15%);
-  border-left: 1px solid lighten($linkcolor, 15%);
-  border-right: 1px solid darken($linkcolor, 25%);
-  border-bottom: 1px solid darken($linkcolor, 25%);
+  @include hardware;
+
   width: 160px-$basesize;
-  color: $shadowcolor;
-  text-align: right;
-  text-transform: uppercase;
   display: block;
-  margin-bottom: $basesize;
-  padding: .5*$basesize - 1px;
-  font-family: "Droid Sans Mono", "Nova Mono", monospace;
-  font-size: $basesize*.8;
-  $loginshadowsize: 6*$basesize;
-  border-radius: $basesize/4 $basesize/4;
-
-background: -moz-linear-gradient(top,  rgba(255,255,255,0.33) 0%, rgba(128,128,128,0) 50%, rgba(0,0,0,0.21) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.33)), color-stop(50%,rgba(128,128,128,0)), color-stop(100%,rgba(0,0,0,0.21))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54ffffff', endColorstr='#36000000',GradientType=0 ); /* IE6-9 */
-  
-  box-shadow: 1px 1px $basesize -2px black;
-
-background-color: $linkcolor;
 
   a {
     color: $shadowcolor;
