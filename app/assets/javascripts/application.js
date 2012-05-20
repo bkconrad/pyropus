@@ -47,6 +47,7 @@ function retrievePage(ev, e) {
   $("#content").html($("#content", dom).html());
   $("#page_title").html($("#page_title", dom).html());
   $("#content").fadeIn(fadeTime);
+  Pyropus.error($("#alert", dom).html());
 
   // rebind the new elements with this callback
   $("#content [data-remote]=true").bind("ajax:complete", retrievePage);
