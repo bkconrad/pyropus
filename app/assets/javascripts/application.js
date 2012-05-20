@@ -97,6 +97,10 @@ var Pyropus = (function () {
     }, 15000);
   }
 
+  $(document).ajaxError(function (a,b,c) {
+    error("An error has occured:</br><pre>" + b.status + ": " + b.statusText + "</pre>");
+  });
+
   return {
     error: error
   };
