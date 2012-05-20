@@ -14,7 +14,7 @@ class SessionController < ApplicationController
       if @successful
         format.html { redirect_back }
       else
-        format.html { redirect_to login_url, alert: "Incorrect user/password" }
+        format.html { redirect_back alert: "Incorrect user/password" }
       end
     end
   end
