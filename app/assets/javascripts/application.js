@@ -25,13 +25,21 @@ var ajaxLoadingState = 0;
 var fadeTime = 75
 var sourceUrl;
 
+function pullScripts(text) {
+  var scripts = $("script", text).get();
+  for (var i in scripts) {
+    console.log(scripts[i].type);
+    if(scripts[i].type === "text/x-pyropus-js") {
+      $.getScript(scripts[i].getAttribute("href"));
+    }
+  }
+}
+
 function retrievePage(ev, e) {
 
   // get the url from the link or form
-  sourceUrl = $(this).context.href;
-  if (sourceUrl === undefined) {
-    sourceUrl = $(this).context.action;
-  }
+  sourceUrl = $(this).context.href || $(this).context.action;
+  pullScripts(e.responseText);
   var dom = $(e.responseText);
 
   // replace the content and header
@@ -69,6 +77,7 @@ $(window).ready(function () {
 //  $(".ajaxLink").click(ajaxNavigationLink);
   $("[data-remote]=true").bind("ajax:complete", retrievePage);
   $("[data-remote]=true").bind("ajax:before", ajaxLoading);
+  pullScripts($(document).html());
 });
 
 })();
