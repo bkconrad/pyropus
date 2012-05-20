@@ -1,0 +1,36 @@
+@import "defs";
+#content button, #content input, #content select {
+  @include hardware;
+  margin: 0 $basesize .5*$basesize 0;
+  margin-right: .5*$basesize;
+  line-height: $basesize - 2;
+  padding: .25*$basesize;
+  font-weight: bold;
+  font-family: sans-serif;
+  box-shadow: 1px 1px .5*$basesize -2px black;
+}
+
+#content button:hover {
+  background-color: lighten($linkcolor, 10%);
+  cursor: pointer;
+}
+
+#content button:active {
+  position: relative;
+  top: 2px;
+}
+
+#content input {
+  background: lighten($linkcolor, 15%);
+  border-color: $shadowcolor;
+  text-shadow: none;
+}
+
+#content input, #content select {
+  text-transform: none;
+}
+
+#content input:focus, #content button:focus, #content select:focus {
+  outline: none;
+  background-color: lighten($linkcolor, 20%);
+}
