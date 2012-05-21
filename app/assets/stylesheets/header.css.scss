@@ -27,7 +27,7 @@
 
 #page_title {
   float: right;
-  font-size: 3*$basesize;
+  font-size: 2*$basesize;
   line-height: 3*$basesize;
 }
 #navlinks {
@@ -42,8 +42,8 @@
   }
   a {
     display: block;
-    width: 160px-$basesize;
-    padding-right: $basesize;
+    width: 160px-($basesize/2);
+    padding-right: ($basesize/2);
   }
   a:hover, a:focus, a:active {
     background: $linkcolor;
