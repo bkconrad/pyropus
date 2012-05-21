@@ -8,9 +8,17 @@
   font-weight: normal;
   font-style: normal;
 }
+
+/* palette */
+$theme: #b5600b;
+$highlight: #e69e2f;
+$shadow: #693909;
+$offblack: none;
+$offwhite: none;
+
 $bg: #F8F8F8;
 
-$shadowcolor: #444;
+$shadowcolor: $shadow;
 $menubarcolor: none;
 $menubartextcolor: white;
 $loginlabeltextcolor: $shadowcolor;
@@ -20,11 +28,11 @@ $wrapperbg: $bg;
 $wrapperbordercolor: #0f1521;
 
 $maintextcolor: #FFF;
-$linkcolor: #AAA;
+$linkcolor: $theme;
 
 $contentdivbackground: none;
 $contentdivtextcolor: black;
-$contentlinkcolor: $linkcolor;
+$contentlinkcolor: $shadow;
 
 
 /* The base unit for scheme */

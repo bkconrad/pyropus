@@ -1,9 +1,10 @@
 @import "defs";
 
 #titlebar {
-  height: 3*$basesize;
+  padding: $basesize 0;
   margin-bottom: 2*$basesize;
-  color: $linkcolor;
+  border-bottom: 3px solid black;
+  color: black;
   > * {
     display: inline-block;
   }
@@ -20,15 +21,14 @@
 
 #site_title {
   font-weight: bold;
-  font-size: 5*$basesize;
+  font-size: 3*$basesize;
   line-height: 3*$basesize;
 }
 
 #page_title {
   float: right;
   font-size: 3*$basesize;
-  line-height: 2*$basesize;
-  margin-top: $basesize;
+  line-height: 3*$basesize;
 }
 #navlinks {
   background: #EEE;
