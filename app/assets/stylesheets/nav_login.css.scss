@@ -2,28 +2,39 @@
 #nav_login {
   text-align: right;
   background: #DDD;
+
   input, label {
     margin: 0 .5*$basesize;
     line-height: $basesize;
     height: $basesize;
   }
+
   input {
     display: block;
     padding: 0;
     border: none;
     max-width: 160px-$basesize;
   }
+
   input[type="submit"] {
     line-height: 2*$basesize;
     height: 2*$basesize;
     display: inline;
   }
+
   label {
     font-size: -3 + $basesize;
     float: left;
     color: black;
   }
+
+  #username {
+    float: left;
+    margin-left: .5*$basesize;
+  }
+
   #logout {
+    margin-right: .5*$basesize;
   }
 }
 
