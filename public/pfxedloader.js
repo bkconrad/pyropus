@@ -23,6 +23,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (d) {
         listSamples();
+        Pyropus.notice("Created successfully");
       }
     });
   }
@@ -73,6 +74,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (d) {
         listSamples();
+        Pyropus.notice("Deleted successfully");
       }
     });
   }
@@ -95,6 +97,7 @@ $(document).ready(function () {
       data: data,
       success: function (d) {
         listSamples();
+        Pyropus.notice("Saved successfully");
       }
     });
 
