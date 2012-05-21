@@ -1,6 +1,5 @@
 @import "defs";
 #busy {
-  font-family: "Sans Sara";
   height: 32px;
   padding: 0;
   padding-left: 16px;
@@ -24,7 +23,6 @@
 body {
   color: $maintextcolor;
   background: $bg;
-  background-image: url(noise.png);
 
   /* always want a scrollbar, otherwise the page jumps as they turn on/off */
   overflow: scroll;
@@ -58,7 +56,7 @@ a, a:visited, a:active {
 }
 
 a:hover {
-  color: white;
+  color: $shadowcolor;
   text-decoration: underline;
 }
 
@@ -80,10 +78,8 @@ textarea {
   position: fixed;
   right: $basesize;
   top: $basesize;
-  font-family: sans-serif;
   font-size: $basesize;
   text-transform: none;
-  text-shadow: 1px 1px 1px $shadowcolor;
 }
 
 #wrapper {
@@ -101,7 +97,6 @@ textarea {
   padding: 0;
   clear: left;
   float: left;
-  font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
   max-width: 640px-(2*$basesize);
   width: 640px-(2*$basesize);
   > div {
@@ -139,8 +134,7 @@ textarea {
   }
 
   h1 {
-    text-shadow: 2px 2px 0px #000;
-    color: white;
+    color: $linkcolor;
   }
 }
 

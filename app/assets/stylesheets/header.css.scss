@@ -1,9 +1,9 @@
 @import "defs";
 
 #titlebar {
-  text-shadow: 2px 2px 0 #000;
   height: 3*$basesize;
   margin-bottom: 2*$basesize;
+  color: $linkcolor;
   > * {
     display: inline-block;
   }
@@ -19,21 +19,19 @@
 }
 
 #site_title {
-  font-family: "Sans Sara";
+  font-weight: bold;
   font-size: 5*$basesize;
   line-height: 3*$basesize;
-  color: white;
 }
 
 #page_title {
   float: right;
   font-size: 3*$basesize;
-  font-family: "Bebas Neue";
   line-height: 2*$basesize;
   margin-top: $basesize;
 }
 #navlinks {
-  background: $shadowcolor;
+  background: #EEE;
   clear: both;
   float: right;
   width: 100%;
@@ -46,12 +44,6 @@
     display: block;
     width: 160px-$basesize;
     padding-right: $basesize;
-    /*
-    -o-transition: background-color 250ms ease-in-out;
-    -webkit-transition: background-color 250ms ease-in-out;
-    -moz-transition: background-color 250ms ease-in-out;
-    transition: background-color 250ms ease-in-out;
-    */
   }
   a:hover, a:focus, a:active {
     background: $linkcolor;
@@ -61,6 +53,5 @@
 }
 
 #navlinks a {
-  font-family: "Bebas Neue";
   font-size: 1.5*$basesize;
 }
