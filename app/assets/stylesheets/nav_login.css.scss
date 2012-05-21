@@ -1,6 +1,6 @@
 @import "defs";
 #nav_login {
-  text-align: center;
+  text-align: right;
   background: #DDD;
   input, label {
     margin: 0 .5*$basesize;
@@ -16,6 +16,7 @@
   input[type="submit"] {
     line-height: 2*$basesize;
     height: 2*$basesize;
+    display: inline;
   }
   label {
     font-size: -3 + $basesize;
