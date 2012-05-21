@@ -39,4 +39,6 @@ $contentlinkcolor: $shadow;
 $basesize: 14px;
 
 @mixin hardware($light, $dark) {
+  background: $light;
+  color: $dark;
 }

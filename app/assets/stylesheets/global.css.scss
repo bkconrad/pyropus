@@ -68,18 +68,29 @@ textarea {
   width: 100%;
 }
 
+#messages {
+  position: fixed;
+  right: $basesize;
+  top: $basesize;
+}
+
 #alert, #notice {
-  @include hardware(#c1665a, white);
   padding: .5*$basesize;
   max-width: 640px-(2*$basesize);
   margin: 0 auto $basesize auto;
   /* TODO: re-enable notice and alert */
   display: none;
-  position: fixed;
-  right: $basesize;
-  top: $basesize;
   font-size: $basesize;
   text-transform: none;
+  border-radius: $basesize/2;
+}
+
+#alert {
+  @include hardware(red, white);
+}
+
+#notice {
+  @include hardware(green, white);
 }
 
 #wrapper {

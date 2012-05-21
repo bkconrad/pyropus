@@ -87,18 +87,35 @@ $(window).ready(function () {
 })();
 
 var Pyropus = (function () {
-  var errorTimeout;
+  var MESSAGE = 0
+    , NOTICE = 1
+    , ERROR = 2
+
+  var messageTimeouts = [];
+  var displayTime = 15000;
 
   function error (str) {
-    clearTimeout(errorTimeout);
+    clearTimeout(messageTimeouts[ERROR]);
     $("#alert").html(str);
     $("#alert").fadeIn();
     $("#alert").click(function () {
       $(this).fadeOut();
     });
-    errorTimeout = setTimeout(function () {
+    messageTimeouts[ERROR] = setTimeout(function () {
       $("#alert").fadeOut();
-    }, 15000);
+    }, displayTime);
+  }
+
+  function notice (str) {
+    clearTimeout(messageTimeouts[NOTICE]);
+    $("#notice").html(str);
+    $("#notice").fadeIn();
+    $("#notice").click(function () {
+      $(this).fadeOut();
+    });
+    messageTimeouts[NOTICE] = setTimeout(function () {
+      $("#notice").fadeOut();
+    }, displayTime);
   }
 
   $(document).ajaxError(function (ev, xhr, ajaxSettings, err) {
@@ -106,6 +123,7 @@ var Pyropus = (function () {
   });
 
   return {
-    error: error
+    error: error,
+    notice: notice
   };
 })();
