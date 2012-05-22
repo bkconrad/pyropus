@@ -2,7 +2,7 @@
 $uiborderradius: .25*$basesize;
 $uibordercolor: #888;
 #content button, #content input, #content select {
-  margin: .5*$basesize 0;
+  margin: 0 0 $basesize 0;
   line-height: $basesize - 2;
   padding: .25*$basesize;
   font-family: sans-serif;
@@ -26,6 +26,13 @@ $uibordercolor: #888;
 }
 
 #content button:hover {
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.65) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.25)), color-stop(100%,rgba(255,255,255,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#a6ffffff',GradientType=0 ); /* IE6-9 */
   cursor: pointer;
 }
 
@@ -42,16 +49,8 @@ $uibordercolor: #888;
 }
 
 #content button:active {
-background: -moz-linear-gradient(top,  rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.65) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.25)), color-stop(100%,rgba(255,255,255,0.65))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.65) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#a6ffffff',GradientType=0 ); /* IE6-9 */
   position: relative;
   top: 1px;
-  text-shadow: -1px -1px 1px #EEE;
 }
 
 #content input {
