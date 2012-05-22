@@ -72,4 +72,16 @@ $uibordercolor: #888;
 
 #content fieldset {
   display: inline;
+  padding: 0 .5*$basesize;
+  margin: 0 $basesize $basesize 0;
+  border: 1px solid $uibordercolor;
+  vertical-align: top;
+  legend {
+    background: black;
+    color: white;
+    padding: 0 $basesize;
+    font-size: ($basesize - 2);
+    font-family: monospace;
+    line-height: $basesize;
+  }
 }
