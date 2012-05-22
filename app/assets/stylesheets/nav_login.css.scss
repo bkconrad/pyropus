@@ -17,14 +17,20 @@
   }
 
   input[type="submit"] {
+    width: 100%;
     line-height: 2*$basesize;
     height: 2*$basesize;
     display: inline;
+    margin: .5*$basesize;
+  }
+
+  input[type="submit"]:hover {
+    background: white;
   }
 
   label {
+    text-shadow: 1px 1px 1px white;
     font-size: -3 + $basesize;
-    float: left;
     color: black;
   }
 
