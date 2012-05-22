@@ -29,7 +29,6 @@
   }
 
   label {
-    text-shadow: 1px 1px 1px white;
     font-size: -3 + $basesize;
     color: black;
   }
@@ -41,6 +40,10 @@
 
   #logout {
     margin-right: .5*$basesize;
+  }
+
+  label, #username, #logout {
+    text-shadow: 1px 1px 1px white;
   }
 }
 
