@@ -4,6 +4,8 @@ Pyropus::Application.routes.draw do
     get "congress/" => :index
   end
 
+  match "about" => redirect("/posts/4")
+
   resources :things
   match "pfxed" => "pfxed#show"
   resources :pfxed do
