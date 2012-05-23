@@ -1,14 +1,16 @@
 @import "defs";
 $uiborderradius: .25*$basesize;
 $uibordercolor: #888;
+$uibackgroundcolor: #EEE;
 #content button, #content input, #content select {
   margin: 0 0 $basesize 0;
   line-height: $basesize - 2;
   padding: .25*$basesize;
   font-family: sans-serif;
+  height: (2*$basesize)-2;
   box-shadow: 1px 1px .5*$basesize -2px black;
   border: 1px solid $uibordercolor;
-  height: (2*$basesize)-2;
+  background-color: $uibackgroundcolor;
 }
 
 #content button {
