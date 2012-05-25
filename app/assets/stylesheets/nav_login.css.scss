@@ -2,26 +2,28 @@
 #nav_login {
   text-align: right;
   background: #DDD;
+  padding: .5*$basesize;
 
   input, label {
-    margin: 0 .5*$basesize;
     line-height: $basesize;
-    height: $basesize;
+    height: 1.5*$basesize;
+    margin: 0 0 .5*$basesize 0;
+    width: 160px - 2*$basesize;
+    padding: 0 .5*$basesize;
   }
 
   input {
     display: block;
-    padding: 0;
     border: none;
-    max-width: 160px-$basesize;
   }
 
   input[type="submit"] {
-    width: 100%;
     line-height: 2*$basesize;
     height: 2*$basesize;
     display: inline;
-    margin: .5*$basesize;
+    margin: 0;
+    width: 100%;
+    background: #EEE;
   }
 
   input[type="submit"]:hover {
@@ -34,12 +36,9 @@
   }
 
   #username {
-    float: left;
-    margin-left: .5*$basesize;
   }
 
   #logout {
-    margin-right: .5*$basesize;
   }
 
   label, #username, #logout {
