@@ -3,6 +3,7 @@
   text-align: right;
   background: #DDD;
   padding: .5*$basesize;
+  background: $highlight;
 
   input, label {
     line-height: $basesize;

@@ -31,7 +31,6 @@
   line-height: 3*$basesize;
 }
 #navlinks {
-  background: #EEE;
   clear: both;
   float: right;
   width: 100%;
@@ -46,8 +45,8 @@
     padding-right: ($basesize/2);
   }
   a:hover, a:focus, a:active {
-    background: $linkcolor;
-    color: white;
+    color: black;
+    background: $accent;
     outline: 0px;
   }
 }
