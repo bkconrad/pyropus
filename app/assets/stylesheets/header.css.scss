@@ -28,6 +28,7 @@
 }
 #navlinks {
   width: 100%;
+  text-align: left;
   li {
     display: inline-block;
     list-style-type: none;
@@ -37,14 +38,13 @@
   }
   a {
     display: block;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dashed black;
   }
   a:hover, a:focus, a:active {
     color: black;
-    background: $accent;
     outline: 0px;
+    border-bottom: 1px solid black;
   }
-}
-
-#navlinks a {
-  font-size: 1.2*$basesize;
 }
