@@ -5,6 +5,7 @@
   min-width: 160px-$basesize;
   line-height: $basesize;
   height: 2*$basesize;
+  color: white;
 
   input, label {
     width: 80px-$basesize;
@@ -51,7 +52,7 @@
   }
 
   label, #username, #logout {
-    text-shadow: 1px 1px 1px white;
+    text-shadow: 1px 1px 1px $shadow;
   }
 }
 

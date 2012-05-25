@@ -1,11 +1,16 @@
 @import "defs";
 
+#header {
+  background: $highlight;
+}
+
 #titlebar {
-  color: black;
+  color: darken($highlight, 15%);
   > * {
     display: inline-block;
   }
-  margin-bottom: $basesize;
+  margin: 0 auto $basesize auto;
+  width: $bodywidth;
 }
 
 #menubar {
@@ -13,38 +18,55 @@
   color: $menubartextcolor;
   padding: 0;
   text-align: right;
+  margin: 0 auto $basesize auto;
+  background: $theme;
+
+  /* disable clearfix div in #menubar */
+  > .clearfix {
+    display: none;
+  }
+}
+
+#menu {
+  width: $bodywidth;
+  margin: auto;
 }
 
 #site_title {
   font-weight: bold;
   font-size: 3*$basesize;
   line-height: 3*$basesize;
+  text-shadow: 1px 1px 0 lighten($highlight, 25%), -1px -1px 0 darken($highlight, 25%);
 }
 
 #page_title {
   float: right;
+  color: $offwhite;
   font-size: 2*$basesize;
   line-height: 3*$basesize;
+  border-bottom: 1px dotted white;
 }
 #navlinks {
-  width: 100%;
+  display: block;
+  width: $bodywidth;
   text-align: left;
-  background: $accent;
   li {
     display: inline-block;
     list-style-type: none;
     line-height: 2*$basesize;
     width: 80px;
     text-align: center;
+    text-shadow: 1px 1px 0px $shadow;
   }
   a {
     display: block;
     text-decoration: none;
     font-weight: bold;
+    color: $offwhite;
   }
   a:hover, a:focus, a:active {
-    color: black;
+    color: white;
     outline: 0px;
-    background: $highlight;
+    background: $midtone;
   }
 }

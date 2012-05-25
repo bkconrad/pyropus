@@ -22,6 +22,10 @@
   text-rendering: optimizeLegibility;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   color: $maintextcolor;
   background: $bg;
@@ -96,22 +100,17 @@ textarea {
 }
 
 #wrapper {
-  /* background: rgba(26,37,57,0.6); */
-  max-width: 640px;
-  padding: $basesize;
-  margin: auto;
-  margin-top: $basesize;
-  margin-bottom: $basesize;
+  min-height: 100%;
   font-size: 12px;
+  > .clearfix {
+    display: none;
+  }
 }
 
 #content {
-  margin: 0;
-  padding: 0;
-  clear: left;
-  float: left;
-  max-width: 640px-($basesize);
-  width: 480px-($basesize);
+  margin: 0 auto;
+  padding: 0 0 5*$basesize 0;
+  width: 640px;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
@@ -121,6 +120,7 @@ textarea {
   }
   p {
     text-align: justify;
+    max-width: 460px;
   }
   a {
     color: $contentlinkcolor;
