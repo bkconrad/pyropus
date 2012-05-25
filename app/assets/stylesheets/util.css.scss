@@ -1,0 +1,8 @@
+@mixin gradient ($top, $bottom) {
+  background-image: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background-image: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+  background-image: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+  background-image: linear-gradient(top,  $top 0%,$bottom 100%); /* W3C */
+}
