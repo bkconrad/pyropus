@@ -29,6 +29,7 @@
 #navlinks {
   width: 100%;
   text-align: left;
+  background: $accent;
   li {
     display: inline-block;
     list-style-type: none;
@@ -46,5 +47,6 @@
     color: black;
     outline: 0px;
     border-bottom: 1px solid black;
+    background: $highlight;
   }
 }
