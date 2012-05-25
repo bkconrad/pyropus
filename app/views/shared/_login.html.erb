@@ -4,15 +4,9 @@
   <div class="clearfix"></div>
 <% else %>
   <%= form_tag login_url, remote: true do %>
-    <div>
-      <label for="name">Username:</label>
-      <%= text_field_tag :name, params[:name] %>
-    </div>
+    <%= text_field_tag :name, params[:name], placeholder: "Username" %>
 
-    <div>
-      <label for="password">Password:</label>
-      <%= password_field_tag :password, params[:password] %>
-    </div>
+    <%= password_field_tag :password, params[:password], placeholder: "Password" %>
 
     <div>
       <%= hidden_field_tag :redirect_on_login, request.url %>
