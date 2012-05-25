@@ -22,7 +22,7 @@
   margin: 0 auto $basesize auto;
   background: transparentize($shadow, .6);
 
-  box-shadow: 0 .25*$basesize .5*$basesize 0 $shadow, 0 -1px 1px 0 lighten($shadow, 25%), 0 -2px 1px 0 $shadow;
+  box-shadow: 0 2px $basesize 0 $shadow, 0 -1px 1px 0 lighten($shadow, 25%), 0 -2px 1px 0 $shadow;
 
   /* disable clearfix div in #menubar */
   > .clearfix {
@@ -63,13 +63,14 @@
   }
   a {
     @include impressable($shadow);
+    background-color: lighten($shadow, 20%);
     display: block;
     text-decoration: none;
     font-weight: bold;
-    color: $theme;
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
     border-radius: .25*$basesize;
+    color: white;
   }
   a:hover, a:focus, a:active {
     color: $offwhite;

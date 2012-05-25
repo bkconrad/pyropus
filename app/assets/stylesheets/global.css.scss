@@ -116,8 +116,8 @@ textarea {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
-    padding-bottom: $basesize - 2;
-    border-bottom: 1px dotted $shadowcolor;
+    padding-bottom: $basesize - 1;
+    border-bottom: 1px solid $shadow;
   }
   p {
     text-align: justify;
