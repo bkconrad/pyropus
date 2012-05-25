@@ -1,0 +1,9 @@
+@import "defs";
+
+#footer {
+  background: $shadow;
+  position: relative;
+  bottom: 0;
+	margin-top: -5*$basesize;
+	height: 5*$basesize;
+}
