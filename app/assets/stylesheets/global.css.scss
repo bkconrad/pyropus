@@ -100,7 +100,7 @@ textarea {
 }
 
 #wrapper {
-  @include gradient(white, transparentize($theme, .8));
+  @include gradient(white, $offwhite);
   min-height: 100%;
   font-size: 12px;
   > .clearfix {
@@ -110,8 +110,12 @@ textarea {
 
 #content {
   margin: 0 auto;
-  padding: 0 0 5*$basesize 0;
+  padding: 2*$basesize $basesize 5*$basesize $basesize;
   width: 640px;
+  background: white;
+  position: relative;
+  z-index: 1;
+  min-height: 600px;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
@@ -121,7 +125,6 @@ textarea {
   }
   p {
     text-align: justify;
-    max-width: 460px;
   }
   a {
     color: $contentlinkcolor;

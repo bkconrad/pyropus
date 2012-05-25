@@ -1,9 +1,10 @@
 @import "defs";
 
 #footer {
-  @include gradient($shadow, darken($shadow, 20%));
+  @include gradient($offblack, black);
   background-color: $shadow;
   position: relative;
+  z-index: 2;
   bottom: 0;
 	margin-top: -5*$basesize;
 	height: 5*$basesize;

@@ -12,6 +12,7 @@
   }
   margin: 0 auto $basesize auto;
   width: $bodywidth;
+  height: 4*$basesize;
 }
 
 #menubar {
@@ -19,7 +20,9 @@
   color: $menubartextcolor;
   padding: 0;
   text-align: right;
-  margin: 0 auto $basesize auto;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
   background: transparentize($shadow, .6);
 
   box-shadow: 0 2px $basesize 0 $shadow, 0 -1px 1px 0 lighten($shadow, 25%), 0 -2px 1px 0 $shadow;
@@ -39,16 +42,16 @@
   font-weight: bold;
   font-size: 3*$basesize;
   line-height: 3*$basesize;
-  color: $offwhite;
+  color: $highlight;
   text-shadow: 0 2px 2px $offblack, 0 -1px 1px white;
 }
 
 #page_title {
   float: right;
-  color: $offwhite;
+    color: $lowmid;
+    text-shadow: 0 1px 1px lighten($lowmid, 40%);
   font-size: 2*$basesize;
   line-height: 3*$basesize;
-  border-bottom: 1px dotted white;
 }
 #navlinks {
   display: block;
@@ -70,10 +73,16 @@
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
     border-radius: .25*$basesize;
-    color: white;
+    color: $lowmid;
+    text-shadow: 0 1px 1px lighten($lowmid, 40%);
   }
-  a:hover, a:focus, a:active {
-    color: $offwhite;
+  a:hover {
+    color: $shadow;
+  }
+  
+  a:focus, a:active {
+    color: lighten($shadow, 20%);
+    text-shadow: 0 1px 1px black;
   }
   a:active {
     @include impress($shadow);
