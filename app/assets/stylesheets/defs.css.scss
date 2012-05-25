@@ -9,6 +9,9 @@
   font-style: normal;
 }
 
+/* The base unit for scheme */
+$basesize: 14px;
+
 /* palette */
 $theme: black;
 $highlight: #DDD;
@@ -34,9 +37,12 @@ $contentdivbackground: none;
 $contentdivtextcolor: black;
 $contentlinkcolor: $shadow;
 
-
-/* The base unit for scheme */
-$basesize: 14px;
+/* UI Color defaults */
+$uiborderradius: .25*$basesize;
+$uibordercolor: #888;
+$uiactivetextcolor: #000;
+$uiinactivetetextcolor: #DDD;
+$uibackgroundcolor: #EEE;
 
 @mixin hardware($light, $dark) {
   background: $light;
