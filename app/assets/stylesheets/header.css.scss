@@ -11,11 +11,9 @@
 }
 
 #menubar {
-  float: right;
-  display: inline-block;
+  display: block;
   color: $menubartextcolor;
   padding: 0;
-  max-width: 160px;
   text-align: right;
 }
 
@@ -31,18 +29,16 @@
   line-height: 3*$basesize;
 }
 #navlinks {
-  clear: both;
-  float: right;
   width: 100%;
   li {
-    display: block;
+    display: inline-block;
     list-style-type: none;
     line-height: 2*$basesize;
+    width: 80px;
+    text-align: center;
   }
   a {
     display: block;
-    width: 160px-($basesize/2);
-    padding-right: ($basesize/2);
   }
   a:hover, a:focus, a:active {
     color: black;
