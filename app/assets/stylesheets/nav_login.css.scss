@@ -1,29 +1,26 @@
 @import "defs";
 #nav_login {
   float: right;
-  background: #DDD;
-  padding: .5*$basesize;
-  background: $highlight;
+  text-align: right;
+  min-width: 160px-$basesize;
+  line-height: $basesize;
+  height: 2*$basesize;
 
   input, label {
-    line-height: $basesize;
+    width: 80px-$basesize;
     height: 1.5*$basesize;
-    margin: 0 0 .5*$basesize 0;
-    width: 160px - 2*$basesize;
+    line-height: 1.5*$basesize;
     padding: 0 .5*$basesize;
+    border: 1px solid #888;
   }
 
   input {
-    display: block;
-    border: none;
+    display: inline-block;
   }
 
   input[type="submit"] {
-    line-height: 2*$basesize;
-    height: 2*$basesize;
-    display: inline;
+    display: inline-block;
     margin: 0;
-    width: 100%;
     background: #EEE;
     box-shadow: 1px 1px 1px white inset, 2px 2px .5*$basesize -2px #AAA;
     background: -moz-linear-gradient(top,  rgba(255,255,255,0.65) 0%, rgba(0,0,0,0.25) 100%); /* FF3.6+ */

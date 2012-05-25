@@ -8,10 +8,8 @@
 
     <%= password_field_tag :password, params[:password], placeholder: "Password" %>
 
-    <div>
-      <%= hidden_field_tag :redirect_on_login, request.url %>
-      <%= submit_tag "Login" %>
-    </div>
+    <%= hidden_field_tag :redirect_on_login, request.url %>
+    <%= submit_tag "Login" %>
   <% end %>
 <% end %>
 </div>
