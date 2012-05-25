@@ -100,6 +100,7 @@ textarea {
 }
 
 #wrapper {
+  @include gradient(white, transparentize($theme, .8));
   min-height: 100%;
   font-size: 12px;
   > .clearfix {

@@ -1,7 +1,8 @@
 @import "defs";
 
 #footer {
-  background: $shadow;
+  @include gradient($shadow, darken($shadow, 20%));
+  background-color: $shadow;
   position: relative;
   bottom: 0;
 	margin-top: -5*$basesize;

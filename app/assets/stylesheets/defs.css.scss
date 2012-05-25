@@ -16,13 +16,13 @@ $basesize: 14px;
 $bodywidth: 640px;
 
 /* palette */
-$theme: #401B01;
-$highlight: #9C7227;
-$midtone: #5E2F00;
-$shadow: #232B2E;
-$accent: #676F66;
-$offblack: #222;
-$offwhite: #FFF5ED;
+$theme: hsl(39, 60, 60);
+$highlight: hsl(39, 60, 70);
+$midtone: hsl(34, 60, 20);
+$shadow: hsl(34, 40, 15);
+$accent: hsl(44, 60, 60);
+$offblack: hsl(44, 100, 5);
+$offwhite: hsl(44, 100, 90);
 
 $bg: #F8F8F8;
 

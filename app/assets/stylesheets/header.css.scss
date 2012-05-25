@@ -1,11 +1,12 @@
 @import "defs";
 
 #header {
-  background: $highlight;
+  @include gradient($theme, $midtone);
+  background-color: $theme;
+  padding-top: 2*$basesize;
 }
 
 #titlebar {
-  color: darken($highlight, 15%);
   > * {
     display: inline-block;
   }
@@ -19,7 +20,9 @@
   padding: 0;
   text-align: right;
   margin: 0 auto $basesize auto;
-  background: $theme;
+  background: transparentize($shadow, .6);
+
+  box-shadow: 0 .25*$basesize .5*$basesize 0 $shadow, 0 -1px 1px 0 lighten($shadow, 25%), 0 -2px 1px 0 $shadow;
 
   /* disable clearfix div in #menubar */
   > .clearfix {
@@ -36,7 +39,8 @@
   font-weight: bold;
   font-size: 3*$basesize;
   line-height: 3*$basesize;
-  text-shadow: 1px 1px 0 lighten($highlight, 25%), -1px -1px 0 darken($highlight, 25%);
+  color: $offwhite;
+  text-shadow: 0 2px 2px $offblack, 0 -1px 1px white;
 }
 
 #page_title {
@@ -53,20 +57,24 @@
   li {
     display: inline-block;
     list-style-type: none;
-    line-height: 2*$basesize;
     width: 80px;
     text-align: center;
-    text-shadow: 1px 1px 0px $shadow;
+    text-shadow: 0 1px 3px black;
   }
   a {
+    @include impressable($shadow);
     display: block;
     text-decoration: none;
     font-weight: bold;
-    color: $offwhite;
+    color: $theme;
+    line-height: 1.5*$basesize;
+    height: (1.5*$basesize) - 2;
+    border-radius: .25*$basesize;
   }
   a:hover, a:focus, a:active {
-    color: white;
-    outline: 0px;
-    background: $midtone;
+    color: $offwhite;
+  }
+  a:active {
+    @include impress($shadow);
   }
 }
