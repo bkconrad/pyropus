@@ -1,9 +1,6 @@
 @import "defs";
 
 #titlebar {
-  padding: $basesize 0;
-  margin-bottom: 2*$basesize;
-  border-bottom: 3px solid black;
   color: black;
   > * {
     display: inline-block;
