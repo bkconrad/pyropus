@@ -4,12 +4,12 @@
   <div class="clearfix"></div>
 <% else %>
   <%= form_tag login_url, remote: true do %>
-    <%= text_field_tag :name, params[:name], placeholder: "Username" %>
+    <%= text_field_tag :name, params[:name], placeholder: "Username", id: "username-text" %>
 
-    <%= password_field_tag :password, params[:password], placeholder: "Password" %>
+    <%= password_field_tag :password, params[:password], placeholder: "Password", id: "password-text" %>
 
     <%= hidden_field_tag :redirect_on_login, request.url %>
-    <%= submit_tag "Login" %>
+    <%= submit_tag "Login", id: "login-button", class: "initial" %>
   <% end %>
 <% end %>
 </div>
