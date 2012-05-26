@@ -71,7 +71,5 @@
   a {
     @extend .hardware;
     display: block;
-    line-height: 1.5*$basesize;
-    height: (1.5*$basesize) - 2;
   }
 }
