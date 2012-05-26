@@ -89,6 +89,6 @@
     color: $altlowmid;
     text-shadow: 0 1px 1px black;
     outline: none;
-    @include impress($shadow);
+    @include impress(lighten($shadow, 10%));
   }
 }
