@@ -58,14 +58,14 @@ h3 {
 h4 {
 }
 
-a, a:visited, a:active {
-  color: $linkcolor;
-  text-decoration: underline;
+a {
+  color: $contentlinkcolor;
 }
-
 a:hover {
-  color: $shadowcolor;
-  text-decoration: underline;
+  color: $theme;
+}
+a:active {
+  color: $uiactivebackgroundcolor;
 }
 
 p {
@@ -127,15 +127,6 @@ textarea {
   }
   p {
     text-align: justify;
-  }
-  a {
-    color: $contentlinkcolor;
-  }
-  a:hover {
-    color: $theme;
-  }
-  a:active {
-    color: $uiactivebackgroundcolor;
   }
   ul {
     padding-left: 2*$basesize;
