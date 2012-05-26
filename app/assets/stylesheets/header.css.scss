@@ -3,16 +3,16 @@
 #header {
   @include gradient($theme, $midtone);
   background-color: $theme;
-  padding-top: 2*$basesize;
+  padding-top: .5*$basesize;
 }
 
 #titlebar {
   > * {
     display: inline-block;
   }
-  margin: 0 auto $basesize auto;
+  margin: 0 auto .5*$basesize auto;
   width: $bodywidth;
-  height: 4*$basesize;
+  height: 3*$basesize;
 }
 
 #menubar {
