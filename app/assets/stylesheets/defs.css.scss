@@ -47,7 +47,8 @@ $contentlinkcolor: $shadow;
 /* UI Color defaults */
 $uiborderradius: .25*$basesize;
 $uibordercolor: #888;
-$uiactivetextcolor: #000;
+$uiactivetextcolor: $offwhite;
+$uiactivebackgroundcolor: hsl(235, 80, 80);
 $uiinactivetetextcolor: #DDD;
 $uibackgroundcolor: #EEE;
 

@@ -56,8 +56,6 @@ h3 {
 }
 
 h4 {
-  background: $linkcolor;
-  color: $shadowcolor;
 }
 
 a, a:visited, a:active {
@@ -136,6 +134,9 @@ textarea {
   a:hover {
     color: $theme;
   }
+  a:active {
+    color: $uiactivebackgroundcolor;
+  }
   ul {
     padding-left: 2*$basesize;
     list-style-type: square;
@@ -159,9 +160,18 @@ textarea {
   h1 {
   }
 
+  .actions {
+    display: inline-block;
+    height: 2*$basesize;
+    line-height: $basesize;
+  }
+
   .actions > a {
     padding: .5*$basesize;
     border-radius: .25*$basesize; 
+    height: $basesize;
+    display: inline-block;
+    line-height: $basesize;
     background: $highlight;
     color: $shadow;
   }
@@ -169,6 +179,11 @@ textarea {
   .actions > a:hover {
     color: $highlight;
     background: $shadow;
+  }
+
+  .actions > a:active {
+    color: $uiactivetextcolor;
+    background: $uiactivebackgroundcolor;
   }
 
 }
