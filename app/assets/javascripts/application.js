@@ -60,6 +60,7 @@ function retrievePage(ev, e) {
   sourceUrl = $(this).context.href || $(this).context.action;
   pullScripts(e.responseText);
   var dom = $(e.responseText);
+  console.log(e);
 
   // replace the content and header
   $("#menubar").html($("#menubar", dom).html());
@@ -70,15 +71,6 @@ function retrievePage(ev, e) {
   var errors = $("#alert", dom).html();
   if (errors)
     Pyropus.error(errors);
-
-  // rebind the new elements with this callback
-  $("#content [data-remote]=true").bind("ajax:complete", retrievePage);
-  $("#content [data-remote]=true").bind("ajax:before", ajaxLoading);
-
-  $("#menubar [data-remote]=true").bind("ajax:complete", retrievePage);
-  $("#menubar [data-remote]=true").bind("ajax:before", ajaxLoading);
-
-  bindNavLoginHandler();
 
   window.history.pushState(null, "Pyropus", sourceUrl);
 
@@ -99,27 +91,25 @@ function ajaxLoading(ev, e) {
   });
 }
 
-function bindNavLoginHandler () {
-  // reveal the login form
-  var revealHandler = function (ev) {
-    if ($(this).hasClass("initial")) {
-      $("#nav_login input").show();
-      $("#username-text").focus();
-      $("#login-button").toggleClass('initial');
-      return false;
-    }
+function loginRevealHandler () {
+  if ($(this).hasClass("initial")) {
+    $("#nav_login input").show();
+    $("#username-text").focus();
     $("#login-button").toggleClass('initial');
-    return true;
-  };
-  $("#login-button").on("click", revealHandler);
-}
+    return false;
+  }
+  $("#login-button").toggleClass('initial');
+  return true;
+};
 
 $(window).ready(function () {
-//  $(".ajaxLink").click(ajaxNavigationLink);
-  $("[data-remote]=true").bind("ajax:complete", retrievePage);
-  $("[data-remote]=true").bind("ajax:before", ajaxLoading);
 
-  bindNavLoginHandler();
+  // ajax fetchers
+  $(document).on("ajax:complete", "[data-remote]=true", retrievePage);
+  $(document).on("ajax:before", "[data-remote]=true", ajaxLoading);
+
+  // login button handler
+  $(document).on("click", "#login-button", loginRevealHandler);
 
   pullScripts($(document).html());
 });
