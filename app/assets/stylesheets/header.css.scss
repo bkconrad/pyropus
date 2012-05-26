@@ -12,7 +12,7 @@
   }
   margin: 0 auto .5*$basesize auto;
   width: $bodywidth;
-  height: 3*$basesize;
+  height: 5*$basesize;
 }
 
 #menubar {
@@ -23,7 +23,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 10;
-  background: transparentize($shadow, .6);
+  background: $shadow;
 
   box-shadow: 0 2px $basesize 0 $shadow, 0 -1px 1px 0 lighten($shadow, 25%), 0 -2px 1px 0 $shadow;
 
@@ -39,12 +39,15 @@
 }
 
 #site_title {
+  @include impress($shadow);
   font-family: "Oleo Script";
   font-weight: bold;
   font-size: 3*$basesize;
   line-height: 3*$basesize;
   color: $highlight;
   text-shadow: 0 2px 2px $offblack, 0 -1px 1px white;
+  padding: $basesize;
+  border-radius: 1.5*$basesize;
 }
 
 #page_title {
