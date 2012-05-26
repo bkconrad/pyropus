@@ -1,14 +1,18 @@
 <% @users.each do |user| %>
 <div class="user">
     <h1 class="username"><%= user.name %></h1>
+    <span class="actions">
     <%= ajax_link_to 'Show', user %>
     <% if admin? %>
       <%= ajax_link_to 'Edit', edit_user_path(user) %>
       <%= ajax_link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %>
     <% end %>
+    </span>
 </div>
 <% end %>
 
 <br />
 
-<%= ajax_link_to 'New User', new_user_path %>
+<span class="actions">
+  <%= ajax_link_to 'New User', new_user_path %>
+</span>
