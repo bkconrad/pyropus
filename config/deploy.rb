@@ -14,6 +14,10 @@ role :db,  "pyrop.us", :primary => true # This is where Rails migrations will ru
 
 set :rails_env, :production
 
+before :deploy do
+  system "git push origin master"
+end
+
 namespace :deploy do
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
