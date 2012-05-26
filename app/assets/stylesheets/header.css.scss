@@ -69,26 +69,9 @@
     text-shadow: 0 1px 3px black;
   }
   a {
-    @include impressable($shadow);
-    background-color: lighten($shadow, 20%);
+    @extend .hardware;
     display: block;
-    text-decoration: none;
-    font-weight: bold;
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
-    border-radius: .25*$basesize;
-    color: $altlowmid;
-    text-shadow: 0 1px 1px black;
-  }
-  a:hover {
-    color: $offwhite;
-  }
-  
-  a:focus, a:active {
-    /* color: lighten($shadow, 20%); */
-    color: $altlowmid;
-    text-shadow: 0 1px 1px black;
-    outline: none;
-    @include impress(lighten($shadow, 10%));
   }
 }

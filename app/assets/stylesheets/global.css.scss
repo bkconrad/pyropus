@@ -94,14 +94,16 @@ textarea {
   font-size: $basesize;
   text-transform: none;
   border-radius: $basesize/2;
+  position: relative;
+  z-index: 1000;
 }
 
 #alert {
-  @include hardware(red, white);
+  @include impress(red);
 }
 
 #notice {
-  @include hardware(green, white);
+  @include impress(green);
 }
 
 #wrapper {

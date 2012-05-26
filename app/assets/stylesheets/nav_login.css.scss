@@ -23,26 +23,9 @@
   }
 
   input[type="submit"] {
-    @include impressable($shadow);
-    background-color: lighten($shadow, 20%);
-    text-decoration: none;
-    font-weight: bold;
+    @extend .hardware;
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
-    border-radius: .25*$basesize;
-    color: $altlowmid;
-    text-shadow: 0 1px 1px black;
-  }
-
-  input[type="submit"]:hover {
-    color: $offwhite;
-  }
-
-  input[type="submit"]:focus, input[type="submit"]:active {
-    color: $altlowmid;
-    text-shadow: 0 1px 1px black;
-    outline: none;
-    @include impress($shadow);
   }
 
   label {
@@ -55,27 +38,9 @@
   }
 
   #logout > a {
-    @include impressable($shadow);
-    background-color: lighten($shadow, 20%);
-    text-decoration: none;
-    font-weight: bold;
+    @extend .hardware;
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
-    border-radius: .25*$basesize;
-    color: $altlowmid;
-    text-shadow: 0 1px 1px black;
-    padding: 0 .5*$basesize;
-  }
-
-  #logout > a:hover {
-    color: $offwhite;
-  }
-
-  #logout > a:focus, #logout > a:active {
-    color: $altlowmid;
-    text-shadow: 0 1px 1px black;
-    outline: none;
-    @include impress($shadow);
   }
 
   label, #username, #logout {

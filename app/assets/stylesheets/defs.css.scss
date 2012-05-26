@@ -52,7 +52,28 @@ $uiactivebackgroundcolor: hsl(235, 80, 80);
 $uiinactivetetextcolor: #DDD;
 $uibackgroundcolor: #EEE;
 
-@mixin hardware($light, $dark) {
-  background: $light;
-  color: $dark;
+/* abstract base class :P */
+.hardware {
+  @include impressable($shadow);
+  background-color: lighten($shadow, 20%);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: .25*$basesize;
+  color: $altlowmid;
+  text-shadow: 0 1px 1px black;
+  display: inline-block;
+  padding: 0 .5*$basesize;
+  line-height: 1.5*$basesize;
+  height: (1.5*$basesize) - 2;
+}
+
+.hardware:hover {
+  color: $offwhite;
+}
+
+.hardware:active, .hardware:focus {
+  color: $altlowmid;
+  text-shadow: 0 1px 1px black;
+  outline: none;
+  @include impress(lighten($shadow, 10%));
 }
