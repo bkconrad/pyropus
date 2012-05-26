@@ -74,12 +74,11 @@
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
     border-radius: .25*$basesize;
-    color: $shadow;
-    text-shadow: 0 1px 1px lighten($lowmid, 40%);
-  }
-  a:hover {
     color: $altlowmid;
     text-shadow: 0 1px 1px black;
+  }
+  a:hover {
+    color: $offwhite;
   }
   
   a:focus, a:active {

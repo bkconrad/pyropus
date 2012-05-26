@@ -22,7 +22,7 @@
 
 (function () {
 var ajaxLoadingState = 0;
-var fadeTime = 75
+var fadeTime = 150;
 var sourceUrl;
 
 function pullScripts(text) {

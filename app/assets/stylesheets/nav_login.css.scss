@@ -14,12 +14,12 @@
     border-radius: .25*$basesize;
     padding: 0 .5*$basesize;
     border: 1px solid $shadow;
-    background: $offwhite;
+    background: white;
     display: inline-block;
   }
 
   input::-webkit-input-placeholder {
-    color: $shadow;
+    color: auto;
   }
 
   input[type="submit"] {
@@ -30,16 +30,16 @@
     line-height: 1.5*$basesize;
     height: (1.5*$basesize) - 2;
     border-radius: .25*$basesize;
-    color: $lowmid;
-    text-shadow: 0 1px 1px lighten($lowmid, 40%);
+    color: $altlowmid;
+    text-shadow: 0 1px 1px black;
   }
 
   input[type="submit"]:hover {
-    color: $shadow;
+    color: $offwhite;
   }
 
   input[type="submit"]:focus, input[type="submit"]:active {
-    color: lighten($shadow, 20%);
+    color: $altlowmid;
     text-shadow: 0 1px 1px black;
     outline: none;
     @include impress($shadow);
