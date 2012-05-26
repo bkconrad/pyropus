@@ -1,18 +1,23 @@
 @import "defs";
-#content button, #content input, #content select {
+#content button,
+#content input[type="text"],
+#content input[type="password"],
+#content input[type="submit"],
+#content select {
   margin: 0 0 $basesize 0;
   line-height: $basesize - 2;
-  padding: .25*$basesize;
+  padding: .5*$basesize;
   font-family: sans-serif;
-  height: (2*$basesize)-2;
+  height: ($basesize - 2);
   box-shadow: 1px 1px .5*$basesize -2px black;
   border: 1px solid $uibordercolor;
   background-color: $uibackgroundcolor;
+  display: inline-block;
+  vertical-align: top;
 }
 
-#content button {
+#content button, #content input[type="submit"] {
   @include gradient(rgba(255,255,255,0.65), rgba(0,0,0,0.25));
-  padding: .5*$basesize;
   border-left-width: 0;
   box-shadow: 1px 1px 1px white inset, 2px 2px .5*$basesize -2px #AAA;
   text-shadow: 1px 1px 1px #EEE;
@@ -58,7 +63,13 @@
 }
 
 #content input[type="radio"] {
-  display: inline;
+  display: inline-block;
+}
+
+#content select {
+  height: (2*$basesize - 2);
+  padding: 0;
+  min-width: 80px;
 }
 
 #content fieldset {
