@@ -22,15 +22,16 @@ namespace :deploy do
   task :seed do
     run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
   end
-
-  task :submodule do
-    run "cd #{current_path}; git submodule sync ; git submodule update"
-  end
 end
 
 after "deploy:update_code", :bundle_install
 task :bundle_install, :roles => :app do
   run "cd #{release_path} && bundle install"
+end
+
+after "deploy", :submodule
+task :submodule do
+  run "cd #{current_path}; git submodule sync ; git submodule update"
 end
 # role :db,  "your slave db-server here"
 
