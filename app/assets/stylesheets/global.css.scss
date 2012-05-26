@@ -176,9 +176,10 @@ textarea {
     color: $shadow;
   }
 
-  .actions > a:hover {
+  .actions > a:focus, .actions > a:hover {
     color: $highlight;
     background: $shadow;
+    outline: none;
   }
 
   .actions > a:active {
