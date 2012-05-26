@@ -127,7 +127,7 @@ $noticehue: 120;
 }
 
 #wrapper {
-  @include gradient(white, $offwhite);
+  background: url("/assets/cross.png");
   min-height: 100%;
   font-size: 12px;
   > .clearfix {
@@ -143,12 +143,14 @@ $noticehue: 120;
   position: relative;
   z-index: 1;
   min-height: 600px;
+  border-left: 1px solid $shadow;
+  border-right: 1px solid $shadow;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
-    padding-bottom: $basesize - 1;
-    border-bottom: 1px solid $shadow;
+    padding-bottom: ($basesize - 2);
+    border-bottom: 2px dotted $theme;
   }
   p {
     text-align: justify;
