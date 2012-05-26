@@ -25,14 +25,33 @@ var ajaxLoadingState = 0;
 var fadeTime = 150;
 var sourceUrl;
 
+/**
+ * @brief takes a reference to an array of scripts to load (in order)
+ * and executes them.
+ */
+function chainLoadScripts (arr) {
+  var scriptUrl = arr.shift();
+  if (!!scriptUrl) {
+    $.ajax({
+        url: scriptUrl
+      , success: function () { chainLoadScripts(arr); }
+    });
+  }
+}
+
 function pullScripts(text) {
   var scripts = $("script", text).get();
+  var scriptUrls = [];
+
+  // populate array of script urls to load
   for (var i in scripts) {
-    console.log(scripts[i].type);
+    // only load our own script type
     if(scripts[i].type === "text/x-pyropus-js") {
-      $.getScript(scripts[i].getAttribute("href"));
+      scriptUrls.push(scripts[i].getAttribute("href"));
     }
   }
+
+  chainLoadScripts(scriptUrls);
 }
 
 function retrievePage(ev, e) {
