@@ -79,6 +79,10 @@ textarea {
   width: 100%;
 }
 
+code, pre, textarea {
+  font-family: monospace;
+}
+
 #messages {
   position: fixed;
   right: $basesize;
