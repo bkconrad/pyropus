@@ -2,17 +2,19 @@
   <div class="thing">
     <h1><%= thing.name %></h1>
     <p><%= raw thing.description %></p>
-    <span><%= ajax_link_to 'Read More', thing %></span>
-    <span><%= ajax_link_to "View Thing", controller: thing.path %></span>
-    <% if admin? %>
-      <span><%= ajax_link_to 'Edit', edit_thing_path(thing) %></span>
-      <span><%= ajax_link_to 'Destroy', thing, confirm: 'Are you sure?', method: :delete %></span>
-    <% end %>
+    <span class="actions">
+        <%= ajax_link_to 'Read More', thing %>
+        <%= ajax_link_to "View Thing", controller: thing.path %>
+        <% if admin? %>
+          <%= ajax_link_to 'Edit', edit_thing_path(thing) %>
+          <%= ajax_link_to 'Destroy', thing, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+    </span>
   </div>
 <% end %>
 
-<% if admin? %>
-  <p>
+<span class="actions">
+  <% if admin? %>
     <%= ajax_link_to 'New Thing', new_thing_path %>
-  </p>
-<% end %>
+  <% end %>
+</span>

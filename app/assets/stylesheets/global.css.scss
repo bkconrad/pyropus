@@ -158,6 +158,19 @@ textarea {
 
   h1 {
   }
+
+  .actions > a {
+    padding: .5*$basesize;
+    border-radius: .25*$basesize; 
+    background: $highlight;
+    color: $shadow;
+  }
+
+  .actions > a:hover {
+    color: $highlight;
+    background: $shadow;
+  }
+
 }
 
 .clearfix {

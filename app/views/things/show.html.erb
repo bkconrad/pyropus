@@ -1,9 +1,11 @@
 <div class="thing">
 <%= raw @thing.description %>
 
-<% if admin? %>
-  <%= link_to 'Edit', edit_thing_path(@thing) %> |
-<% end %>
-<%= link_to 'View Thing', :controller => @thing.path %>
-<%= link_to 'Back', things_path %>
+<span class="actions">
+  <% if admin? %>
+    <%= link_to 'Edit', edit_thing_path(@thing) %> |
+  <% end %>
+  <%= link_to 'View Thing', :controller => @thing.path %>
+  <%= link_to 'Back', things_path %>
+</span>
 </div>
