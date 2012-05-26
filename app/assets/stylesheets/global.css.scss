@@ -98,12 +98,28 @@ textarea {
   z-index: 1000;
 }
 
+$alerthue: 0;
 #alert {
-  @include impress(red);
+  @include gradient(hsl($alerthue,60,60), hsl($alerthue,60,30));
+  color: white;
+  text-shadow: 0 1px 1px black;
+  border: 1px solid hsl(4,40,20);
+  border-top-color: hsl(4,40,40);
+  box-shadow: -1px -1px 2px hsla(0,0,0,.3) inset,
+              1px 1px 2px hsla(0,100,100,.5) inset,
+              0 .25*$basesize $basesize -.25*$basesize hsla(0,0,0,.8);
 }
 
+$noticehue: 120;
 #notice {
-  @include impress(green);
+  @include gradient(hsl($noticehue,60,60), hsl($noticehue,60,30));
+  color: white;
+  text-shadow: 0 1px 1px black;
+  border: 1px solid hsl(4,40,20);
+  border-top-color: hsl(4,40,40);
+  box-shadow: -1px -1px 2px hsla(0,0,0,.3) inset,
+              1px 1px 2px hsla(0,100,100,.5) inset,
+              0 .25*$basesize $basesize -.25*$basesize hsla(0,0,0,.8);
 }
 
 #wrapper {
