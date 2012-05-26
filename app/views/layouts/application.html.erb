@@ -15,21 +15,34 @@
                             cutive: [400],
                             graduate: [400],
                             nova_mono: [400],
+                            concert_one: [400],
+                            arvo: [700],
+                            anton: [400],
+                            asap: [700],
+                            days_one: [400],
+                            oleo_script: [400],
                             syncopate: [700]) %>
+  <style type='pyropus/embeddedcss'>
+  input#username-text, input#password-text {
+    display: none;
+  }
+  </style>
 
 </head>
 <body>
 <div id="wrapper">
-<div id="notice"><%= notice %></div>
-<div id="alert"><%= alert %></div>
+<div id="messages">
+  <div id="notice"><%= notice %></div>
+  <div id="alert"><%= alert %></div>
+</div>
 <%= render partial: 'shared/header' %>
 
 <div id="content">
 <%= yield %>
 </div>
 
-<%= render partial: 'shared/footer' %>
 <div class="clearfix">&nbsp;</div>
 </div>
+<%= render partial: 'shared/footer' %>
 </body>
 </html>

@@ -2,6 +2,8 @@
 <%= raw @content %>
 </div>
 
-<% if admin? %>
-<%= ajax_link_to 'Edit', edit_post_path(@post) %>
-<% end %>
+<span class="actions">
+  <% if admin? %>
+  <%= ajax_link_to 'Edit', edit_post_path(@post) %>
+  <% end %>
+</span>

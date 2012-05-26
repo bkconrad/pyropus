@@ -1,27 +1,55 @@
 @import "defs";
-#content button, #content input, #content select {
-  @include hardware($linkcolor, $shadowcolor);
-  margin: 0 $basesize .5*$basesize 0;
-  margin-right: .5*$basesize;
+#content button,
+#content input[type="text"],
+#content input[type="password"],
+#content input[type="submit"],
+#content select {
+  margin: 0 0 $basesize 0;
   line-height: $basesize - 2;
-  padding: .25*$basesize;
-  font-weight: bold;
+  padding: .5*$basesize;
   font-family: sans-serif;
+  height: ($basesize - 2);
   box-shadow: 1px 1px .5*$basesize -2px black;
+  border: 1px solid $uibordercolor;
+  background-color: $uibackgroundcolor;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#content button, #content input[type="submit"] {
+  @include gradient(rgba(255,255,255,0.65), rgba(0,0,0,0.25));
+  border-left-width: 0;
+  box-shadow: 1px 1px 1px white inset, 2px 2px .5*$basesize -2px #AAA;
+  text-shadow: 1px 1px 1px #EEE;
 }
 
 #content button:hover {
-  background-color: lighten($linkcolor, 10%);
+  background-color: lighten($uibackgroundcolor, 25%);
   cursor: pointer;
+}
+
+#content button:first-child {
+  /*
+  border-top-left-radius: $uiborderradius;
+  border-bottom-left-radius: $uiborderradius;
+  */
+  border-left: 1px solid $uibordercolor;
+}
+
+#content button:last-child {
+  /*
+  border-top-right-radius: $uiborderradius;
+  border-bottom-right-radius: $uiborderradius;
+  */
+  border-right: 1px solid $uibordercolor;
 }
 
 #content button:active {
   position: relative;
-  top: 2px;
+  top: 1px;
 }
 
 #content input {
-  background: lighten($linkcolor, 15%);
   border-color: $shadowcolor;
   text-shadow: none;
 }
@@ -32,13 +60,30 @@
 
 #content input:focus, #content button:focus, #content select:focus {
   outline: none;
-  background-color: lighten($linkcolor, 20%);
 }
 
 #content input[type="radio"] {
-  display: inline;
+  display: inline-block;
+}
+
+#content select {
+  height: (2*$basesize - 2);
+  padding: 0;
+  min-width: 80px;
 }
 
 #content fieldset {
   display: inline;
+  padding: 0 .5*$basesize;
+  margin: 0 $basesize $basesize 0;
+  border: 1px solid $uibordercolor;
+  vertical-align: top;
+  legend {
+    background: black;
+    color: white;
+    padding: 0 $basesize;
+    font-size: ($basesize - 2);
+    font-family: monospace;
+    line-height: $basesize;
+  }
 }

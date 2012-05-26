@@ -22,7 +22,7 @@
 
 (function () {
 var ajaxLoadingState = 0;
-var fadeTime = 75
+var fadeTime = 150;
 var sourceUrl;
 
 function pullScripts(text) {
@@ -58,6 +58,9 @@ function retrievePage(ev, e) {
 
   $("#menubar [data-remote]=true").bind("ajax:complete", retrievePage);
   $("#menubar [data-remote]=true").bind("ajax:before", ajaxLoading);
+
+  bindNavLoginHandler();
+
   window.history.pushState(null, "Pyropus", sourceUrl);
 
   // this is the main hook for "Things"
@@ -77,35 +80,78 @@ function ajaxLoading(ev, e) {
   });
 }
 
+function bindNavLoginHandler () {
+  // reveal the login form
+  var revealHandler = function (ev) {
+    if ($(this).hasClass("initial")) {
+      $("#nav_login input").show();
+      $("#username-text").focus();
+      $("#login-button").toggleClass('initial');
+      return false;
+    }
+    $("#login-button").toggleClass('initial');
+    return true;
+  };
+  $("#login-button").on("click", revealHandler);
+}
+
 $(window).ready(function () {
 //  $(".ajaxLink").click(ajaxNavigationLink);
   $("[data-remote]=true").bind("ajax:complete", retrievePage);
   $("[data-remote]=true").bind("ajax:before", ajaxLoading);
+
+  bindNavLoginHandler();
+
   pullScripts($(document).html());
 });
 
 })();
 
 var Pyropus = (function () {
-  var errorTimeout;
+  var MESSAGE = 0
+    , NOTICE = 1
+    , ERROR = 2
+
+  var messageTimeouts = [];
+  var displayTime = 15000;
 
   function error (str) {
-    clearTimeout(errorTimeout);
+    clearTimeout(messageTimeouts[ERROR]);
     $("#alert").html(str);
     $("#alert").fadeIn();
     $("#alert").click(function () {
       $(this).fadeOut();
     });
-    errorTimeout = setTimeout(function () {
+    messageTimeouts[ERROR] = setTimeout(function () {
       $("#alert").fadeOut();
-    }, 15000);
+    }, displayTime);
+  }
+
+  function notice (str) {
+    clearTimeout(messageTimeouts[NOTICE]);
+    $("#notice").html(str);
+    $("#notice").fadeIn();
+    $("#notice").click(function () {
+      $(this).fadeOut();
+    });
+    messageTimeouts[NOTICE] = setTimeout(function () {
+      $("#notice").fadeOut();
+    }, displayTime);
   }
 
   $(document).ajaxError(function (ev, xhr, ajaxSettings, err) {
     error("An error has occured:</br><pre>" + err.toString() + "</pre>");
   });
 
+  /* Add css for js managed things */
+  $(document).ready(function () {
+    var $jsStyle = $("style[type='pyropus/embeddedcss']");
+    $jsStyle[0].type = "text/css";
+    $("head").append($jsStyle[0]);
+  });
+
   return {
-    error: error
+    error: error,
+    notice: notice
   };
 })();

@@ -1,62 +1,83 @@
+@import "util";
 @font-face {
-  font-family: "Sans Sara";
   src: url('../fonts/sans-sara.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Bebas Neue";
   src: url('../fonts/BebasNeue.otf');
   font-weight: normal;
   font-style: normal;
 }
-$bg: #50627d;
 
-$shadowcolor: #293240;
+/* The base unit for scheme */
+$basesize: 14px;
+
+$bodywidth: 640px;
+
+/* palette */
+$theme: hsl(39, 40, 60);
+$highlight: hsl(39, 60, 80);
+$midtone: hsl(34, 60, 20);
+$lowmid: hsl(34, 40, 20);
+$altlowmid: hsl(49, 40, 80);
+$shadow: hsl(34, 40, 15);
+$accent: hsl(44, 60, 60);
+$offblack: hsl(44, 100, 5);
+$offwhite: hsl(224, 100, 97);
+
+/* Message colors */
+$alerthue: 0;
+$noticehue: 120;
+
+$bg: #F8F8F8;
+
+$shadowcolor: $shadow;
 $menubarcolor: none;
-$menubartextcolor: white;
+$menubartextcolor: black;
 $loginlabeltextcolor: $shadowcolor;
 $input_border: white;
 
 $wrapperbg: $bg;
 $wrapperbordercolor: #0f1521;
 
-$maintextcolor: #FFF;
-$linkcolor: #b0bdd1;
+$maintextcolor: black;
+$linkcolor: $theme;
 
 $contentdivbackground: none;
-$contentdivtextcolor: #EAF2EE;
-$contentlinkcolor: $linkcolor;
+$contentdivtextcolor: black;
+$contentlinkcolor: $shadow;
 
+/* UI Color defaults */
+$uiborderradius: .25*$basesize;
+$uibordercolor: #888;
+$uiactivetextcolor: $offwhite;
+$uiactivebackgroundcolor: hsl(235, 80, 80);
+$uiinactivetetextcolor: #DDD;
+$uibackgroundcolor: #EEE;
 
-/* The base unit for scheme */
-$basesize: 14px;
+/* abstract base class :P */
+.hardware {
+  @include impressable($shadow);
+  background-color: lighten($shadow, 20%);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: .25*$basesize;
+  color: $altlowmid;
+  text-shadow: 0 1px 1px black;
+  display: inline-block;
+  padding: 0 .5*$basesize;
+  line-height: 1.5*$basesize;
+  height: (1.5*$basesize) - 2;
+}
 
-@mixin hardware($light, $dark) {
-  text-shadow: 1px 1px 1px lighten($dark, 65%);
-  border-top: 1px solid lighten($light, 15%);
-  border-left: 1px solid lighten($light, 15%);
-  border-right: 1px solid darken($light, 25%);
-  border-bottom: 1px solid darken($light, 25%);
-  color: $dark;
-  text-align: right;
-  text-transform: uppercase;
-  margin-bottom: $basesize;
-  padding: .5*$basesize - 1px;
-  font-family: "Droid Sans Mono", "Nova Mono", monospace;
-  font-size: $basesize*.8;
-  $loginshadowsize: 6*$basesize;
-  border-radius: $basesize/4 $basesize/4;
+.hardware:hover {
+  color: $offwhite;
+}
 
-  background: -moz-linear-gradient(top,  rgba(255,255,255,0.33) 0%, rgba(128,128,128,0) 50%, rgba(0,0,0,0.21) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.33)), color-stop(50%,rgba(128,128,128,0)), color-stop(100%,rgba(0,0,0,0.21))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* IE10+ */
-  background: linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(128,128,128,0) 50%,rgba(0,0,0,0.21) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54ffffff', endColorstr='#36000000',GradientType=0 ); /* IE6-9 */
-  
-  box-shadow: 1px 1px $basesize -2px black;
-
-  background-color: $light;
+.hardware:active, .hardware:focus {
+  color: $altlowmid;
+  text-shadow: 0 1px 1px black;
+  outline: none;
+  @include impress(lighten($shadow, 10%));
 }

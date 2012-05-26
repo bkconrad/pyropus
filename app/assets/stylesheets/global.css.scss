@@ -1,6 +1,5 @@
 @import "defs";
 #busy {
-  font-family: "Sans Sara";
   height: 32px;
   padding: 0;
   padding-left: 16px;
@@ -16,23 +15,35 @@
   font-size: $basesize;
   margin: 0;
   padding: 0;
+  font-family: "Cabin" sans-serif;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
 
   /* Invalid CSS, but worth it because Mozilla looks a lot better */
   text-rendering: optimizeLegibility;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   color: $maintextcolor;
   background: $bg;
-  background-image: url(noise.png);
 
   /* always want a scrollbar, otherwise the page jumps as they turn on/off */
   overflow: scroll;
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: "Droid Sans" sans-serif;
+}
+
 h1, h1 > a {
-  line-height: 3*$basesize;
-  font-size: 3*$basesize;
+  line-height: 2*$basesize;
+  font-size: 2*$basesize;
   font-weight: bold;
 }
 
@@ -48,18 +59,16 @@ h3 {
 }
 
 h4 {
-  background: $linkcolor;
-  color: $shadowcolor;
 }
 
-a, a:visited, a:active {
-  color: $linkcolor;
-  text-decoration: underline;
+a {
+  color: $contentlinkcolor;
 }
-
 a:hover {
-  color: white;
-  text-decoration: underline;
+  color: $theme;
+}
+a:active {
+  color: $uiactivebackgroundcolor;
 }
 
 p {
@@ -70,55 +79,75 @@ textarea {
   width: 100%;
 }
 
+#messages {
+  position: fixed;
+  right: $basesize;
+  top: $basesize;
+}
+
 #alert, #notice {
-  @include hardware(#c1665a, white);
   padding: .5*$basesize;
   max-width: 640px-(2*$basesize);
   margin: 0 auto $basesize auto;
   /* TODO: re-enable notice and alert */
   display: none;
-  position: fixed;
-  right: $basesize;
-  top: $basesize;
-  font-family: sans-serif;
   font-size: $basesize;
   text-transform: none;
-  text-shadow: 1px 1px 1px $shadowcolor;
+  border-radius: $basesize/2;
+  position: relative;
+  z-index: 1000;
+}
+
+$alerthue: 0;
+#alert {
+  @include gradient(hsl($alerthue,60,60), hsl($alerthue,60,30));
+  color: white;
+  text-shadow: 0 1px 1px black;
+  border: 1px solid hsl(4,40,20);
+  border-top-color: hsl(4,40,40);
+  box-shadow: -1px -1px 2px hsla(0,0,0,.3) inset,
+              1px 1px 2px hsla(0,100,100,.5) inset,
+              0 .25*$basesize $basesize -.25*$basesize hsla(0,0,0,.8);
+}
+
+$noticehue: 120;
+#notice {
+  @include gradient(hsl($noticehue,60,60), hsl($noticehue,60,30));
+  color: white;
+  text-shadow: 0 1px 1px black;
+  border: 1px solid hsl(4,40,20);
+  border-top-color: hsl(4,40,40);
+  box-shadow: -1px -1px 2px hsla(0,0,0,.3) inset,
+              1px 1px 2px hsla(0,100,100,.5) inset,
+              0 .25*$basesize $basesize -.25*$basesize hsla(0,0,0,.8);
 }
 
 #wrapper {
-  /* background: rgba(26,37,57,0.6); */
-  max-width: 800px;
-  padding: $basesize;
-  margin: auto;
-  margin-top: $basesize;
-  margin-bottom: $basesize;
+  @include gradient(white, $offwhite);
+  min-height: 100%;
   font-size: 12px;
+  > .clearfix {
+    display: none;
+  }
 }
 
 #content {
-  margin: 0;
-  padding: 0;
-  clear: left;
-  float: left;
-  font-family: "Arial", "Helvetica", "Droid Sans", sans-serif;
-  max-width: 640px-(2*$basesize);
-  width: 640px-(2*$basesize);
+  margin: 0 auto;
+  padding: 2*$basesize $basesize 7*$basesize $basesize;
+  width: 640px;
+  background: white;
+  position: relative;
+  z-index: 1;
+  min-height: 600px;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
-    padding-bottom: $basesize - 2;
-    border-bottom: 1px dotted $shadowcolor;
+    padding-bottom: $basesize - 1;
+    border-bottom: 1px solid $shadow;
   }
   p {
     text-align: justify;
-  }
-  a {
-    color: $contentlinkcolor;
-  }
-  a:hover {
-    color: white;
   }
   ul {
     padding-left: 2*$basesize;
@@ -127,8 +156,10 @@ textarea {
   }
 
   code {
-    background: $shadowcolor;
+    background: #EEE;
     padding: 0px .5*$basesize;
+    font-family: monospace;
+    text-rendering: auto;
   }
 
   pre > code {
@@ -139,9 +170,35 @@ textarea {
   }
 
   h1 {
-    text-shadow: 2px 2px 0px #000;
-    color: white;
   }
+
+  .actions {
+    display: inline-block;
+    height: 2*$basesize;
+    line-height: $basesize;
+  }
+
+  .actions > a {
+    padding: .5*$basesize;
+    border-radius: .25*$basesize; 
+    height: $basesize;
+    display: inline-block;
+    line-height: $basesize;
+    background: $highlight;
+    color: $shadow;
+  }
+
+  .actions > a:focus, .actions > a:hover {
+    color: $highlight;
+    background: $shadow;
+    outline: none;
+  }
+
+  .actions > a:active {
+    color: $uiactivetextcolor;
+    background: $uiactivebackgroundcolor;
+  }
+
 }
 
 .clearfix {

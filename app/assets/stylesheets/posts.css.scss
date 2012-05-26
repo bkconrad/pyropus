@@ -4,6 +4,8 @@
 @import "defs";
 
 .post {
+  margin: 0;
+  padding: 0;
 }
 
 .post-content {
@@ -11,5 +13,6 @@
 }
 
 .post-date {
+  display: inline-block;
   font-size: $basesize*0.8;
 }
