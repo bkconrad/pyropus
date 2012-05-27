@@ -7,7 +7,8 @@ Pyropus::Application.routes.draw do
   match "about" => redirect("/posts/4")
 
   resources :things
-  match "pfxed" => "pfxed#show"
+  match "pfxed" => "pfxed#show", via: :get
+  match "pfxed" => "pfxed#create", via: :post
   resources :pfxed do
     collection do
       get "list"

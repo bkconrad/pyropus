@@ -22,6 +22,7 @@ $(document).ready(function () {
       type: "POST",
       dataType: "json",
       success: function (d) {
+        console.log(d);
         listSamples();
         Pyropus.notice("Created successfully");
       }
