@@ -4,7 +4,6 @@ $(document).ready(function () {
       url: "/pfxed/list",
       dataType: "json",
       success: function (data) {
-        console.log(data);
         $("#sample-select").html("");
         for (var i in data) {
           $("#sample-select").append(
@@ -12,6 +11,7 @@ $(document).ready(function () {
           );
         }
         $("#sample-select").val($("#sample-id").val());
+        loadSample();
       }
     });
   }
@@ -108,7 +108,6 @@ $(document).ready(function () {
   PfxEd.init($("#content"));
 
   listSamples();
-  loadSample();
 
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
