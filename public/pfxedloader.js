@@ -107,12 +107,21 @@ $(document).ready(function () {
 
   PfxEd.init($("#content"));
 
-  listSamples();
+  $("#content")
+    .append($('<input type="hidden" id="sample-id" name="id" value="<%= if (@sample) then @sample.id end %>">'))
+    .append($('<select id="sample-select"></select>'))
+    .append($('<input type="text" id="sample-name">'))
+    .append($('<button id="new-sample">New</button>'))
+    .append($('<button id="save-sample">Save</button>'))
+    .append($('<button id="delete-sample">Delete</button>'))
+    .append($('<button id="random-sample">Random</button>'));
 
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
   $("#delete-sample").click(deleteSample);
   $("#random-sample").click(loadRandomSample);
   $("#sample-select").change(loadSample);
+
+  listSamples();
 
 });
