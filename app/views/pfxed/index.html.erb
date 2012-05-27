@@ -1,5 +1,17 @@
 <script type="text/x-pyropus-js" href="/pfxed.js"></script>
 <script type="text/x-pyropus-js" href="/pfxedloader.js"></script>
+<script type="text/javascript">
+$(function () {
+  $("#content")
+    .append($('<input type="hidden" id="sample-id" name="id" value="<%= if (@sample) then @sample.id end %>">'))
+    .append($('<select id="sample-select"></select>'))
+    .append($('<input type="text" id="sample-name">'))
+    .append($('<button id="new-sample">New</button>'))
+    .append($('<button id="save-sample">Save</button>'))
+    .append($('<button id="delete-sample">Delete</button>'))
+    .append($('<button id="random-sample">Random</button>'));
+});
+</script>
 <style>
 #ui textarea {
   height: 10em;
@@ -12,13 +24,9 @@
 #function-texts fieldset {
   display: block;
 }
-</style>
 
-<select id="sample-select">
-</select>
-<input type="hidden" id="sample-id" name="id" value="<%= if (@sample) then @sample.id end %>">
-<input type="text" id="sample-name">
-<button id="new-sample">New</button>
-<button id="save-sample">Save</button>
-<button id="delete-sample">Delete</button>
-<button id="random-sample">Random</button>
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+</style>
