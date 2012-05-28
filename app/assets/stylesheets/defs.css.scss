@@ -22,7 +22,7 @@ $midtone: hsl(34, 60, 20);
 $lowmid: hsl(34, 40, 20);
 $altlowmid: hsl(49, 40, 80);
 $shadow: hsl(34, 40, 15);
-$accent: hsl(44, 60, 60);
+$accent: hsl(240, 50, 20);
 $offblack: hsl(44, 100, 5);
 $offwhite: hsl(224, 100, 98);
 
@@ -30,7 +30,7 @@ $offwhite: hsl(224, 100, 98);
 $alerthue: 0;
 $noticehue: 120;
 
-$bg: $offwhite;
+$bg: white;
 
 $shadowcolor: $shadow;
 $menubarcolor: none;
@@ -58,27 +58,22 @@ $uibackgroundcolor: #EEE;
 
 /* abstract base class :P */
 .hardware {
-  @include impressable($shadow);
-  background-color: lighten($shadow, 20%);
   text-decoration: none;
   font-weight: bold;
-  border-radius: .25*$basesize;
-  color: $altlowmid;
-  text-shadow: 0 1px 1px black;
   display: inline-block;
   padding: 0 .5*$basesize;
   line-height: 2.5*$basesize;
   height: (2.5*$basesize) - 2;
   font-size: 1.5*$basesize;
+  border: 0 solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
 .hardware:hover {
-  color: $offwhite;
+  color: $theme;
+  border-bottom-color: black;
 }
 
 .hardware:active, .hardware:focus {
-  color: $altlowmid;
-  text-shadow: 0 1px 1px black;
   outline: none;
-  @include impress(lighten($shadow, 10%));
 }

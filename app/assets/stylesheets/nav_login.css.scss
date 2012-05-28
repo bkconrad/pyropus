@@ -5,15 +5,12 @@
   min-width: 160px-$basesize;
   line-height: $basesize;
   height: 2*$basesize;
-  color: white;
 
   input, label {
     width: 80px-$basesize;
     line-height: 2.5*$basesize;
     height: (2.5*$basesize) - 2;
-    border-radius: .25*$basesize;
     padding: 0 .5*$basesize;
-    border: 1px solid $shadow;
     background: white;
     display: inline-block;
     vertical-align: top;
@@ -41,7 +38,6 @@
   }
 
   label, #username, #logout {
-    text-shadow: 1px 1px 1px $shadow;
   }
 }
 

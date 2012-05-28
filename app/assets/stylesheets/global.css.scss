@@ -39,6 +39,7 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: "Droid Sans" sans-serif;
+  color: $offblack;
 }
 
 h1, h1 > a {
@@ -145,8 +146,7 @@ $noticehue: 120;
     background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
-    padding-bottom: ($basesize - 2);
-    border-bottom: 2px dotted $theme;
+    padding: $basesize;
   }
   p {
     text-align: justify;
