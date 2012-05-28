@@ -127,7 +127,6 @@ $noticehue: 120;
 }
 
 #wrapper {
-  background: url("/assets/cross.png");
   min-height: 100%;
   font-size: 12px;
   > .clearfix {
@@ -139,12 +138,9 @@ $noticehue: 120;
   margin: 0 auto;
   padding: 2*$basesize $basesize 7*$basesize $basesize;
   width: 640px;
-  background: white;
   position: relative;
   z-index: 1;
   min-height: 600px;
-  border-left: 1px solid $shadow;
-  border-right: 1px solid $shadow;
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;

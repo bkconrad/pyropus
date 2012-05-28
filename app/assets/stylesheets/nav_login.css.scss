@@ -9,13 +9,14 @@
 
   input, label {
     width: 80px-$basesize;
-    line-height: 1.5*$basesize;
-    height: (1.5*$basesize) - 2;
+    line-height: 2.5*$basesize;
+    height: (2.5*$basesize) - 2;
     border-radius: .25*$basesize;
     padding: 0 .5*$basesize;
     border: 1px solid $shadow;
     background: white;
     display: inline-block;
+    vertical-align: top;
   }
 
   input::-webkit-input-placeholder {
@@ -24,8 +25,6 @@
 
   input[type="submit"] {
     @extend .hardware;
-    line-height: 1.5*$basesize;
-    height: (1.5*$basesize) - 2;
   }
 
   label {
@@ -39,8 +38,6 @@
 
   #logout > a {
     @extend .hardware;
-    line-height: 1.5*$basesize;
-    height: (1.5*$basesize) - 2;
   }
 
   label, #username, #logout {

@@ -24,13 +24,13 @@ $altlowmid: hsl(49, 40, 80);
 $shadow: hsl(34, 40, 15);
 $accent: hsl(44, 60, 60);
 $offblack: hsl(44, 100, 5);
-$offwhite: hsl(224, 100, 97);
+$offwhite: hsl(224, 100, 98);
 
 /* Message colors */
 $alerthue: 0;
 $noticehue: 120;
 
-$bg: #F8F8F8;
+$bg: $offwhite;
 
 $shadowcolor: $shadow;
 $menubarcolor: none;
@@ -67,8 +67,9 @@ $uibackgroundcolor: #EEE;
   text-shadow: 0 1px 1px black;
   display: inline-block;
   padding: 0 .5*$basesize;
-  line-height: 1.5*$basesize;
-  height: (1.5*$basesize) - 2;
+  line-height: 2.5*$basesize;
+  height: (2.5*$basesize) - 2;
+  font-size: 1.5*$basesize;
 }
 
 .hardware:hover {
