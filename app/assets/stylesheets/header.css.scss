@@ -11,6 +11,7 @@
   margin: 0 auto;
   width: ($bodywidth - 2*$basesize);
   padding: $basesize;
+  color: $offwhite;
 }
 
 #menubar {
@@ -30,6 +31,9 @@
 #menu {
   width: $bodywidth;
   margin: auto;
+  border-top: 1px solid $offwhite;
+  border-bottom: 1px solid $offwhite;
+  height: (3*$basesize - 2);
 }
 
 #site_title {

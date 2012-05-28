@@ -31,35 +31,11 @@ html, body {
 
 body {
   color: $maintextcolor;
-  background: $bg;
+  background-color: $bg;
+  background-image: url("/assets/noise.png");
 
   /* always want a scrollbar, otherwise the page jumps as they turn on/off */
   overflow: scroll;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: "Droid Sans" sans-serif;
-  color: $offblack;
-}
-
-h1, h1 > a {
-  line-height: 2*$basesize;
-  font-size: 2*$basesize;
-  font-weight: bold;
-}
-
-h2 {
-  line-height: 3*$basesize;
-  font-size: 2*$basesize;
-  font-weight: bold;
-}
-
-h3 {
-  line-height: 2*$basesize;
-  font-size: 1.5*$basesize;
-}
-
-h4 {
 }
 
 a {
@@ -73,6 +49,7 @@ a:active {
 }
 
 p {
+  max-width: 640px;
   margin-bottom: $basesize;
 }
 
@@ -138,10 +115,63 @@ $noticehue: 120;
 #content {
   margin: 0 auto;
   padding: 2*$basesize $basesize 7*$basesize $basesize;
-  width: 640px;
+  width: $bodywidth;
   position: relative;
   z-index: 1;
   min-height: 600px;
+
+  h1, h2, h3, h4, h5 {
+    font-family: "Droid Sans" sans-serif;
+    color: $offwhite;
+  }
+
+  h1, h1 > a {
+    line-height: 2*$basesize;
+    font-size: 2*$basesize;
+    font-weight: bold;
+  }
+
+  h1 {
+    background: $headerbg;
+    padding: (.5*$basesize - 1) 2*$basesize;
+    margin-left: -2*$basesize;
+    display: inline-block;
+    box-shadow: 0 0 0 4px darken($headerbg, 5%), 2px 2px 2*$basesize 4px hsla(0, 0, 0, .9);
+    border: 1px dashed $shadow;
+    margin-bottom: $basesize;
+    text-shadow: 0 1px 1px lighten($headerbg, 20%);
+    color: $offblack;
+    @include gradient($headerbg, darken($headerbg, 10%));
+  }
+
+  h1:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: ($basesize - 5) solid darken($headerbg, 50%);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    left: -5px;
+    margin-top: (2*$basesize + 11);
+    z-index: -1;
+  }
+
+  h2 {
+    line-height: 3*$basesize;
+    font-size: 2*$basesize;
+    font-weight: bold;
+  }
+
+  h3 {
+    line-height: 2*$basesize;
+    font-size: 1.5*$basesize;
+  }
+
+  h4 {
+  }
+
   > div {
     background: $contentdivbackground;
     color: $contentdivtextcolor;
@@ -149,7 +179,9 @@ $noticehue: 120;
     padding: $basesize;
   }
   p {
+    text-shadow: 0 1px 1px $shadow;
     text-align: justify;
+    font-family: "Droid Sans";
   }
   ul {
     padding-left: 2*$basesize;
@@ -171,9 +203,6 @@ $noticehue: 120;
     display: block;
   }
 
-  h1 {
-  }
-
   .actions {
     display: inline-block;
     height: 2*$basesize;
@@ -186,13 +215,15 @@ $noticehue: 120;
     height: $basesize;
     display: inline-block;
     line-height: $basesize;
-    background: $highlight;
-    color: $shadow;
+    background: $shadow;
+    color: $highlight;
+    border: 1px solid $highlight;
+    margin-right: .5*$basesize;
   }
 
   .actions > a:focus, .actions > a:hover {
-    color: $highlight;
-    background: $shadow;
+    color: $shadow;
+    background: $highlight;
     outline: none;
   }
 

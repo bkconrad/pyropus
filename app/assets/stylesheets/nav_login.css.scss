@@ -8,10 +8,10 @@
 
   input, label {
     width: 80px-$basesize;
-    line-height: 2.5*$basesize;
-    height: (2.5*$basesize) - 2;
+    line-height: 1.5*$basesize;
+    height: (1.5*$basesize);
     padding: 0 .5*$basesize;
-    background: white;
+    background: none;
     display: inline-block;
     vertical-align: top;
   }
