@@ -1,7 +1,8 @@
 @import "defs";
 
 #header {
-  @include gradient($theme, $shadow);
+  @include gradient($theme, $themeshadow);
+  box-shadow: 0 1px 2px hsla(0,0,100,.6) inset;
 }
 
 #titlebar {
@@ -10,7 +11,7 @@
   }
   margin: 0 auto;
   padding: $basesize;
-  color: $shadow;
+  color: hsla(0,0,0,.6);
   text-shadow: 0 1px 2px hsla(0, 100, 100, .5);
 }
 
@@ -29,25 +30,28 @@
 }
 
 #menu {
+  @include gradient(#444, #111);
   border-bottom: 1px solid darken($shadow, 10%);
-  border-top: 1px solid hsla(0, 0, 0, .3);
+  border-top: 1px solid hsla(0, 0, 0, .1);
   box-shadow: 0 1px 1px hsla(0,100,100,.3) inset, 0 2px .75*$basesize -2px black;
-  padding: .5*$basesize $basesize;
+  padding: 0;
   margin: auto;
   height: (2*$basesize - 2);
+  width: $bodywidth;
 }
 
 #site_title {
   font-family: "Oleo Script";
   font-weight: bold;
   font-size: 3*$basesize;
-  line-height: 3*$basesize;
+  line-height: 2*$basesize;
 }
 
 #page_title {
   float: right;
-  font-size: 3*$basesize;
-  line-height: 3*$basesize;
+  display: inline-block;
+  font-size: 2*$basesize;
+  line-height: 2*$basesize;
 }
 #navlinks {
   display: block;

@@ -20,8 +20,9 @@ $primary: 215;
 $secondary: 35;
 $tertiary: 180;
 $theme: hsl($primary,30,60);
+$themeshadow: hsl($primary, 30, 30);
 $highlight: hsl($secondary,40,80);
-$shadow: hsl($primary,30,30);
+$shadow: hsl($secondary,30,30);
 $accent: hsl($tertiary,60,40);
 $offblack: hsl($primary,0,10);
 $offwhite: hsl($primary,30,90);
@@ -69,20 +70,16 @@ $uibackgroundcolor: $offwhite;
   border: 0 solid transparent;
   color: white;
   text-shadow: 0 1px 1px black;
-  @include gradient(lighten($shadow, 10%), $shadow);
-  border-radius: .5*$basesize;
-  border: 1px solid $shadow;
-  border-top-color: hsla(0, 0, 0, .4);
-  border-bottom-color: hsla(0, 100, 100, .2);
-  box-shadow: 0 1px 1px hsla(0, 100, 100, .6) inset, 0 -1px 1px hsla(0, 0, 0, .3) inset;
+  border-right: 1px solid hsla(0,0,0,.2);
+  border-left: 1px solid hsla(0,0,0,.2);
 }
 
 .hardware:hover {
-  @include gradient(lighten($shadow, 15%), lighten($shadow, 5%));
+  @include gradient(hsla(0,100,100,.2), hsla(0,0,0,.2));
 }
 
 .hardware:active, .hardware:focus {
   outline: none;
   box-shadow: 0 1px 1px hsla(0, 0, 0, .3) inset;
-  @include gradient(lighten($shadow, 15%), $shadow);
+  @include gradient($highlight, $shadow);
 }
