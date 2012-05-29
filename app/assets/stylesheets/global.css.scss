@@ -31,7 +31,7 @@ html, body {
 
 body {
   color: $maintextcolor;
-  background-color: #454545;
+  background-color: #111;
   background-image: url("/assets/noise.png");
 
   /* always want a scrollbar, otherwise the page jumps as they turn on/off */
@@ -140,7 +140,7 @@ $noticehue: 120;
     display: inline-block;
     text-shadow: 0 1px 2px $theme;
     width: 100%;
-    padding: $basesize;
+    border-bottom: 1px solid $highlight;
   }
 
   h1:first-child {
