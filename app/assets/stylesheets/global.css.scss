@@ -114,9 +114,9 @@ $noticehue: 120;
   width: $bodywidth;
   margin: $basesize auto;
   border: 1px solid hsla(0,0,0,.75);
-  border-radius: $basesize;
+  border-radius: .5*$basesize;
   overflow: hidden;
-  box-shadow: 0 0 $basesize hsla(0,0,100,.8) inset;
+  box-shadow: 0 1px 7px hsla(0,0,100,.4);
 }
 
 #content {
@@ -205,22 +205,20 @@ $noticehue: 120;
     height: $basesize;
     display: inline-block;
     line-height: $basesize;
-    background: $highlight;
-    color: black;
-    border: 1px solid $highlight;
+    background: #333;
+    color: white;
     margin-right: .5*$basesize;
-    box-shadow: 2px 2px 7px -2px hsla(0,0,0,.6);
+    box-shadow: 2px 2px 7px -2px hsla(0,0,0,.8);
   }
 
   .actions > a:focus, .actions > a:hover {
     color: white;
-    background: $shadow;
+    background: $themeshadow;
     outline: none;
   }
 
   .actions > a:active {
-    color: $uiactivetextcolor;
-    background: $uiactivebackgroundcolor;
+    background: $shadow;
   }
 
 }

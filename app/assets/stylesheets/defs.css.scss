@@ -17,7 +17,7 @@ $bodywidth: 800px;
 
 /* palette */
 $primary: 215;
-$secondary: 35;
+$secondary: 85;
 $tertiary: 180;
 $theme: hsl($primary,30,60);
 $themeshadow: hsl($primary, 30, 30);
@@ -81,5 +81,6 @@ $uibackgroundcolor: $offwhite;
 .hardware:active, .hardware:focus {
   outline: none;
   box-shadow: 0 1px 1px hsla(0, 0, 0, .3) inset;
-  @include gradient($highlight, $shadow);
+  background-color: $shadow;
+  @include gradient(hsla(0,100,100,.3), hsla(0,0,0,.3));
 }

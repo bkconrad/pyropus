@@ -29,18 +29,14 @@
 }
 
 #content button:first-child {
-  /*
   border-top-left-radius: $uiborderradius;
   border-bottom-left-radius: $uiborderradius;
-  */
   border-left: 1px solid $uibordercolor;
 }
 
 #content button:last-child {
-  /*
   border-top-right-radius: $uiborderradius;
   border-bottom-right-radius: $uiborderradius;
-  */
   border-right: 1px solid $uibordercolor;
 }
 
