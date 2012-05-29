@@ -1,7 +1,7 @@
 @import "defs";
 
 #header {
-  padding-top: .5*$basesize;
+  @include gradient($theme, $shadow);
 }
 
 #titlebar {
@@ -9,9 +9,9 @@
     display: inline-block;
   }
   margin: 0 auto;
-  width: ($bodywidth - 2*$basesize);
   padding: $basesize;
-  color: $offwhite;
+  color: $shadow;
+  text-shadow: 0 1px 2px hsla(0, 100, 100, .5);
 }
 
 #menubar {
@@ -29,11 +29,12 @@
 }
 
 #menu {
-  width: $bodywidth;
+  border-bottom: 1px solid darken($shadow, 10%);
+  border-top: 1px solid darken($shadow, 10%);
+  box-shadow: 0 1px 1px hsla(0,100,100,.6) inset, 0 2px 3px -2px black;
+  padding: .5*$basesize $basesize;
   margin: auto;
-  border-top: 1px solid $offwhite;
-  border-bottom: 1px solid $offwhite;
-  height: (3*$basesize - 2);
+  height: (2*$basesize - 2);
 }
 
 #site_title {
@@ -50,16 +51,15 @@
 }
 #navlinks {
   display: block;
-  width: $bodywidth;
   text-align: left;
   li {
     display: inline-block;
     list-style-type: none;
-    width: 80px;
     text-align: center;
   }
   a {
     @extend .hardware;
+    width: 60px;
     display: block;
   }
 }

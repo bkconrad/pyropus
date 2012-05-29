@@ -31,7 +31,7 @@ html, body {
 
 body {
   color: $maintextcolor;
-  background-color: $bg;
+  background-color: #454545;
   background-image: url("/assets/noise.png");
 
   /* always want a scrollbar, otherwise the page jumps as they turn on/off */
@@ -105,24 +105,27 @@ $noticehue: 120;
 }
 
 #wrapper {
+  background: $bg;
   min-height: 100%;
   font-size: 12px;
   > .clearfix {
     display: none;
   }
+  width: $bodywidth;
+  margin: 0 auto;
+  border: 1px solid black;
 }
 
 #content {
   margin: 0 auto;
   padding: 2*$basesize $basesize 7*$basesize $basesize;
-  width: $bodywidth;
   position: relative;
   z-index: 1;
   min-height: 600px;
 
   h1, h2, h3, h4, h5 {
     font-family: "Droid Sans" sans-serif;
-    color: $offwhite;
+    color: $shadow;
   }
 
   h1, h1 > a {
@@ -132,30 +135,15 @@ $noticehue: 120;
   }
 
   h1 {
-    background: $headerbg;
-    padding: (.5*$basesize - 1) 2*$basesize;
-    margin-left: -2*$basesize;
+    margin-top: -$basesize;
+    margin-left: -$basesize;
     display: inline-block;
-    box-shadow: 0 0 0 4px darken($headerbg, 5%), 2px 2px 2*$basesize 4px hsla(0, 0, 0, .9);
-    border: 1px dashed darken($headerbg, 30%);
-    margin-bottom: $basesize;
-    text-shadow: 0 1px 1px lighten($headerbg, 20%);
-    color: $offblack;
-    @include gradient($headerbg, darken($headerbg, 10%));
+    text-shadow: 0 1px 2px $theme;
+    width: 100%;
+    padding: $basesize;
   }
 
-  h1:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border: ($basesize - 5) solid darken($headerbg, 50%);
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    position: absolute;
-    left: -5px;
-    margin-top: (2*$basesize + 11);
-    z-index: -1;
+  h1:first-child {
   }
 
   h2 {
@@ -173,13 +161,12 @@ $noticehue: 120;
   }
 
   > div {
-    background: $contentdivbackground;
     color: $contentdivtextcolor;
     margin-bottom: $basesize;
     padding: $basesize;
+    overflow: hidden;
   }
   p {
-    text-shadow: 0 1px 1px $shadow;
     text-align: justify;
     font-family: "Droid Sans";
   }
@@ -215,15 +202,15 @@ $noticehue: 120;
     height: $basesize;
     display: inline-block;
     line-height: $basesize;
-    background: $shadow;
-    color: $highlight;
+    background: $highlight;
+    color: black;
     border: 1px solid $highlight;
     margin-right: .5*$basesize;
   }
 
   .actions > a:focus, .actions > a:hover {
-    color: $shadow;
-    background: $highlight;
+    color: white;
+    background: $shadow;
     outline: none;
   }
 

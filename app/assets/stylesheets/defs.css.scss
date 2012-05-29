@@ -16,23 +16,22 @@ $basesize: 14px;
 $bodywidth: 800px;
 
 /* palette */
-$primary: 240;
-$secondary: 220;
-$tertiary: 230;
-$theme: hsl($secondary, 60, 20);
-$highlight: hsl($secondary, 60, 80);
-$shadow: hsl($secondary, 40, 15);
-$accent: hsl($secondary, 70, 80);
-$offblack: hsl($primary, 100, 5);
-$offwhite: hsl($tertiary, 100, 93);
+$primary: 215;
+$secondary: 35;
+$tertiary: 180;
+$theme: hsl($primary,20,60);
+$highlight: hsl($secondary,40,80);
+$shadow: hsl($primary,30,30);
+$accent: hsl($tertiary,60,40);
+$offblack: hsl($primary,0,10);
+$offwhite: hsl($primary,30,90);
 
 /* Message colors */
 $alerthue: 0;
 $noticehue: 120;
 
-$headerbg: hsl(220, 20, 80);
-$headernipplebg: hsl(240, 40, 30);
-$bg: hsl(240, 40, 7);
+$headerbg: $shadow;
+$bg: white;
 
 $shadowcolor: $shadow;
 $menubarcolor: none;
@@ -40,14 +39,14 @@ $menubartextcolor: black;
 $loginlabeltextcolor: $shadowcolor;
 $input_border: white;
 
-$wrapperbg: $bg;
+$wrapperbg: none;
 $wrapperbordercolor: #0f1521;
 
 $maintextcolor: white;
 $linkcolor: $theme;
 
-$contentdivbackground: transparentize(white, .95);
-$contentdivtextcolor: $offwhite;
+$contentdivbackground: none;
+$contentdivtextcolor: #222;
 $contentlinkcolor: $shadow;
 
 /* UI Color defaults */
@@ -63,19 +62,27 @@ $uibackgroundcolor: $offwhite;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  padding: 0 .5*$basesize;
-  line-height: 3*$basesize;
-  height: (3*$basesize - 2);
-  font-size: 1.5*$basesize;
+  padding: 0 $basesize;
+  line-height: 2*$basesize;
+  height: (2*$basesize - 2);
+  font-size: $basesize;
   border: 0 solid transparent;
-  color: $accent;
+  color: white;
+  text-shadow: 0 1px 1px black;
+  @include gradient(lighten($shadow, 10%), $shadow);
+  border-radius: .5*$basesize;
+  border: 1px solid $shadow;
+  border-top-color: hsla(0, 0, 0, .4);
+  border-bottom-color: hsla(0, 100, 100, .2);
+  box-shadow: 0 1px 1px hsla(0, 100, 100, .6) inset, 0 -1px 1px hsla(0, 0, 0, .3) inset;
 }
 
 .hardware:hover {
-  background: $theme;
-  color: $offwhite;
+  @include gradient(lighten($shadow, 15%), lighten($shadow, 5%));
 }
 
 .hardware:active, .hardware:focus {
   outline: none;
+  box-shadow: 0 1px 1px hsla(0, 0, 0, .3) inset;
+  @include gradient(lighten($shadow, 15%), $shadow);
 }
