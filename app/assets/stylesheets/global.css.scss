@@ -120,7 +120,7 @@ $noticehue: 120;
 
 #content {
   margin: 0 auto;
-  padding: 2*$basesize $basesize 7*$basesize $basesize;
+  padding: $basesize $basesize 7*$basesize $basesize;
   position: relative;
   z-index: 1;
   min-height: 600px;
