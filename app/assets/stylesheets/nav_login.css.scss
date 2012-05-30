@@ -16,17 +16,25 @@
   }
 
   input[type="password"], input[type="text"] {
-    background: #CCC;
+    background: #FFF;
     color: black;
     text-shadow: none;
-    @include gradient(hsla(0,100,100,.2), hsla(0,0,0,.2));
+    @include gradient(hsla(0,100,100,.3), hsla(0,0,0,.3));
   }
 
   input[type="password"]:active, input[type="password"]:focus, input[type="text"]:active, input[type="text"]:focus {
-    background: #EEE;
+    background: #FFF;
     text-shadow: none;
     color: black;
-    @include gradient(hsla(0,100,100,.3), hsla(0,0,0,.3));
+    @include gradient(hsla(0,100,100,.2), hsla(0,0,0,.2));
+  }
+
+  :-o-placeholder {
+    color: #666;
+  }
+
+  :-moz-placeholder {
+    color: #666;
   }
 
   input::-webkit-input-placeholder {
