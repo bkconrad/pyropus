@@ -12,7 +12,7 @@
 * {
   /* Should be all the reset we need */
   line-height: 2*$basesize;
-  font-size: $basesize;
+  font-size: 10pt;
   margin: 0;
   padding: 0;
   font-family: "Cabin" sans-serif;
@@ -31,7 +31,7 @@ html, body {
 
 body {
   color: $maintextcolor;
-  background-color: #666;
+  background-color: #AAA;
   background-image: url("/assets/noise.png");
 
   /* always want a scrollbar, otherwise the page jumps as they turn on/off */
@@ -120,7 +120,7 @@ $noticehue: 120;
 
 #content {
   margin: 0 auto;
-  padding: $basesize $basesize 7*$basesize $basesize;
+  padding: $basesize;
   position: relative;
   z-index: 1;
   min-height: 600px;
