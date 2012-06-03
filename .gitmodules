@@ -1,3 +1,6 @@
 [submodule "pfxed"]
 	path = pfxed
 	url = git://github.com/kaen/pfxed.git
+[submodule "codemirror2"]
+	path = codemirror2
+	url = http://marijnhaverbeke.nl/git/codemirror2

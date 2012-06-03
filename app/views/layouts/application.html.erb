@@ -4,6 +4,9 @@
   <title>Pyropus</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "/codemirror2/lib/codemirror.js" %>
+  <%= javascript_include_tag "/codemirror2/mode/javascript/javascript.js" %>
+  <%= stylesheet_link_tag    "/codemirror2/lib/codemirror.css" %>
   <%= csrf_meta_tags %>
   <%= google_fonts_link_tag(droid_sans: [400, 700],
                             orbitron: [400, 900],

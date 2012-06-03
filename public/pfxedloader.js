@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  var drawMirror
+    , initMirror
+    , updateMirror
+    , i
+    ;
+
+  textAreas = $('#function-texts textarea').get(); 
+
   function listSamples () {
     $.ajax({
       url: "/pfxed/list",
@@ -35,9 +43,11 @@ $(document).ready(function () {
       url: "/pfxed/" + id,
       dataType: "json",
       success: function (data) {
-        $("#init-function").val(data.init_function);
-        $("#draw-function").val(data.draw_function);
-        $("#update-function").val(data.update_function);
+
+        drawMirror.setValue(data.draw_function);
+        initMirror.setValue(data.init_function);
+        updateMirror.setValue(data.update_function);
+
         $("#sample-id").val(data.id);
         $("#sample-name").val(data.name);
 
@@ -121,6 +131,35 @@ $(document).ready(function () {
   $("#delete-sample").click(deleteSample);
   $("#random-sample").click(loadRandomSample);
   $("#sample-select").change(loadSample);
+
+  var options = {
+    lineNumbers: true,
+    mode: 'text/javascript'
+  };
+
+  drawMirror = CodeMirror.fromTextArea($('#draw-function').get()[0], {
+    lineNumbers: true,
+    mode: 'text/javascript',
+    onChange: function () {
+      $("#draw-function").val(drawMirror.getValue());
+    }
+  });
+
+  initMirror = CodeMirror.fromTextArea($('#init-function').get()[0], {
+    lineNumbers: true,
+    mode: 'text/javascript',
+    onChange: function () {
+      $("#init-function").val(initMirror.getValue());
+    }
+  });
+
+  updateMirror = CodeMirror.fromTextArea($('#update-function').get()[0], {
+    lineNumbers: true,
+    mode: 'text/javascript',
+    onChange: function () {
+      $("#update-function").val(updateMirror.getValue());
+    }
+  });
 
   listSamples();
 
