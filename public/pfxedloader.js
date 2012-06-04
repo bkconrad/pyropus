@@ -44,9 +44,9 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data) {
 
-        drawMirror.setValue(data.draw_function);
-        initMirror.setValue(data.init_function);
-        updateMirror.setValue(data.update_function);
+        drawMirror.setValue(data.draw_function || "");
+        initMirror.setValue(data.init_function || "");
+        updateMirror.setValue(data.update_function || "");
 
         $("#sample-id").val(data.id);
         $("#sample-name").val(data.name);
