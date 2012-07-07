@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order("created_at DESC");
+    if (admin?)
+      @posts = Post.order("created_at DESC");
+    else
+      @posts = Post.where('visible = 1').order("created_at DESC");
+    end
     page_title "View all posts"
 
     @posts.each do |post|
