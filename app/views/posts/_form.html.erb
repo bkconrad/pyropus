@@ -1,3 +1,4 @@
+<%= javascript_include_tag "posteditor.js" %>
 <%= form_for(@post, remote: true) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -15,9 +16,13 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+  <div class="wmd-panel">
+        <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+    <div id="wmd-button-bar"></div>
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content, id: "wmd-input", class: "wmd-input" %>
+    </div>
   </div>
   <div class="field">
     <%= f.label :visible %><br />

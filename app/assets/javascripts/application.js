@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require pagedown/Markdown.Sanitizer.js
+//= require pagedown/Markdown.Converter.js
+//= require pagedown/Markdown.Editor.js
 //= require_tree .
 
 /* 0 = no request in progress
