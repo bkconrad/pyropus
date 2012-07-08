@@ -55,11 +55,13 @@ function pullScripts(text) {
 
   // we only want scripts in the content div, but HTMLElements don't have
   // getElementById(), so we use a class name instead
+  // TODO: this assumes that there is something with the class 'content'
   scriptElements = div.getElementsByClassName('content')[0]
                       .getElementsByTagName('script');
 
+  // add each script url to the array, ignoring query strings if present
   for (i = 0; i < scriptElements.length; i++) {
-    scriptUrls.push(scriptElements[i].src);
+    scriptUrls.push(scriptElements[i].src.split('?')[0]);
   }
 
   return scriptUrls;
@@ -85,14 +87,11 @@ function retrievePage(ev, e, c, d) {
     Pyropus.error(errors);
 
   window.history.pushState(null, "Pyropus", sourceUrl);
-
-  // this is the main hook for "Things"
-  try {
-  //  document.bootstrap();
-  } catch (e) {}
 }
 
 function ajaxLoading(ev, e, settings) {
+  Pyropus.runExitQueue();
+
   ajaxLoadingState = 1;
   $("#notice").fadeOut();
   $("#alert").fadeOut();
@@ -130,6 +129,7 @@ var Pyropus = (function () {
     , ERROR = 2
 
   var execQueue = [];
+  var exitExecQueue = [];
   var messageTimeouts = [];
   var displayTime = 15000;
 
@@ -148,6 +148,22 @@ var Pyropus = (function () {
     for (i = 0; i < execQueue.length; i++) {
       execQueue[i]();
     }
+
+    execQueue = [];
+  }
+
+  function queueOnExit (fn) {
+    if (typeof fn === 'function') {
+      exitExecQueue.push(fn);
+    }
+  }
+
+  function runExitQueue () {
+    var i;
+    for (i = 0; i < exitExecQueue.length; i++) {
+      exitExecQueue[i]();
+    }
+    exitExecQueue = [];
   }
 
   function error (str) {
@@ -188,7 +204,9 @@ var Pyropus = (function () {
   });
 
   return {
-    queue: queue,
+    startup: queue,
+    teardown: queueOnExit,
+    runExitQueue: runExitQueue,
     run: run,
     error: error,
     notice: notice
