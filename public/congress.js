@@ -85,7 +85,9 @@ function showError (request, state, error) {
   console.log(error);
 }
 
-document.bootstrap = function () {
+Pyropus.startup(function () {
+  console.log('startup');
+
   // Handlebars setup
   Handlebars.registerHelper("trim_date", function () {
     return this.datetime.split(" ")[0];
@@ -121,6 +123,4 @@ document.bootstrap = function () {
   });
   getBills();
   billDetails("s365");
-};
-
-$(document).ready(document.bootstrap);
+});

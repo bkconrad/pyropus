@@ -27,7 +27,11 @@ var sourceUrl;
  * and executes them.
  */
 function chainLoadScripts (arr) {
+  if (!arr || arr.length <= 0)
+    return;
+
   var scriptUrl = arr.shift();
+  console.log('loading ' + scriptUrl);
   if (!!scriptUrl) {
     $.ajax({
         url: scriptUrl
@@ -47,7 +51,8 @@ function pullScripts(text) {
     , frag = document.createDocumentFragment()
     , div = document.createElement('div')
     , i
-    , scriptElements;
+    , scriptElements
+    , url;
 
   // This is roughly how jQuery finds the scripts when cleaning text
   frag.appendChild(div);
@@ -61,7 +66,10 @@ function pullScripts(text) {
 
   // add each script url to the array, ignoring query strings if present
   for (i = 0; i < scriptElements.length; i++) {
-    scriptUrls.push(scriptElements[i].src.split('?')[0]);
+    url = scriptElements[i].src.split('?')[0];
+    if (!!url) {
+      scriptUrls.push(url);
+    }
   }
 
   return scriptUrls;
