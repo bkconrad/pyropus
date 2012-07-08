@@ -17,12 +17,6 @@
 //= require pagedown/Markdown.Editor.js
 //= require_tree .
 
-/* 0 = no request in progress
- * 1 = pre-request effect
- * 2 = pre-request effect completed
- * 3 = post-request effect
- */
-
 (function () {
 var ajaxLoadingState = 0;
 var fadeTime = 150;
@@ -37,44 +31,56 @@ function chainLoadScripts (arr) {
   if (!!scriptUrl) {
     $.ajax({
         url: scriptUrl
-      , success: function () { chainLoadScripts(arr); }
+      , success: function () {
+        if (arr.length > 0) {
+          chainLoadScripts(arr);
+        } else {
+          Pyropus.run();
+        }
+      }
     });
   }
 }
 
 function pullScripts(text) {
-  var url;
-  var scripts = $("script", text).get();
-  var scriptUrls = [];
+  var scriptUrls = []
+    , frag = document.createDocumentFragment()
+    , div = document.createElement('div')
+    , i
+    , scriptElements;
 
-  // populate array of script urls to load
-  for (var i in scripts) {
-    // only load our own script type
-    if(scripts[i].type === "text/x-pyropus-js") {
-      url = scripts[i].getAttribute("src") || scripts[i].getAttribute("href");
-      url = url.split("?")[0];
-      scriptUrls.push(url);
-      console.log("found one!", scriptUrls[scriptUrls.length - 1]);
-    }
+  // This is roughly how jQuery finds the scripts when cleaning text
+  frag.appendChild(div);
+  div.innerHTML = text;
+
+  // we only want scripts in the content div, but HTMLElements don't have
+  // getElementById(), so we use a class name instead
+  scriptElements = div.getElementsByClassName('content')[0]
+                      .getElementsByTagName('script');
+
+  for (i = 0; i < scriptElements.length; i++) {
+    scriptUrls.push(scriptElements[i].src);
   }
 
-  chainLoadScripts(scriptUrls);
+  return scriptUrls;
 }
 
-function retrievePage(ev, e) {
+function retrievePage(ev, e, c, d) {
 
   // get the url from the link or form
   sourceUrl = $(this).context.href || $(this).context.action;
-  pullScripts(e.responseText);
-  var dom = $(e.responseText);
 
+  var scriptUrls = pullScripts(e.responseText);
+  chainLoadScripts(scriptUrls);
+
+  var $dom = $(e.responseText);
   // replace the content and header
-  $("#menubar").html($("#menubar", dom).html());
-  $("#content").html($("#content", dom).html());
-  $("#page_title").html($("#page_title", dom).html());
+  $("#menubar").html($("#menubar", $dom).html());
+  $("#content").html($("#content", $dom).html());
+  $("#page_title").html($("#page_title", $dom).html());
   $("#content").fadeIn(fadeTime);
 
-  var errors = $("#alert", dom).html();
+  var errors = $("#alert", $dom).html();
   if (errors)
     Pyropus.error(errors);
 
@@ -82,13 +88,12 @@ function retrievePage(ev, e) {
 
   // this is the main hook for "Things"
   try {
-    document.bootstrap();
+  //  document.bootstrap();
   } catch (e) {}
 }
 
-function ajaxLoading(ev, e) {
+function ajaxLoading(ev, e, settings) {
   ajaxLoadingState = 1;
-
   $("#notice").fadeOut();
   $("#alert").fadeOut();
 
@@ -108,16 +113,13 @@ function loginRevealHandler () {
   return true;
 };
 
-$(window).ready(function () {
-
+$(window).load(function () {
   // ajax fetchers
   $(document).on("ajax:complete", "[data-remote]=true", retrievePage);
-  $(document).on("ajax:before", "[data-remote]=true", ajaxLoading);
+  $(document).on("ajax:beforeSend", "[data-remote]=true", ajaxLoading);
 
   // login button handler
   $(document).on("click", "#login-button", loginRevealHandler);
-
-  pullScripts($(document).html());
 });
 
 })();
@@ -127,8 +129,26 @@ var Pyropus = (function () {
     , NOTICE = 1
     , ERROR = 2
 
+  var execQueue = [];
   var messageTimeouts = [];
   var displayTime = 15000;
+
+  function queue (fn) {
+    if (typeof fn === 'function') {
+      if (document.readyState === 'complete') {
+        execQueue.push(fn);
+      } else {
+        $(document).ready(fn);
+      }
+    }
+  }
+
+  function run () {
+    var i;
+    for (i = 0; i < execQueue.length; i++) {
+      execQueue[i]();
+    }
+  }
 
   function error (str) {
     clearTimeout(messageTimeouts[ERROR]);
@@ -160,12 +180,16 @@ var Pyropus = (function () {
 
   /* Add css for js managed things */
   $(document).ready(function () {
-    var $jsStyle = $("style[type='pyropus/embeddedcss']");
-    $jsStyle[0].type = "text/css";
-    $("head").append($jsStyle[0]);
+    var $jsStyle = $("style[type='pyropus/embeddedcss']").get();
+    if ($jsStyle.length > 0) {
+      $jsStyle[0].type = "text/css";
+      $("head").append($jsStyle[0]);
+    }
   });
 
   return {
+    queue: queue,
+    run: run,
     error: error,
     notice: notice
   };
