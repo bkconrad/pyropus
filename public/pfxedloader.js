@@ -1,4 +1,4 @@
-$(document).ready(function () {
+Pyropus.startup(function () {
   var drawMirror
     , initMirror
     , updateMirror
@@ -163,4 +163,8 @@ $(document).ready(function () {
 
   listSamples();
 
+});
+
+Pyropus.teardown(function () {
+  PfxEd.destroy();
 });
