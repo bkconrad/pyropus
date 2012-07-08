@@ -43,6 +43,7 @@ function chainLoadScripts (arr) {
 }
 
 function pullScripts(text) {
+  var url;
   var scripts = $("script", text).get();
   var scriptUrls = [];
 
@@ -50,7 +51,10 @@ function pullScripts(text) {
   for (var i in scripts) {
     // only load our own script type
     if(scripts[i].type === "text/x-pyropus-js") {
-      scriptUrls.push(scripts[i].getAttribute("href"));
+      url = scripts[i].getAttribute("src") || scripts[i].getAttribute("href");
+      url = url.split("?")[0];
+      scriptUrls.push(url);
+      console.log("found one!", scriptUrls[scriptUrls.length - 1]);
     }
   }
 
@@ -63,7 +67,6 @@ function retrievePage(ev, e) {
   sourceUrl = $(this).context.href || $(this).context.action;
   pullScripts(e.responseText);
   var dom = $(e.responseText);
-  console.log(e);
 
   // replace the content and header
   $("#menubar").html($("#menubar", dom).html());
