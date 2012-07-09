@@ -18,16 +18,15 @@
 //= require_tree .
 
 (function () {
-var ajaxLoadingState = 0;
 var fadeTime = 150;
 var sourceUrl;
 
 function pullScripts(text) {
   var frag = document.createDocumentFragment()
     , div = document.createElement('div')
-    , i
     , scriptElements
-    , url;
+    , i
+    ;
 
   // This is roughly how jQuery finds the scripts when cleaning text
   frag.appendChild(div);
@@ -42,21 +41,22 @@ function pullScripts(text) {
   $('head').append(scriptElements);
 }
 
-function retrievePage(ev, e, c, d) {
+function retrievePage(event, xhr, settings) {
 
   // get the url from the link or form
   sourceUrl = $(this).context.href || $(this).context.action;
 
-  var $dom = $(e.responseText);
+  var $dom = $(xhr.responseText);
   // replace the content and header
   $("#menubar").html($("#menubar", $dom).html());
   $("#content").html($("#content", $dom).html());
   $("#page_title").html($("#page_title", $dom).html());
   $("#content").fadeIn(fadeTime);
 
-  pullScripts(e.responseText);
+  pullScripts(xhr.responseText);
   Pyropus.runStartupQueue();
 
+  // TODO: What about notice and message?
   var errors = $("#alert", $dom).html();
   if (errors)
     Pyropus.error(errors);
@@ -64,16 +64,13 @@ function retrievePage(ev, e, c, d) {
   window.history.pushState(null, "Pyropus", sourceUrl);
 }
 
-function ajaxLoading(ev, e, settings) {
+function ajaxLoading(ev, xhr, settings) {
   Pyropus.runTeardownQueue();
 
-  ajaxLoadingState = 1;
   $("#notice").fadeOut();
   $("#alert").fadeOut();
 
-  $("#content").fadeOut(fadeTime, function() {
-    ajaxLoadingState = 2;
-  });
+  $("#content").fadeOut(fadeTime);
 }
 
 function loginRevealHandler () {
