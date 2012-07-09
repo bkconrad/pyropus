@@ -86,8 +86,6 @@ function showError (request, state, error) {
 }
 
 Pyropus.startup(function () {
-  console.log('startup');
-
   // Handlebars setup
   Handlebars.registerHelper("trim_date", function () {
     return this.datetime.split(" ")[0];

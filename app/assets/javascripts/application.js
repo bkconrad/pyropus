@@ -22,33 +22,8 @@ var ajaxLoadingState = 0;
 var fadeTime = 150;
 var sourceUrl;
 
-/**
- * @brief takes a reference to an array of scripts to load (in order)
- * and executes them.
- */
-function chainLoadScripts (arr) {
-  if (!arr || arr.length <= 0)
-    return;
-
-  var scriptUrl = arr.shift();
-  console.log('loading ' + scriptUrl);
-  if (!!scriptUrl) {
-    $.ajax({
-        url: scriptUrl
-      , success: function () {
-        if (arr.length > 0) {
-          chainLoadScripts(arr);
-        } else {
-          Pyropus.run();
-        }
-      }
-    });
-  }
-}
-
 function pullScripts(text) {
-  var scriptUrls = []
-    , frag = document.createDocumentFragment()
+  var frag = document.createDocumentFragment()
     , div = document.createElement('div')
     , i
     , scriptElements
@@ -64,15 +39,7 @@ function pullScripts(text) {
   scriptElements = div.getElementsByClassName('content')[0]
                       .getElementsByTagName('script');
 
-  // add each script url to the array, ignoring query strings if present
-  for (i = 0; i < scriptElements.length; i++) {
-    url = scriptElements[i].src.split('?')[0];
-    if (!!url) {
-      scriptUrls.push(url);
-    }
-  }
-
-  return scriptUrls;
+  $('head').append(scriptElements);
 }
 
 function retrievePage(ev, e, c, d) {
@@ -80,15 +47,15 @@ function retrievePage(ev, e, c, d) {
   // get the url from the link or form
   sourceUrl = $(this).context.href || $(this).context.action;
 
-  var scriptUrls = pullScripts(e.responseText);
-  chainLoadScripts(scriptUrls);
-
   var $dom = $(e.responseText);
   // replace the content and header
   $("#menubar").html($("#menubar", $dom).html());
   $("#content").html($("#content", $dom).html());
   $("#page_title").html($("#page_title", $dom).html());
   $("#content").fadeIn(fadeTime);
+
+  pullScripts(e.responseText);
+  Pyropus.runStartupQueue();
 
   var errors = $("#alert", $dom).html();
   if (errors)
@@ -98,7 +65,7 @@ function retrievePage(ev, e, c, d) {
 }
 
 function ajaxLoading(ev, e, settings) {
-  Pyropus.runExitQueue();
+  Pyropus.runTeardownQueue();
 
   ajaxLoadingState = 1;
   $("#notice").fadeOut();
@@ -141,7 +108,7 @@ var Pyropus = (function () {
   var messageTimeouts = [];
   var displayTime = 15000;
 
-  function queue (fn) {
+  function startup (fn) {
     if (typeof fn === 'function') {
       if (document.readyState === 'complete') {
         execQueue.push(fn);
@@ -151,22 +118,21 @@ var Pyropus = (function () {
     }
   }
 
-  function run () {
+  function runStartupQueue () {
     var i;
     for (i = 0; i < execQueue.length; i++) {
       execQueue[i]();
     }
-
     execQueue = [];
   }
 
-  function queueOnExit (fn) {
+  function teardown (fn) {
     if (typeof fn === 'function') {
       exitExecQueue.push(fn);
     }
   }
 
-  function runExitQueue () {
+  function runTeardownQueue () {
     var i;
     for (i = 0; i < exitExecQueue.length; i++) {
       exitExecQueue[i]();
@@ -212,10 +178,10 @@ var Pyropus = (function () {
   });
 
   return {
-    startup: queue,
-    teardown: queueOnExit,
-    runExitQueue: runExitQueue,
-    run: run,
+    startup: startup,
+    teardown: teardown,
+    runTeardownQueue: runTeardownQueue,
+    runStartupQueue: runStartupQueue,
     error: error,
     notice: notice
   };
