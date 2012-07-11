@@ -11,10 +11,10 @@
 }
 
 /* The base unit for scheme */
-$basesize: 14px;
+$baseSize: 14px;
 $fontsize: 10pt;
 
-$bodywidth: 800px;
+$bodyWidth: 800px;
 
 /* palette */
 $primary: 215;
@@ -33,7 +33,7 @@ $alerthue: 0;
 $noticehue: 120;
 
 $headerbg: $shadow;
-$bg: white;
+$bg: #F8F8F8;
 
 $shadowcolor: $shadow;
 $menubarcolor: none;
@@ -44,7 +44,7 @@ $input_border: white;
 $wrapperbg: none;
 $wrapperbordercolor: #0f1521;
 
-$maintextcolor: white;
+$maintextcolor: #444;
 $linkcolor: $theme;
 
 $contentdivbackground: none;
@@ -52,7 +52,7 @@ $contentdivtextcolor: #222;
 $contentlinkcolor: $shadow;
 
 /* UI Color defaults */
-$uiborderradius: .25*$basesize;
+$uiborderradius: .25*$baseSize;
 $uibordercolor: #888;
 $uiactivetextcolor: $offwhite;
 $uiactivebackgroundcolor: lighten($offwhite, 30%);
@@ -64,15 +64,13 @@ $uibackgroundcolor: $offwhite;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  padding: 0 $basesize;
-  line-height: 2*$basesize;
-  height: (2*$basesize - 2);
-  font-size: $basesize;
+  padding: 0 $baseSize;
+  line-height: 2*$baseSize;
+  height: (2*$baseSize - 2);
+  font-size: $baseSize;
   border: 0 solid transparent;
-  color: white;
-  text-shadow: 0 1px 1px black;
-  border-right: 1px solid hsla(0,0,0,.2);
-  border-left: 1px solid hsla(0,0,0,.2);
+  color: hsl(0, 0, 20);
+  text-shadow: 0 1px 1px hsl(0, 0, 80);
 }
 
 .hardware:hover {
@@ -82,6 +80,6 @@ $uibackgroundcolor: $offwhite;
 .hardware:active, .hardware:focus {
   outline: none;
   box-shadow: 0 1px 1px hsla(0, 0, 0, .3) inset;
-  background-color: $shadow;
+  background-color: hsla(0, 0, 20, .2);
   @include gradient(hsla(0,100,100,.3), hsla(0,0,0,.3));
 }

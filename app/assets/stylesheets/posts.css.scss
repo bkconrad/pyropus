@@ -2,18 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "defs";
-
-.post {
-  margin: 0;
-  padding: 0;
-}
-
-.post-content {
-  margin: 0 0 $basesize 0;
-}
-
-.post-date {
-  display: block;
-  font-size: $basesize*0.8;
-  color: $themeshadow;
-}

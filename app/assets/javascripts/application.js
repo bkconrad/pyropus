@@ -18,7 +18,7 @@
 //= require_tree .
 
 (function () {
-var fadeTime = 150;
+var fadeTime = 'slow';
 var sourceUrl;
 
 function pullScripts(text) {
@@ -51,7 +51,6 @@ function retrievePage(event, xhr, settings) {
   $("#menubar").html($("#menubar", $dom).html());
   $("#content").html($("#content", $dom).html());
   $("#page_title").html($("#page_title", $dom).html());
-  $("#content").fadeIn(fadeTime);
 
   pullScripts(xhr.responseText);
   Pyropus.runStartupQueue();
@@ -69,8 +68,6 @@ function ajaxLoading(ev, xhr, settings) {
 
   $("#notice").fadeOut();
   $("#alert").fadeOut();
-
-  $("#content").fadeOut(fadeTime);
 }
 
 function loginRevealHandler () {
