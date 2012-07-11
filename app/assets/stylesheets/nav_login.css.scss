@@ -3,7 +3,6 @@
   float: right;
   text-align: right;
   min-width: 160px;
-  line-height: $basesize;
   height: 2*$basesize;
 
   input, label {
@@ -58,6 +57,9 @@
   }
 
   label, #username, #logout {
+  }
+  div {
+    line-height: 2*$basesize;
   }
 }
 
