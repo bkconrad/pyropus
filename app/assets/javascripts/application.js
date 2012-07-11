@@ -72,7 +72,7 @@ function ajaxLoading(ev, xhr, settings) {
 
 function loginRevealHandler () {
   if ($(this).hasClass("initial")) {
-    $("#nav_login input").show();
+    $("#navlogin input").show();
     $("#username-text").focus();
     $("#login-button").toggleClass('initial');
     return false;
