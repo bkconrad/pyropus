@@ -1,0 +1,143 @@
+@import "defs";
+
+* {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  margin-bottom: $baseSize;
+  max-width: 35em;
+  text-align: justify;
+}
+
+body {
+  line-height: $baseSize;
+  font-size: $fontSize;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-bottom: $baseSize;
+}
+
+h1 {
+  line-height: 2*$baseSize;
+  font-size: 2*$fontSize;
+}
+
+h2, h3 {
+  line-height: 2*$baseSize;
+  font-size: 1.5*$fontSize;
+}
+
+h4, h5 {
+}
+
+a, a:visited {
+  color: hsl(240, 0, 30);
+}
+
+ul, ol {
+  margin-bottom: $baseSize;
+}
+
+li {
+  margin-left: 2*$baseSize;
+}
+
+#wrapper {
+  background: hsl(0,0,90);
+}
+
+#header {
+  background: silver;
+}
+
+#titlebar, #menu, #content {
+  width: $bodyWidth;
+  margin: auto;
+}
+
+#menubar {
+  margin-bottom: $baseSize;
+  font-size: 1.5*$fontSize;
+}
+
+#menu {
+  height: 3*$baseSize;
+  line-height: 3*$baseSize;
+  vertical-align: middle;
+}
+
+#navlinks {
+  a {
+    font-weight: bold;
+    color: hsl(0,0,100);
+  }
+}
+
+#titlebar, #menubar {
+}
+
+#titlebar {
+  height: 6*$baseSize;
+  vertical-align: baseline;
+}
+
+#site_title {
+  font-size: 4*$fontSize;
+  line-height: 3*$baseSize;
+  display: inline-block;
+  height: 4*$baseSize;
+  margin-bottom: 0;
+  margin-top: $baseSize;
+}
+
+#page_title {
+  font-family: "Droid Serif";
+  font-size: 1.5*$baseSize;
+  line-height: 1.5*$fontSize;
+  display: inline-block;
+  font-style: italic;
+}
+
+#header {
+}
+
+#content {
+  min-height: 800px;
+  > div {
+    margin-bottom: $baseSize;
+    background: hsl(0,0,98);
+    padding: $baseSize;
+  }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  min-height: 2*$baseSize;
+}
+
+#navlinks {
+  margin-bottom: 0;
+  text-align: left;
+
+  li {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: $baseSize;
+  }
+}
+
+#navlogin {
+  float: right;
+  div {
+    display: inline-block;
+  }
+}
+
+.clearfix {
+  display: none;
+}
