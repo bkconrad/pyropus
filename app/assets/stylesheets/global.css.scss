@@ -9,12 +9,12 @@
 p {
   margin-bottom: $baseSize;
   max-width: 35em;
-  text-align: justify;
+  text-shadow: 1px 1px 0px #CCC;
 }
 
 body {
-  background-color: hsl(245,80,95);
-  background-image: url(/assets/noise.png);
+  background-color: hsl(0,0,96);
+  /* background-image: url(/assets/pattern.png); */
   color: hsl(0, 0, 20);
   line-height: $baseSize;
   font-size: $fontSize;
@@ -40,7 +40,11 @@ h4, h5 {
 }
 
 a, a:visited {
-  color: hsl(240, 0, 30);
+  color: hsl(220, 40, 50);
+}
+
+a:hover {
+  color: hsl(220, 70, 70);
 }
 
 ul, ol {
@@ -51,10 +55,15 @@ li {
   margin-left: 2*$baseSize;
 }
 
+code {
+  background: hsla(0,0,99, .4);
+  white-space: nowrap;
+}
+
 pre code {
+  white-space: pre;
   font-size: ($fontSize * .9);
   display: block;
-  background: hsl(0,0,95);
   margin-bottom: $baseSize;
   padding: .5em;
 }
@@ -121,6 +130,7 @@ pre code {
 }
 
 #page_title {
+  color: hsl(0,0,60);
 }
 
 #header {
@@ -152,6 +162,15 @@ pre code {
   }
   #logout {
     margin-left: .5em;
+  }
+}
+
+.actions {
+  display: block;
+  margin-bottom: 2*$baseSize;
+  a {
+    margin-right: .5*$baseSize;
+    color: hsl(20, 80, 50);
   }
 }
 
