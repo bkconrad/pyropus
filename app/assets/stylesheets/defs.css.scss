@@ -6,8 +6,9 @@
 }
 @font-face {
   src: url('../fonts/sans-sara.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
+  font-family: "Sans Sara";
 }
 @font-face {
   src: url('../fonts/Roboto-Bold.ttf') format('truetype');
@@ -38,7 +39,7 @@ $baseSize: 16px;
 $fontSize: 10pt;
 
 $bodyWidth: 800px;
-$contentWidth: 640px;
+$contentWidth: 600px;
 
 /* palette */
 $primary: 215;
