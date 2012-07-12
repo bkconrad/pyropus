@@ -13,7 +13,8 @@ p {
 }
 
 body {
-  background: hsl(0,0,90);
+  background-color: hsl(0,0,98);
+  color: hsl(0, 0, 10);
   line-height: $baseSize;
   font-size: $fontSize;
   font-family: "Roboto";
@@ -49,16 +50,24 @@ li {
   margin-left: 2*$baseSize;
 }
 
+pre code {
+  font-size: ($fontSize * .9);
+  display: block;
+  background: hsl(0,0,95);
+  margin-bottom: $baseSize;
+  padding: .5em;
+}
+
 #wrapper {
   width: $bodyWidth;
   margin: auto;
-  padding: 3*$baseSize 0;
+  padding: $baseSize;
 }
 
 #header {
   display: inline-block;
   width: $bodyWidth - $contentWidth - $baseSize;
-  text-align: right;
+  text-align: left;
 }
 
 #content {
@@ -76,20 +85,20 @@ li {
 
 #navlinks {
   margin-bottom: 0;
-  text-align: left;
   a {
     font-weight: bold;
     display: block;
     font-family: "Roboto";
+    color: hsl(0, 0, 40);
   }
   a:hover {
   }
   li {
     list-style: none;
-    text-align: right;
     font-size: $fontSize;
-    line-height: $baseSize;
-    margin-bottom: $baseSize;
+    line-height: 2*$baseSize;
+    padding-left: 0;
+    margin-left: 0;
   }
 }
 
@@ -104,6 +113,8 @@ li {
   display: inline-block;
   font-family: "Chunk Five", serif;
   font-size: 2.5*$fontSize;
+  width: 100%;
+  text-shadow: 1px 1px 0px hsla(0,0,100,1);
 }
 
 #page_title {
