@@ -13,8 +13,9 @@ p {
 }
 
 body {
-  background-color: hsl(0,0,98);
-  color: hsl(0, 0, 10);
+  background-color: hsl(245,80,95);
+  background-image: url(/assets/noise.png);
+  color: hsl(0, 0, 20);
   line-height: $baseSize;
   font-size: $fontSize;
   font-family: "Roboto";
@@ -85,13 +86,15 @@ pre code {
 
 #navlinks {
   margin-bottom: 0;
+  border-left: 1px dotted black;
   a {
+    padding-left: .5*$baseSize;
     font-weight: bold;
     display: block;
     font-family: "Roboto";
-    color: hsl(0, 0, 40);
   }
   a:hover {
+    background: hsla(0, 0, 100, .4);
   }
   li {
     list-style: none;
