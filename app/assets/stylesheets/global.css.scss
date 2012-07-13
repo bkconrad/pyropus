@@ -19,7 +19,7 @@ body {
   -moz-transition-duration: .3s;
   -o-transition-property: background-position;
   -o-transition-duration: .3s;
-  background-color: hsl(140,10,40);
+  background-color: hsl($primary,10,40);
   background-attachment: fixed;
   background-image: url(/assets/pattern.png);
   color: hsl(0, 0, 20);
@@ -120,7 +120,7 @@ pre code {
     text-decoration: none;
   }
   a:hover {
-    color: hsl(140, 40, 50);
+    color: hsl($primary, 40, 50);
   }
   li {
     list-style: none;
@@ -149,7 +149,7 @@ pre code {
   font-size: 1.5*$fontSize;
   font-style: italic;
   font-weight: normal;
-  color: hsl(140,30,50);
+  color: hsl($primary,30,50);
 }
 
 #header {
@@ -189,14 +189,14 @@ pre code {
   margin-bottom: 2*$baseSize;
   a {
     color: hsl(0,0,0);
-    margin-right: .5*$baseSize;
-    padding: .5*$baseSize;
-    background: hsl(140, 20, 80);
+    padding: .25*$baseSize;
+    margin: .25*$baseSize .5*$baseSize .25*$baseSize 0;
+    background: hsl($primary, 20, 80);
     border-radius: 2px;
     text-shadow: none;
   }
   a:hover {
-    background: hsl(140, 40, 50);
+    background: hsl($primary, 40, 50);
     color: hsl(0,0,100);
   }
 }
