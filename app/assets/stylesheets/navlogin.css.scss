@@ -1,0 +1,24 @@
+@import "defs";
+#navlogin {
+  input, button, select {
+    width: 100%;
+    padding: (.25*$baseSize - 1px);
+    border: 1px solid hsl($primary, 20, 60);
+    box-sizing: content-box;
+    margin-bottom: .5*$baseSize; 
+    border-radius: 2px;
+  }
+  input[type="submit"] {
+    background-color: hsl($primary, 10, 96);
+    @include gradient(hsla(0,0,100,.2), hsla(0,0,0,.2));
+    text-shadow: 1px 1px 1px white;
+  }
+  input[type="submit"]:hover, input[type="submit"]:focus {
+    background-color: hsl($primary, 10, 99);
+  }
+  input[type="submit"]:active {
+    background-color: hsl($primary, 10, 99);
+    @include gradient(hsla(0,0,30,.2), hsla(0,0,80,.2));
+    box-shadow: 1px 0 .5*$baseSize -2px hsla(0,0,20,.3) inset;
+  }
+}

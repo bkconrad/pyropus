@@ -1,3 +1,7 @@
+@mixin blockShadow() {
+  box-shadow: .25*$baseSize .25*$baseSize $baseSize (-.25 * $baseSize) hsla(0,0,0,.3);
+}
+
 @mixin gradient ($top, $bottom) {
   background-image: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
