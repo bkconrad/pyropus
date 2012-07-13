@@ -93,7 +93,6 @@ $(window).load(function () {
     var posX = (document.documentElement.scrollLeft) ? document.documentElement.scrollLeft : window.pageXOffset;
     var posY = (document.documentElement.scrollTop) ? document.documentElement.scrollTop : window.pageYOffset;
     
-    console.log(posY);
     var parallax = -(posY / 10);
     document.body.style.backgroundPosition = "0 " + parallax + "px"; 
   }
@@ -109,7 +108,7 @@ var Pyropus = (function () {
   var execQueue = [];
   var exitExecQueue = [];
   var messageTimeouts = [];
-  var displayTime = 15000;
+  var displayTime = 5000;
 
   function startup (fn) {
     if (typeof fn === 'function') {

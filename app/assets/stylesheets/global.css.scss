@@ -77,6 +77,26 @@ pre code {
   overflow: hidden;
 }
 
+#notice, #alert {
+  box-shadow: .5*$baseSize .5*$baseSize $baseSize (-.5 *$baseSize) black;
+  position: fixed;
+  padding: .5*$baseSize;
+  margin: $baseSize;
+  display: none;
+  top: 0;
+  right: 0;
+}
+
+#notice {
+  border: 1px solid hsl(120,80,60);
+  background: hsl(120,50,90);
+}
+
+#alert {
+  border: 1px solid hsl(0,80,60);
+  background: hsl(0,50,90);
+}
+
 #wrapper {
   background: hsla(0,0,95, 1);
   background-image: url(/assets/noise.png);
