@@ -13,8 +13,9 @@ p {
 }
 
 body {
-  background-color: hsl(0,0,96);
-  /* background-image: url(/assets/pattern.png); */
+  background-color: hsl(35,20,70);
+  background-attachment: fixed;
+  background-image: url(/assets/pattern.png);
   color: hsl(0, 0, 20);
   line-height: $baseSize;
   font-size: $fontSize;
@@ -72,6 +73,8 @@ pre code {
 }
 
 #wrapper {
+  background: hsla(0,0,100, .90);
+  box-shadow: 0px 0px $baseSize hsla(0,0,0,.5);
   width: $bodyWidth;
   margin: auto;
   padding: $baseSize;
@@ -110,7 +113,7 @@ pre code {
     text-decoration: none;
   }
   a:hover {
-    background: hsla(0, 0, 100, .4);
+    color: hsl(220, 80, 80);
   }
   li {
     list-style: none;
@@ -180,7 +183,10 @@ pre code {
   margin-bottom: 2*$baseSize;
   a {
     margin-right: .5*$baseSize;
-    color: hsl(20, 80, 50);
+    color: hsl(20, 60, 50);
+  }
+  a:hover {
+    color: hsl(20, 80, 60);
   }
 }
 
