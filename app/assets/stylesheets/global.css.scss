@@ -60,11 +60,11 @@ code {
   text-shadow: none;
   background: hsl(0,0,85);
   white-space: nowrap;
+  font-size: ($fontSize * .9);
 }
 
 pre code {
   white-space: pre;
-  font-size: ($fontSize * .9);
   display: block;
   margin-bottom: $baseSize;
   padding: .5em;

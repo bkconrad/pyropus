@@ -1,0 +1,9 @@
+@import "defs";
+#content {
+  input, button, select {
+    margin: .25*$baseSize .5*$baseSize .25*$baseSize 0;
+    line-height: (1*$baseSize - 2px);
+    padding: .25*$baseSize;
+    display: inline-block;
+  }
+}
