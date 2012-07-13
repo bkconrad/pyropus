@@ -13,7 +13,7 @@ p {
 }
 
 body {
-  background-color: hsl(35,20,70);
+  background-color: hsl(220,10,40);
   background-attachment: fixed;
   background-image: url(/assets/pattern.png);
   color: hsl(0, 0, 20);
@@ -68,13 +68,11 @@ pre code {
   display: block;
   margin-bottom: $baseSize;
   padding: .5em;
-  width: 34*$fontSize;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 #wrapper {
-  background: hsla(0,0,100, .90);
-  box-shadow: 0px 0px $baseSize hsla(0,0,0,.5);
+  background: hsla(0,0,95, 1);
   width: $bodyWidth;
   margin: auto;
   padding: $baseSize;
@@ -89,7 +87,7 @@ pre code {
 }
 
 #content {
-  text-shadow: 1px 1px 0px #CCC;
+  text-shadow: 1px 1px 1px #CCC;
   width: $contentWidth;
   margin: auto;
   float: right;
