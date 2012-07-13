@@ -58,6 +58,10 @@ ul, ol {
   margin-bottom: $baseSize;
 }
 
+ul {
+  list-style-type: square;
+}
+
 li {
   margin-left: 2*$baseSize;
 }
