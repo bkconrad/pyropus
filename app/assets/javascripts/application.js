@@ -94,7 +94,7 @@ $(window).load(function () {
     var posY = (document.documentElement.scrollTop) ? document.documentElement.scrollTop : window.pageYOffset;
     
     console.log(posY);
-    var parallax = 30 - (posY / 20 % 30);
+    var parallax = -(posY / 10);
     document.body.style.backgroundPosition = "0 " + parallax + "px"; 
   }
 });
