@@ -79,10 +79,11 @@ $contentlinkcolor: $shadow;
 /* UI Color defaults */
 $uiborderradius: .25*$baseSize;
 $uibordercolor: #888;
-$uiactivetextcolor: $offwhite;
-$uiactivebackgroundcolor: lighten($offwhite, 30%);
+$uiactivetextcolor: hsl($primary, 30, 90);
+$uiactivebackgroundcolor: hsl($primary, 30, 90);
+$uiactivebordercolor: hsl($primary, 30, 40);
 $uiinactivetetextcolor: #DDD;
-$uibackgroundcolor: $offwhite;
+$uibackgroundcolor: hsl($primary, 30, 90);
 
 /* abstract base class :P */
 .hardware {
