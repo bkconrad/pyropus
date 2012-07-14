@@ -115,8 +115,6 @@ Pyropus.startup(function () {
     return false;
   }
 
-  PfxEd.init($("#content"));
-
   $("#content")
     .append($('<input type="hidden" id="sample-id" name="id" value="<%= if (@sample) then @sample.id end %>">'))
     .append($('<select id="sample-select"></select>'))
@@ -125,6 +123,8 @@ Pyropus.startup(function () {
     .append($('<button id="save-sample">Save</button>'))
     .append($('<button id="delete-sample">Delete</button>'))
     .append($('<button id="random-sample">Random</button>'));
+
+  PfxEd.init($("#content"));
 
   $("#save-sample").click(saveSample);
   $("#new-sample").click(newSample);
