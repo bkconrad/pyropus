@@ -88,14 +88,6 @@ $(window).load(function () {
 
   // login button handler
   $(document).on("click", "#login-button", loginRevealHandler);
-
-  window.onscroll = function() {
-    var posX = (document.documentElement.scrollLeft) ? document.documentElement.scrollLeft : window.pageXOffset;
-    var posY = (document.documentElement.scrollTop) ? document.documentElement.scrollTop : window.pageYOffset;
-    
-    var parallax = -(posY / 10);
-    document.body.style.backgroundPosition = "0 " + parallax + "px"; 
-  }
 });
 
 })();
