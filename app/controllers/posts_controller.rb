@@ -34,13 +34,14 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    if (params[:id].to_i != 0)
+    if (params[:id] != nil)
       @post = Post.find(params[:id])
     else
-      @post = Post.where("title = '#{params[:id]}'").first
+      @post = Post.where("url = '#{params[:url]}'").first
     end
 
     if (@post === nil)
+      # TODO: this isn't the correct way to 404
       raise ActionController::RoutingError.new('Not Found')
     end
 

@@ -27,7 +27,7 @@ Pyropus::Application.routes.draw do
   resources :posts
 
   # if nothing else, look for a CMS entry
-  match "/:id" => 'posts#show'
+  match "/:url" => 'posts#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
