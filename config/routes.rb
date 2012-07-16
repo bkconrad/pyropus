@@ -4,8 +4,6 @@ Pyropus::Application.routes.draw do
     get "congress/" => :index
   end
 
-  match "about" => redirect("/posts/4")
-
   resources :things
   match "pfxed" => "pfxed#show", via: :get
   match "pfxed" => "pfxed#create", via: :post
@@ -27,6 +25,9 @@ Pyropus::Application.routes.draw do
   resources :users
 
   resources :posts
+
+  # if nothing else, look for a CMS entry
+  match "/:id" => 'posts#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

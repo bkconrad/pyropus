@@ -34,7 +34,16 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    if (params[:id].to_i != 0)
+      @post = Post.find(params[:id])
+    else
+      @post = Post.where("title = '#{params[:id]}'").first
+    end
+
+    if (@post === nil)
+      raise ActionController::RoutingError.new('Not Found')
+    end
+
     page_title @post.title
     @content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(@post.content)
     respond_to do |format|
