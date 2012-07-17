@@ -4,4 +4,9 @@
 <% if admin? %>
 <li><%= ajax_link_to "Users", users_url %></li>
 <% end %>
+<% cache ('cms_menu_items') do |i| %>
+  <% Post.where('url IS NOT NULL AND url != ""').each do |i| %>
+    <li><%= ajax_link_to i.title, i.url %></li>
+  <% end %>
+<% end %>
 </ul>

@@ -76,6 +76,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        expire_fragment 'cms_menu_items'
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
@@ -92,6 +93,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
+        expire_fragment 'cms_menu_items'
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -106,6 +108,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    expire_fragment 'cms_menu_items'
 
     respond_to do |format|
       format.html { redirect_to posts_url }
