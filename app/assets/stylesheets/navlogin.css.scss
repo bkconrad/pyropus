@@ -1,12 +1,30 @@
 @import "defs";
 #navlogin {
+  margin-bottom: $baseSize;
+  font-size: $fontSize;
+  vertical-align: middle;
+  div {
+    display: inline-block;
+  }
+  #logout a {
+    color: hsl(220, 70, 70);
+    margin-left: .5em;
+  }
+
+  #logout a:hover {
+    color: hsl(220, 70, 80);
+  }
   input, button, select {
-    width: 100%;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: ($headerWidth - .5*$baseSize);
     padding: (.25*$baseSize - 1px);
     border: 1px solid hsl($primary, 20, 60);
-    box-sizing: content-box;
     margin-bottom: .5*$baseSize; 
     border-radius: 2px;
+  }
+  input:last-child {
+    margin-bottom: 0px;
   }
   input[type="submit"] {
     background-color: hsl($primary, 10, 96);

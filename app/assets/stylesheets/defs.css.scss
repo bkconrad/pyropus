@@ -38,8 +38,9 @@
 $baseSize: 18px;
 $fontSize: 10pt;
 
-$bodyWidth: 800px;
-$contentWidth: 600px;
+$bodyWidth: 960px;
+$contentWidth: $bodyWidth - 240px;
+$headerWidth: $bodyWidth - $contentWidth - 5*$baseSize;
 
 /* palette */
 $primary: 200;

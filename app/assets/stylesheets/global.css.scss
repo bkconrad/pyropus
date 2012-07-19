@@ -19,9 +19,9 @@ body {
   -moz-transition-duration: .3s;
   -o-transition-property: background-position;
   -o-transition-duration: .3s;
-  background-color: hsl($primary,10,40);
-  background-image: url(/assets/argyle.png);
-  color: hsl(0, 0, 20);
+  background-color: hsl($primary,0,10);
+  background-image: url(/assets/pattern.png);
+  color: #333;
   line-height: $baseSize;
   font-size: $fontSize;
   font-family: "Roboto";
@@ -101,27 +101,36 @@ pre code {
 }
 
 #wrapper {
-  background: hsla(0,0,95, 1);
+  background: hsla(0,0,20, 1);
   background-image: url(/assets/noise.png);
   width: $bodyWidth;
   margin: auto;
-  padding: $baseSize;
-  box-shadow: 0 0 $baseSize hsla(0,0,0,.6);
-  border: 1px solid hsl(0,0,50);
+  margin-bottom: 0;
+  box-shadow: 0 0 $baseSize hsla(0,0,0,.6), 1px 1px 0 hsl(0,0,25) inset, 0 -1px 0 hsl(0,0,15) inset;
+  border: 1px solid hsl(0,0,15);
 }
 
 #header {
+  text-shadow: 1px 1px 0 black;
+  color: hsl(0,0,95);
   display: inline-block;
-  width: $bodyWidth - $contentWidth - 2*$baseSize;
+  width: $headerWidth;
   text-align: right;
-  padding-right: $baseSize;
-  border-right: 1px dotted black;
+  padding-left: $baseSize;
 }
 
 #content {
+  background: hsla(0,0,100,.98);
+  border-left: 1px solid hsl(0,0,10);
+  box-shadow: 0 0 0 1px hsl(0,0,40);
   width: $contentWidth;
-  margin: auto;
+  padding: 0 $baseSize 0 2*$baseSize;
+  margin: 1px;
   float: right;
+  min-height: 800px;
+  > div {
+    margin-bottom: $baseSize;
+  }
 }
 
 #menubar {
@@ -134,15 +143,30 @@ pre code {
 #navlinks {
   margin-bottom: 0;
   a {
-    padding-left: .5*$baseSize;
+    @include gradient(hsla(0,0,30,.05), hsla(0,0,0,.3));
+    padding: 0 $baseSize;
     font-weight: bold;
     display: block;
     font-size: 1.2*$baseSize;
-    color: hsl(0, 0, 40);
+    color: hsl(0, 0, 80);
     text-decoration: none;
+    border: 1px solid hsl(0,0,10);
+    box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,30) inset;
+    text-shadow: 2px 2px 0 black;
+    margin: 0 auto $baseSize auto;
+    border-radius: 6px;
+    height: (2*$baseSize - 2px);
+    line-height: 2*$baseSize;
   }
   a:hover {
-    color: hsl($primary, 40, 50);
+    line-height: (2*$baseSize - 2px);
+    @include gradient(hsla(0,0,80,.05), hsla(0,0,0,.3));
+    color: hsl($primary, 0, 100);
+  }
+  a:active {
+    @include gradient(hsla(0,0,0,.2), hsla(0,0,40,.1));
+    box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,15) inset;
+    line-height: (2*$baseSize);
   }
   li {
     list-style: none;
@@ -161,6 +185,7 @@ pre code {
 }
 
 #site_title {
+  text-shadow: 2px 2px 0 black;
   display: inline-block;
   font-family: "Chunk Five", serif;
   font-size: 2.5*$fontSize;
@@ -174,52 +199,17 @@ pre code {
   color: hsl($primary,30,50);
 }
 
-#header {
-}
-
-#content {
-  min-height: 800px;
-  > div {
-    margin-bottom: $baseSize;
-  }
-}
-
 #footer {
-  position: absolute;
-  bottom: 0;
-  min-height: 2*$baseSize;
-}
-
-
-#navlogin {
-  margin-bottom: $baseSize;
-  font-size: $fontSize;
-  vertical-align: middle;
-  input {
-    width: 100%;
-  }
-  div {
-    display: inline-block;
-  }
-  #logout {
-    margin-left: .5em;
-  }
 }
 
 .actions {
   display: block;
   margin-bottom: 2*$baseSize;
   a {
-    color: hsl(0,0,0);
-    padding: .25*$baseSize;
     margin: .25*$baseSize .5*$baseSize .25*$baseSize 0;
-    background: hsl($primary, 20, 80);
-    border-radius: 2px;
     text-shadow: none;
   }
   a:hover {
-    background: hsl($primary, 40, 50);
-    color: hsl(0,0,100);
   }
 }
 
@@ -231,4 +221,5 @@ pre code {
 
 .clearfix {
   clear: both;
+  height: 0;
 }
