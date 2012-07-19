@@ -75,9 +75,17 @@ function loginRevealHandler () {
     $("#navlogin input").show();
     $("#username-text").focus();
     $("#login-button").toggleClass('initial');
+
+    /* reset login form if we click somewhere else */
+    $(document).one('click', function () {
+      $("#username-text, #password-text").hide();
+      $("#login-button").addClass('initial');
+    });
+
     return false;
   }
   $("#login-button").toggleClass('initial');
+
   return true;
 };
 
