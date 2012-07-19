@@ -24,7 +24,7 @@ body {
   color: #333;
   line-height: $baseSize;
   font-size: $fontSize;
-  font-family: "Roboto";
+  font-family: "Roboto", "Droid Sans Mono", "Helvetica", arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -104,10 +104,10 @@ pre code {
   background: hsla(0,0,20, 1);
   background-image: url(/assets/noise.png);
   width: $bodyWidth;
-  margin: auto;
-  margin-bottom: 0;
+  margin: $baseSize auto;
   box-shadow: 0 0 $baseSize hsla(0,0,0,.6), 1px 1px 0 hsl(0,0,25) inset, 0 -1px 0 hsl(0,0,15) inset;
   border: 1px solid hsl(0,0,15);
+  border-radius: $baseSize;
 }
 
 #header {
@@ -120,6 +120,9 @@ pre code {
 }
 
 #content {
+  border-top-right-radius: $baseSize;
+  border-bottom-right-radius: $baseSize;
+  background: hsl(0,0,100);
   background: hsla(0,0,100,.98);
   border-left: 1px solid hsl(0,0,10);
   box-shadow: 0 0 0 1px hsl(0,0,40);
@@ -152,11 +155,12 @@ pre code {
     text-decoration: none;
     border: 1px solid hsl(0,0,10);
     box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,30) inset;
-    text-shadow: 2px 2px 0 black;
     margin: 0 auto $baseSize auto;
     border-radius: 6px;
     height: (2*$baseSize - 2px);
     line-height: 2*$baseSize;
+    text-shadow: 2px 2px 0 black;
+    filter: dropshadow(color=#000000, offx=1, offy=2);
   }
   a:hover {
     line-height: (2*$baseSize - 2px);
@@ -187,7 +191,7 @@ pre code {
 #site_title {
   text-shadow: 2px 2px 0 black;
   display: inline-block;
-  font-family: "Chunk Five", serif;
+  font-family: "Chunk Five", "Verdana", serif;
   font-size: 2.5*$fontSize;
   width: 100%;
 }
