@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  init: MyText
-  draw: MyText
-  update: MyText
+  init_function: MyText
+  draw_function: MyText
+  update_function: MyText
 
 two:
   name: MyString
-  init: MyText
-  draw: MyText
-  update: MyText
+  init_function: MyText
+  draw_function: MyText
+  update_function: MyText
