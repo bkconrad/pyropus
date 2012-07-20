@@ -2,9 +2,14 @@ require 'test_helper'
 
 class ThingsControllerTest < ActionController::TestCase
   include Authorization
+
+  admin_action :new, :create, :edit, :update, :destroy
+  public_action :show, :index
+
   setup do
     log_in users(:admin)
     @thing = things(:one)
+    permission_test_params thing: { name: 'hi', description: 'ho'}, id: @thing.id
   end
 
   test "should get index" do
