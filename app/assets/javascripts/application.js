@@ -71,15 +71,20 @@ function ajaxLoading(ev, xhr, settings) {
 }
 
 function loginRevealHandler () {
+  var trigger
   if ($(this).hasClass("initial")) {
     $("#navlogin input").show();
     $("#username-text").focus();
     $("#login-button").toggleClass('initial');
 
     /* reset login form if we click somewhere else */
-    $(document).one('click', function () {
-      $("#username-text, #password-text").hide();
-      $("#login-button").addClass('initial');
+    trigger = $(document).on('click', function (ev) {
+      if (!$(ev.srcElement).is('#navlogin input')) {
+        $("#username-text, #password-text").hide();
+        $("#login-button").addClass('initial');
+        $(document).off('click', undefined, trigger);
+        delete trigger;
+      }
     });
 
     return false;
