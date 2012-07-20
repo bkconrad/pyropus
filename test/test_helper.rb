@@ -23,7 +23,7 @@ class ActiveSupport::TestCase
 
     def succeed_as method, action, user
       try_as method, action, user
-      assert_response 200
+      assert [200, 302].include? response.response_code
     end
 
     def fail_as method, action, user
