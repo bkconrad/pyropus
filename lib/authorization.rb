@@ -22,7 +22,7 @@ module Authorization
 
   def authorize
     store_return_to
-    redirect_to login_url, alert: "Please login to do that" unless admin?
+    redirect_to(login_url, alert: "Please login to do that", status: 403) unless admin?
   end
 
   def admin?
