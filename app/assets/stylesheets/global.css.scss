@@ -8,7 +8,6 @@
 
 p {
   margin-bottom: $baseSize;
-  max-width: 35em;
   text-align: justify;
 }
 
@@ -131,7 +130,7 @@ pre code {
   border-left: 1px solid hsl(0,0,10);
   box-shadow: 0 0 0 1px hsl(0,0,40);
   width: $contentWidth;
-  padding: 0 $baseSize 0 2*$baseSize;
+  padding: 0 $baseSize;
   margin: 1px;
   float: right;
   min-height: 800px;
