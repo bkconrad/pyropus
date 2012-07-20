@@ -8,6 +8,11 @@ admin:
 normal:
   name: normal
   password_digest: <%= BCrypt::Password.create('secret') %>
+  group_id: 1
+
+nobody:
+  name: nobody
+  password_digest: <%= BCrypt::Password.create('secret') %>
   group_id: 0
 
 one:
