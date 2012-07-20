@@ -59,10 +59,16 @@ class ActiveSupport::TestCase
           raise Exception, "Arg #{arg} of unexpected type #{arg.class}"
         end
 
-        test "#{action.to_s} is admin only" do
+        test "#{action.to_s} is inaccessible to unauthenticated users" do
           fail_as method, action, nil
           fail_as method, action ,users(:nobody)
+        end
+
+        test "#{action.to_s} is inaccessible to normal users" do
           fail_as method, action ,users(:normal)
+        end
+
+        test "#{action.to_s} is accessible to admins" do
           succeed_as method, action ,users(:admin)
         end
       end
