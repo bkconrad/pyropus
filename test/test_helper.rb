@@ -46,7 +46,8 @@ class ActiveSupport::TestCase
       return RESOURCE_MAP.include?(action) ? RESOURCE_MAP[action] : nil
     end
 
-    def admin_only *args
+    # iterate through an array of actions and run the proc
+    def self.get_actions args
       for arg in args
         case arg
         when Symbol
@@ -59,6 +60,13 @@ class ActiveSupport::TestCase
           raise Exception, "Arg #{arg} of unexpected type #{arg.class}"
         end
 
+        yield method, action
+
+      end
+    end
+
+    def admin_action *args
+      PermissionsDsl.get_actions(args) do |method, action|
         test "#{action.to_s} is inaccessible to unauthenticated users" do
           fail_as method, action, nil
           fail_as method, action ,users(:nobody)
@@ -66,6 +74,40 @@ class ActiveSupport::TestCase
 
         test "#{action.to_s} is inaccessible to normal users" do
           fail_as method, action ,users(:normal)
+        end
+
+        test "#{action.to_s} is accessible to admins" do
+          succeed_as method, action ,users(:admin)
+        end
+      end
+    end
+
+    def authenticated_action *args
+      PermissionsDsl.get_actions(args) do |method, action|
+        test "#{action.to_s} is inaccessible to unauthenticated users" do
+          fail_as method, action, nil
+          fail_as method, action ,users(:nobody)
+        end
+
+        test "#{action.to_s} is accessible to normal users" do
+          succeed_as method, action ,users(:normal)
+        end
+
+        test "#{action.to_s} is accessible to admins" do
+          succeed_as method, action ,users(:admin)
+        end
+      end
+    end
+
+    def public_action *args
+      PermissionsDsl.get_actions(args) do |method, action|
+        test "#{action.to_s} is accessible to unauthenticated users" do
+          succeed_as method, action, nil
+          succeed_as method, action ,users(:nobody)
+        end
+
+        test "#{action.to_s} is accessible to normal users" do
+          succeed_as method, action ,users(:normal)
         end
 
         test "#{action.to_s} is accessible to admins" do
