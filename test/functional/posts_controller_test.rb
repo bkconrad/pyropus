@@ -18,6 +18,20 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should deny permission to create" do
+    assert_difference('Post.count', 0) {
+      log_out
+      get :new
+      assert_response 403
+    }
+
+    assert_difference('Post.count', 0) {
+      log_in users(:normal)
+      get :new
+      assert_response 403
+    }
+  end
+
   test "should create post" do
     assert_difference('Post.count') do
       post :create, post: @post.attributes

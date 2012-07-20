@@ -5,6 +5,11 @@ admin:
   password_digest: <%= BCrypt::Password.create('secret') %>
   group_id: 2
 
+normal:
+  name: normal
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  group_id: 0
+
 one:
   name: MyString
   password_digest: <%= BCrypt::Password.create('secret') %>
