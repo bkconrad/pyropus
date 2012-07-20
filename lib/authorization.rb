@@ -6,18 +6,15 @@ module Authorization
   # returns an integer corresponding to a passed user
   # the index of a passed USER_LEVELS value
   # or the corresponding USER_LEVELS value of a passed integer
-  def user_level (arg = nil)
-    if @arg == nil
+  def user_level arg = nil
+    if arg == nil
       return session[:group_id]
-
-    elsif @arg.class == User
-      return @arg.group_id
-
-    elsif USER_LEVELS.index(@arg) != nil
-      return USER_LEVELS.index(@arg)
-
+    elsif arg.class == User
+      return arg.group_id
+    elsif USER_LEVELS.index(arg) != nil
+      return USER_LEVELS.index(arg)
     end
-    USER_LEVELS[@arg]
+    USER_LEVELS[arg]
   end
 
   def authorize
@@ -26,9 +23,7 @@ module Authorization
   end
 
   def admin?
-    if user_level != nil
-      user_level >= user_level(:admin)
-    end
+    (user_level || 0) >= user_level(:admin)
   end
 
   def logged_in
