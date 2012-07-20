@@ -33,12 +33,38 @@ class ActiveSupport::TestCase
   end
 
   module PermissionsDsl
-    def admin_only method, action
-      test "#{action.to_s} is admin only" do
-        fail_as method, action, nil
-        fail_as method, action ,users(:nobody)
-        fail_as method, action ,users(:normal)
-        succeed_as method, action ,users(:admin)
+    RESOURCE_MAP = { new: :get,
+                     index: :get,
+                     show: :get,
+                     edit: :get,
+                     create: :post,
+                     update: :put,
+                     destroy: :delete }
+
+    # return an http method corresponding to an action name
+    def self.action_to_method action
+      return RESOURCE_MAP.include?(action) ? RESOURCE_MAP[action] : nil
+    end
+
+    def admin_only *args
+      for arg in args
+        case arg
+        when Symbol
+          action = arg
+          method = PermissionsDsl.action_to_method(action) || :get
+        when Hash
+          action = arg[:action] || :index
+          method = arg[:method] || :get
+        else
+          raise Exception, "Arg #{arg} of unexpected type #{arg.class}"
+        end
+
+        test "#{action.to_s} is admin only" do
+          fail_as method, action, nil
+          fail_as method, action ,users(:nobody)
+          fail_as method, action ,users(:normal)
+          succeed_as method, action ,users(:admin)
+        end
       end
     end
   end

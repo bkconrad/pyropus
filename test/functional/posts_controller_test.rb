@@ -3,11 +3,7 @@ require 'test_helper'
 class PostsControllerTest < ActionController::TestCase
   include Authorization
 
-  admin_only :get, :new
-  admin_only :get, :create
-  admin_only :get, :edit
-  admin_only :post, :update
-  admin_only :delete, :destroy
+  admin_only :new, :create, :edit, :post, :update, :destroy
 
   setup do
     log_in users(:admin)
