@@ -40,7 +40,16 @@ module Authorization
   end
 
   def log_in user
-    session[:user_id] = user.id
-    session[:group_id] = user.group_id
+    if user === nil
+      session[:user_id] = nil
+      session[:group_id] = nil
+    else
+      session[:user_id] = user.id
+      session[:group_id] = user.group_id
+    end
+  end
+
+  def log_out
+    log_in nil
   end
 end
