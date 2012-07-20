@@ -60,6 +60,9 @@ ul, ol {
 
 ul {
   list-style-type: square;
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 li {
