@@ -6,8 +6,7 @@ class SessionController < ApplicationController
   def create
     user = User.find_by_name(params[:name])
     if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
-      session[:group_id] = user.group_id
+      log_in user
       @successful = true
     end
     respond_to do |format|

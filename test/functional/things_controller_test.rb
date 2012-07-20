@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ThingsControllerTest < ActionController::TestCase
+  include Authorization
   setup do
+    log_in users(:admin)
     @thing = things(:one)
   end
 

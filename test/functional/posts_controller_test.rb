@@ -1,10 +1,10 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  include Authorization
   setup do
+    log_in users(:admin)
     @post = posts(:one)
-    # set ourselves as admin
-    session[:group_id] = 2
   end
 
   test "should get index" do

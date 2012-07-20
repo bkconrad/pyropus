@@ -39,4 +39,8 @@ module Authorization
     return user != nil
   end
 
+  def log_in user
+    session[:user_id] = user.id
+    session[:group_id] = user.group_id
+  end
 end

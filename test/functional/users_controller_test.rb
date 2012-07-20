@@ -1,16 +1,15 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  include Authorization
   setup do
     @input_attributes = {
       name: "fred",
       password: "password",
       password_confirmation: "password"
     }
-    @user = users(:alice)
-
-    # set ourselves as admin
-    session[:group_id] = 2
+    @user = users(:admin)
+    log_in @user
   end
 
   test "should get index" do
@@ -54,4 +53,5 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+
 end

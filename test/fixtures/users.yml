@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-alice:
+admin:
   name: alice
   password_digest: <%= BCrypt::Password.create('secret') %>
-  group_id: 1
+  group_id: 2
 
 one:
   name: MyString
   password_digest: <%= BCrypt::Password.create('secret') %>
-  group_id: 1
+  group_id: 2
 
 two:
   name: MyString
