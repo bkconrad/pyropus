@@ -2,6 +2,9 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   include Authorization
+
+  admin_action :new, :create, :edit, :update, :destroy, :show, :index
+
   setup do
     @input_attributes = {
       name: "fred",
@@ -10,6 +13,7 @@ class UsersControllerTest < ActionController::TestCase
     }
     @user = users(:admin)
     log_in @user
+    permission_test_params user: { name: 'hi', password_digest: 'ho', group_id: 2 }, id: @user.id
   end
 
   test "should get index" do
