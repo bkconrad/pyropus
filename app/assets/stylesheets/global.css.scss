@@ -151,12 +151,10 @@ pre code {
     box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,30) inset;
     margin: 0 auto;
     border-radius: 6px;
-    height: (2*$baseSize - 2px);
-    line-height: 2*$baseSize;
+    line-height: (2*$baseSize - 2px);
     text-shadow: 2px 2px 0 black;
   }
   a:hover {
-    line-height: (2*$baseSize - 2px);
     @include gradient(hsla(0,0,80,.05), hsla(0,0,0,.3));
     color: hsl($primary, 0, 100);
   }
@@ -166,7 +164,6 @@ pre code {
   a:active {
     @include gradient(hsla(0,0,0,.2), hsla(0,0,40,.1));
     box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,15) inset;
-    line-height: (2*$baseSize);
   }
   li {
     display: inline-block;
