@@ -38,9 +38,10 @@
 $baseSize: 18px;
 $fontSize: 10pt;
 
-$bodyWidth: 960px;
-$contentWidth: $bodyWidth - 240px;
-$headerWidth: $bodyWidth - $contentWidth - 4*$baseSize;
+/* I liked this better, since it approximates 80 characters
+$bodyWidth: 40*$fontSize;
+*/
+$bodyWidth: 800px;
 
 /* palette */
 $primary: 200;
