@@ -118,11 +118,11 @@ pre code {
   margin: 0 auto;
   text-shadow: 1px 1px 0 black;
   color: hsl(0,0,95);
-  padding-left: $baseSize;
+  padding: 0 $baseSize;
 }
 
 #content {
-  padding: 0 $baseSize;
+  padding: $baseSize;
   min-height: 800px;
   width: $bodyWidth;
   margin: 0 auto;
