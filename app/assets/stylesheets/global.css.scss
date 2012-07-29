@@ -106,26 +106,35 @@ pre code {
 #wrapper {
   background: hsl(0,0,100);
   background: hsla(0,0,100,.98);
+  @include gradient(hsl(0,0,100), hsl(0,0,80));
 }
 
 #header-wrap {
+  position: relative;
+  z-index: 1;
   background: hsla(0,0,20, 1);
   background-image: url(/assets/noise.png);
+  border-bottom: 1px solid hsl(0,0,10);
+  box-shadow: 0 1px 0 hsl(0,0,60);
+}
+
+#header, #content {
+  width: $bodyWidth;
+  margin: 0 auto;
 }
 
 #header {
-  width: $bodyWidth;
-  margin: 0 auto;
   text-shadow: 1px 1px 0 black;
   color: hsl(0,0,95);
   padding: 0 $baseSize;
 }
 
 #content {
+  background: hsl(0,0,100);
+  background: hsla(0,0,100,.98);
+  box-shadow: 0 0 $baseSize hsl(0,0,60);
   padding: $baseSize;
   min-height: 800px;
-  width: $bodyWidth;
-  margin: 0 auto;
   > div {
     margin-bottom: $baseSize;
   }
@@ -219,6 +228,7 @@ pre code {
 }
 
 .clearfix {
+  display: none;
   clear: both;
   height: 0;
 }
