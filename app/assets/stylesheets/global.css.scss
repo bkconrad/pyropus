@@ -106,7 +106,7 @@ pre code {
 #wrapper {
   background: hsl(0,0,100);
   background: hsla(0,0,100,.98);
-  @include gradient(hsl(0,0,100), hsl(0,0,80));
+  @include gradient(hsl(0,0,99), hsl(0,0,80));
 }
 
 #header-wrap {
