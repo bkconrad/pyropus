@@ -7,7 +7,6 @@
   float: right;
   height: $headerHeight;
   width: 180px;
-  overflow: hidden;
   div {
     display: inline-block;
   }
@@ -20,32 +19,39 @@
     color: hsl(220, 70, 80);
   }
   input, button, select {
-    width: 180px;
+    width: (90px - $baseSize);
     padding: (.25*$baseSize - 1px);
     line-height: ($baseSize);
-    height: ($baseSize - 4px);
-    border: none;
+    height: (.75*$baseSize);
     border-radius: 2px;
-    display: inline-block;
+    display: block;
     margin-top: 2px;
+    border: 1px solid hsl($primary, 40, 80);
   }
 
   #username-text, #password-text {
+    clear: left;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
+    float: left;
+    margin-top: .5*$baseSize;
   }
 
   input:last-child {
     margin-bottom: 0px;
   }
   #login-button {
+    float: right;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     background-color: hsl($primary, 10, 96);
     @include gradient(hsla(0,0,100,.2), hsla(0,0,0,.2));
     text-shadow: 1px 1px 1px white;
+    line-height: ($headerHeight - 1.5*$baseSize);
+    height: ($headerHeight - 1.5*$baseSize);
+    margin: .5*$baseSize 0;
   }
   #login-button:hover, #login-button:focus {
     background-color: hsl($primary, 10, 99);
@@ -56,11 +62,6 @@
     box-shadow: 1px 0 .5*$baseSize -2px hsla(0,0,20,.3) inset;
   }
   #login-button.initial {
-    line-height: ($headerHeight - 1.5*$baseSize);
-    height: ($headerHeight - 1.5*$baseSize);
-    margin: .5*$baseSize auto;
-    width: auto;
-    padding: 0 $baseSize;
   }
   #username {
     line-height: $headerHeight;
