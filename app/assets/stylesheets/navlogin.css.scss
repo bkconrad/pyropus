@@ -1,10 +1,13 @@
 @import "defs";
 #navlogin {
+  line-height: $baseSize;
   font-size: $fontSize;
-  vertical-align: middle;
+  vertical-align: bottom;
+  text-align: right;
   float: right;
-  height: 3*$baseSize;
+  height: $headerHeight;
   width: 180px;
+  overflow: hidden;
   div {
     display: inline-block;
   }
@@ -17,28 +20,49 @@
     color: hsl(220, 70, 80);
   }
   input, button, select {
-    width: 10*$fontSize;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+    width: 180px;
     padding: (.25*$baseSize - 1px);
-    border: 1px solid hsl($primary, 20, 60);
-    margin-bottom: .5*$baseSize; 
+    line-height: ($baseSize);
+    height: ($baseSize - 4px);
+    border: none;
     border-radius: 2px;
+    display: inline-block;
+    margin-top: 2px;
   }
+
+  #username-text, #password-text {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
   input:last-child {
     margin-bottom: 0px;
   }
-  input[type="submit"] {
+  #login-button {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
     background-color: hsl($primary, 10, 96);
     @include gradient(hsla(0,0,100,.2), hsla(0,0,0,.2));
     text-shadow: 1px 1px 1px white;
   }
-  input[type="submit"]:hover, input[type="submit"]:focus {
+  #login-button:hover, #login-button:focus {
     background-color: hsl($primary, 10, 99);
   }
-  input[type="submit"]:active {
+  #login-button:active {
     background-color: hsl($primary, 10, 99);
     @include gradient(hsla(0,0,30,.2), hsla(0,0,80,.2));
     box-shadow: 1px 0 .5*$baseSize -2px hsla(0,0,20,.3) inset;
+  }
+  #login-button.initial {
+    line-height: ($headerHeight - 1.5*$baseSize);
+    height: ($headerHeight - 1.5*$baseSize);
+    margin: .5*$baseSize auto;
+    width: auto;
+    padding: 0 $baseSize;
+  }
+  #username {
+    line-height: $headerHeight;
   }
 }
