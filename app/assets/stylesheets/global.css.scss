@@ -31,8 +31,8 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  line-height: 2*$baseSize;
-  font-size: 2*$fontSize;
+  line-height: 3*$baseSize;
+  font-size: 3*$fontSize;
 }
 
 h2, h3 {
@@ -212,6 +212,7 @@ pre code {
 }
 
 #page_title {
+  line-height: 2*$baseSize;
   font-size: 1.5*$fontSize;
   font-style: italic;
   font-weight: bold;
