@@ -19,7 +19,8 @@ body {
   -o-transition-property: background-position;
   -o-transition-duration: .3s;
   color: #333;
-  background-color: hsl(0,0,97);
+  background-color: hsl($primary,30,97);
+  background-image: url(/assets/pattern.png);
   line-height: $baseSize;
   font-size: $fontSize;
   font-family: "Roboto", "Droid Sans Mono", "Helvetica", arial, sans-serif;
@@ -106,7 +107,7 @@ pre code {
 }
 
 #header-wrap {
-  background: hsl(0,0,80);
+  @include bg(hsl($primary,10,80), .5);
 }
 
 #header, #content {
@@ -118,6 +119,8 @@ pre code {
 }
 
 #content {
+  @include bg(hsl(0,0,99), .7);
+  padding: $baseSize;
   min-height: 800px;
   > div {
     margin-bottom: $baseSize;
@@ -131,25 +134,32 @@ pre code {
   display: inline-block;
   height: 2*$baseSize;
   margin-bottom: 0;
+  margin-right: $baseSize;
   a {
     display: block;
     font-weight: bold;
-    font-style: italic;
-    font-family: "Droid Serif" serif;
-    font-size: 1.2*$fontSize;
+    font-family: "Bebas Neue" sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5*$fontSize;
     text-decoration: none;
     text-align: center;
     height: 3*$baseSize;
     line-height: 3*$baseSize;
-    color: hsl(0,0,30);
+    color: hsl(0,0,20);
+    -webkit-transition: background .3s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s;
   }
   a:hover {
-    background-color: hsl($primary, 0, 60);
+    @include bg(hsl($tertiary,20,30), .5);
+    text-shadow: 1px 1px 0px hsl(0,0,20);
+    color: hsl(0,0,97);
+    line-height: 4.5*$baseSize;
+    height: 4.5*$baseSize;
   }
   a:active, a:focus, a:visited, a {
     outline: none;
   }
   a:active {
+    background-color: hsl($primary, 70, 75);
   }
   li {
     display: inline-block;
@@ -166,7 +176,8 @@ pre code {
 
 #menubar, #menu {
   display: inline-block;
-  width: 590px;
+  width: 680px;
+  text-align: right;
 }
 
 #titlebar, #menubar, #menu {
@@ -183,10 +194,11 @@ pre code {
   vertical-align: top;
   display: inline-block;
   width: 270px;
-  color: white;
-  text-shadow: 4px 4px 8px hsla(0,0,40,.2);
-  font-family: "Chunk Five", "Verdana", serif;
-  font-size: 3*$fontSize;
+  color: hsl(0,0,97);
+  text-shadow: 1px 1px 1px hsl(0,0,20);
+  font-size: 4*$fontSize;
+  font-family: "Sans Sara" sans-serif;
+  font-weight: bold;
   margin-top: 0;
   line-height: 3*$baseSize;
 }
@@ -195,8 +207,11 @@ pre code {
   font-size: 1.5*$fontSize;
   font-style: italic;
   font-weight: normal;
+  text-align: right;
+  border-bottom: 1px solid black;
   color: hsl($primary,0,50);
   margin-top: 0;
+  margin-bottom: $baseSize;
 }
 
 #footer {
