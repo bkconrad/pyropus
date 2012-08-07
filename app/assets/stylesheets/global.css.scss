@@ -18,8 +18,8 @@ body {
   -moz-transition-duration: .3s;
   -o-transition-property: background-position;
   -o-transition-duration: .3s;
-  color: #333;
-  background-color: hsl($primary,30,97);
+  color: #EEE;
+  background-color: hsl($primary,0,0);
   background-image: url(/assets/pattern.png);
   line-height: $baseSize;
   font-size: $fontSize;
@@ -70,7 +70,7 @@ li {
 
 code {
   text-shadow: none;
-  background: hsl(0,0,90);
+  background: hsl(0,0,20);
   white-space: nowrap;
   font-size: ($fontSize * .9);
 }
@@ -107,7 +107,6 @@ pre code {
 }
 
 #header-wrap {
-  @include bg(hsl($primary,10,80), .5);
 }
 
 #header, #content {
@@ -119,7 +118,7 @@ pre code {
 }
 
 #content {
-  @include bg(hsl(0,0,99), .7);
+  @include bg(hsl(0,0,10), .5);
   padding: $baseSize;
   min-height: 800px;
   > div {
@@ -145,21 +144,21 @@ pre code {
     text-align: center;
     height: 3*$baseSize;
     line-height: 3*$baseSize;
-    color: hsl(0,0,20);
-    -webkit-transition: background .3s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s;
+    color: hsl(0,0,80);
+    -webkit-transition: background .1s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s;
   }
   a:hover {
-    @include bg(hsl($tertiary,20,30), .5);
+    @include bg($bronze, .85);
     text-shadow: 1px 1px 0px hsl(0,0,20);
     color: hsl(0,0,97);
-    line-height: 4.5*$baseSize;
-    height: 4.5*$baseSize;
+    line-height: 3.5*$baseSize;
+    height: 3.5*$baseSize;
   }
   a:active, a:focus, a:visited, a {
     outline: none;
   }
   a:active {
-    background-color: hsl($primary, 70, 75);
+    background-color: hsl($tertiary, 60, 70);
   }
   li {
     display: inline-block;
@@ -208,8 +207,8 @@ pre code {
   font-style: italic;
   font-weight: normal;
   text-align: right;
-  border-bottom: 1px solid black;
-  color: hsl($primary,0,50);
+  border-bottom: 1px solid white;
+  color: hsl($primary,0,70);
   margin-top: 0;
   margin-bottom: $baseSize;
 }
