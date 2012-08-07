@@ -109,8 +109,8 @@ pre code {
 #header-wrap {
   background-color: hsl($primary,0,15);
   background-image: url(/assets/pattern.png);
-  height: ($headerHeight - 1px);
-  border-bottom: 1px solid hsl(0,0,40);
+  height: ($headerHeight - 3px);
+  border-bottom: 3px solid $darkBronze;
   box-shadow: 0 1px 4px white;
 }
 
@@ -233,9 +233,10 @@ pre code {
 }
 
 #footer {
+  margin-top: -6px;
+  border-top: 3px solid $darkBronze;
   position: relative;
   z-index: 2;
-  box-shadow: 0 -1px 2px hsl(0,0,20);
   min-height: 10*$baseSize;
   background-color: hsl($primary,0,15);
   background-image: url(/assets/pattern.png);
