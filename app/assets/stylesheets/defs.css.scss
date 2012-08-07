@@ -45,11 +45,15 @@ $bodyWidth: 40*$fontSize;
 $bodyWidth: 960px;
 
 /* palette */
-$primary: 165;
+$primary: 220;
 $secondary: 45;
-$tertiary: 220;
+$tertiary: 165;
 
 $bronze: hsl($secondary, 60, 70);
+$midBronze: hsl($secondary, 35, 65);
+$darkBronze: hsl($secondary, 30, 50);
+
+$headerHeight: 4*$baseSize;
 
 $theme: hsl($primary,30,60);
 $themeshadow: hsl($primary, 30, 30);
