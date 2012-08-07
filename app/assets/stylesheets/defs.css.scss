@@ -30,8 +30,9 @@
 }
 @font-face {
   src: url('../fonts/BebasNeue.otf');
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
+  font-family: "Bebas Neue";
 }
 
 /* The base unit for scheme */
@@ -41,7 +42,7 @@ $fontSize: 10pt;
 /* I liked this better, since it approximates 80 characters
 $bodyWidth: 40*$fontSize;
 */
-$bodyWidth: 800px;
+$bodyWidth: 960px;
 
 /* palette */
 $primary: 200;

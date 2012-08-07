@@ -18,9 +18,8 @@ body {
   -moz-transition-duration: .3s;
   -o-transition-property: background-position;
   -o-transition-duration: .3s;
-  background-color: hsl($primary,0,10);
-  background-image: url(/assets/pattern.png);
   color: #333;
+  background-color: hsl(0,0,97);
   line-height: $baseSize;
   font-size: $fontSize;
   font-family: "Roboto", "Droid Sans Mono", "Helvetica", arial, sans-serif;
@@ -46,11 +45,11 @@ h4, h5 {
 }
 
 a, a:visited {
-  color: hsl(220, 40, 50);
+  color: hsl(220, 0, 70);
 }
 
 a:hover {
-  color: hsl(220, 70, 70);
+  color: hsl(220, 70, 80);
 }
 
 ul, ol {
@@ -70,7 +69,7 @@ li {
 
 code {
   text-shadow: none;
-  background: hsl(0,0,94);
+  background: hsl(0,0,90);
   white-space: nowrap;
   font-size: ($fontSize * .9);
 }
@@ -80,7 +79,7 @@ pre code {
   display: block;
   margin-bottom: $baseSize;
   padding: .5em;
-  overflow: hidden;
+  overflow: auto;
 }
 
 #notice, #alert {
@@ -104,106 +103,99 @@ pre code {
 }
 
 #wrapper {
-  background: hsl(0,0,100);
-  background: hsla(0,0,100,.98);
-  @include gradient(hsl(0,0,99), hsl(0,0,80));
 }
 
 #header-wrap {
-  position: relative;
-  z-index: 1;
-  background: hsla(0,0,20, 1);
-  background-image: url(/assets/noise.png);
-  border-bottom: 1px solid hsl(0,0,10);
-  box-shadow: 0 1px 0 hsl(0,0,60);
+  background: hsl(0,0,80);
 }
 
 #header, #content {
   width: $bodyWidth;
-  margin: 0 auto;
+  margin: 0 auto $baseSize auto;
 }
 
 #header {
-  text-shadow: 1px 1px 0 black;
-  color: hsl(0,0,95);
-  padding: 0 $baseSize;
 }
 
 #content {
-  background: hsl(0,0,100);
-  background: hsla(0,0,100,.98);
-  box-shadow: 0 0 $baseSize hsl(0,0,60);
-  padding: $baseSize;
   min-height: 800px;
   > div {
     margin-bottom: $baseSize;
   }
-}
-
-#menubar {
-}
-
-#menu {
+  p, pre, ul {
+    max-width: 40em;
+  }
 }
 
 #navlinks {
-  clear: both;
+  display: inline-block;
+  height: 2*$baseSize;
+  margin-bottom: 0;
   a {
-    @include gradient(hsla(0,0,30,.05), hsla(0,0,0,.3));
-    padding: 0 $baseSize;
-    font-weight: bold;
     display: block;
-    font-size: 1.2*$baseSize;
-    color: hsl(0, 0, 80);
+    font-weight: bold;
+    font-style: italic;
+    font-family: "Droid Serif" serif;
+    font-size: 1.2*$fontSize;
     text-decoration: none;
-    border: 1px solid hsl(0,0,10);
-    box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,30) inset;
-    margin: 0 auto;
-    border-radius: 6px;
-    line-height: (2*$baseSize - 2px);
-    text-shadow: 2px 2px 0 black;
+    text-align: center;
+    height: 3*$baseSize;
+    line-height: 3*$baseSize;
+    color: hsl(0,0,30);
   }
   a:hover {
-    @include gradient(hsla(0,0,80,.05), hsla(0,0,0,.3));
-    color: hsl($primary, 0, 100);
+    background-color: hsl($primary, 0, 60);
   }
   a:active, a:focus, a:visited, a {
     outline: none;
   }
   a:active {
-    @include gradient(hsla(0,0,0,.2), hsla(0,0,40,.1));
-    box-shadow: 0 1px 0 0 hsl(0,0,30), 0 1px 0 0 hsl(0,0,15) inset;
   }
   li {
     display: inline-block;
     list-style: none;
-    font-size: $fontSize;
-    line-height: 2*$baseSize;
     padding-left: 0;
     margin-left: 0;
+    float: left;
+    height: 3*$baseSize;
+    width: 4*$baseSize;
+  }
+  li:hover {
   }
 }
 
-#titlebar, #menubar {
+#menubar, #menu {
+  display: inline-block;
+  width: 590px;
+}
+
+#titlebar, #menubar, #menu {
+  vertical-align: top;
+  height: 3*$baseSize;
+  line-height: 3*$baseSize;
 }
 
 #titlebar {
-  vertical-align: baseline;
+  display: inline-block;
 }
 
 #site_title {
-  float: left;
-  text-shadow: 2px 2px 0 black;
+  vertical-align: top;
   display: inline-block;
+  width: 270px;
+  color: white;
+  text-shadow: 4px 4px 8px hsla(0,0,40,.2);
   font-family: "Chunk Five", "Verdana", serif;
-  font-size: 2.5*$fontSize;
+  font-size: 3*$fontSize;
+  margin-top: 0;
+  line-height: 3*$baseSize;
 }
 
 #page_title {
   font-size: 1.5*$fontSize;
   font-style: italic;
   font-weight: normal;
-  color: hsl($primary,30,50);
+  color: hsl($primary,0,50);
   margin-top: 0;
 }
 
@@ -228,7 +220,6 @@ pre code {
 }
 
 .clearfix {
-  display: none;
   clear: both;
   height: 0;
 }
