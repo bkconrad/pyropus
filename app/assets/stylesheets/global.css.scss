@@ -123,12 +123,53 @@ pre code {
   color: hsl(0,0,90);
 }
 
+#toc {
+  border-top-left-radius: $baseSize;
+  border-bottom-right-radius: $baseSize;
+  #toc-header {
+    background: $midBronze;
+    padding: .5*$baseSize;
+    margin-bottom: $baseSize;
+    font-size: 1.5*$baseSize;
+    color: hsl(0,0,99);
+    text-shadow: 1px 1px 2px hsl(0,0,20);
+    border-top-left-radius: .5*$baseSize;
+    border-bottom-right-radius: .5*$baseSize;
+  }
+  @include bg(hsl(0,0,20), .4);
+  padding: .5*$baseSize;
+  a {
+    color: hsl(0,0,95);
+    text-decoration: none;
+  }
+  a:hover {
+    color: hsl(0,0,99);
+    text-decoration: underline;
+  }
+  li {
+    color: hsl(0,0,90);
+    list-style-type: decimal;
+    margin-left: $baseSize;
+  }
+  > ul > li {
+    > ul > li {
+      > ul > li {
+        list-style-type: lower-roman;
+      }
+      list-style-type: lower-latin;
+    }
+    list-style-type: decimal;
+  }
+
+  clear: right;
+  float: right;
+  overflow: hidden;
+}
 
 #content {
   min-height: 800px;
   margin-top: $baseSize;
   > div {
-    clear: both;
     margin-bottom: $baseSize;
   }
   p, pre, ul {
@@ -153,7 +194,7 @@ pre code {
     height: $headerHeight;
     line-height: $headerHeight;
     color: hsl(0,0,80);
-    -webkit-transition: background .1s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s;
+    -webkit-transition: background .3s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s;
   }
   a:hover {
     @include bg($bronze, .85);

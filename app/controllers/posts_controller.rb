@@ -11,18 +11,10 @@ class PostsController < ApplicationController
     page_title "View all posts"
 
     @posts.each do |post|
-      # TODO: make this into a helper
-      post.content = post.content[0..500]
-
-      # stop at the end of the first paragraph
-      post.content = post.content.split("\r\n\r\n")
-      post.content = post.content[0]
-
-      # remove the last word (fragment)
-      post.content = post.content.split(" ")
-      post.content = post.content[0..-1]
-      post.content = post.content.join(" ")
-      post.content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(post.content)
+      # get the first 1,000 chararcters or stop at <!-- break -->
+      limit = post.content.index("<!-- break -->") || 1000
+      post.content = post.content[0...limit]
+      post.content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :with_toc_data => true, :autolink => true, :space_after_headers => true).render(post.content)
     end
 
     respond_to do |format|
@@ -46,7 +38,12 @@ class PostsController < ApplicationController
     end
 
     page_title @post.title
-    @content = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(@post.content)
+    toc_renderer = Redcarpet::Render::HTML_TOC.new()
+    renderer = Redcarpet::Render::HTML.new(:with_toc_data => true, :autolink => true, :space_after_headers => true)
+    md_toc = Redcarpet::Markdown.new(toc_renderer)
+    md = Redcarpet::Markdown.new(renderer)
+    @toc = md_toc.render(@post.content)
+    @content = md.render(@post.content)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
