@@ -126,13 +126,14 @@ pre code {
 #toc {
   border-top-left-radius: $baseSize;
   border-bottom-right-radius: $baseSize;
+  width: (180px - $baseSize);
   #toc-header {
-    background: $midBronze;
+    background: hsl(0,0,99);
     padding: .5*$baseSize;
     margin-bottom: $baseSize;
     font-size: 1.5*$baseSize;
-    color: hsl(0,0,99);
-    text-shadow: 1px 1px 2px hsl(0,0,20);
+    font-weight: bold;
+    color: hsl(0,0,20);
     border-top-left-radius: .5*$baseSize;
     border-bottom-right-radius: .5*$baseSize;
   }
@@ -145,6 +146,9 @@ pre code {
   a:hover {
     color: hsl(0,0,99);
     text-decoration: underline;
+  }
+  ul {
+    margin-bottom: 0;
   }
   li {
     color: hsl(0,0,90);
