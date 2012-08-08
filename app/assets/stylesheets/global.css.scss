@@ -31,8 +31,8 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  line-height: 3*$baseSize;
-  font-size: 3*$fontSize;
+  line-height: 2*$baseSize;
+  font-size: 2*$fontSize;
 }
 
 h2, h3 {
@@ -292,6 +292,11 @@ pre code {
   }
   a:hover {
   }
+}
+
+.post-title {
+  font-size: 3*$fontSize;
+  line-height: 3*$baseSize;
 }
 
 .post-date {
