@@ -126,7 +126,7 @@ pre code {
 #toc {
   border-top-left-radius: $baseSize;
   border-bottom-right-radius: $baseSize;
-  width: (180px - $baseSize);
+  width: 180px;
   #toc-header {
     background: hsl(0,0,99);
     padding: .5*$baseSize;
@@ -217,8 +217,7 @@ pre code {
     display: inline-block;
     list-style: none;
     padding-left: 0;
-    margin-left: 0;
-    margin-right: $baseSize;
+    margin-left: $baseSize;
     float: left;
     height: $headerHeight;
     width: 5*$baseSize;
