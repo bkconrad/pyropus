@@ -220,7 +220,7 @@ pre code {
     margin-left: $baseSize;
     float: left;
     height: $headerHeight;
-    width: 5*$baseSize;
+    min-width: 5*$baseSize;
   }
   li:hover {
   }
@@ -281,7 +281,7 @@ pre code {
   border-top: 3px solid $darkBronze;
   position: relative;
   z-index: 2;
-  min-height: 10*$baseSize;
+  min-height: 4*$baseSize;
   background-color: hsl($primary,0,15);
   background-image: url(/assets/pattern.png);
 }

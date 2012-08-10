@@ -9,7 +9,7 @@
   background-image: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
   background-image: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
   background-image: linear-gradient(top,  $top 0%,$bottom 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{rgb(red($top), green($top), blue($top))}', endColorstr='#{rgb(red($bottom), green($bottom), blue($bottom))}' ,GradientType=0) ;
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{rgb(red($top), green($top), blue($top))}', endColorstr='#{rgb(red($bottom), green($bottom), blue($bottom))}' ,GradientType=0) ;*/
 }
 
 @mixin letterpress($color) {
