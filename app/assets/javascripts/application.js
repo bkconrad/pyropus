@@ -35,8 +35,15 @@ function pullScripts(text) {
   // we only want scripts in the content div, but HTMLElements don't have
   // getElementById(), so we use a class name instead
   // TODO: this assumes that there is something with the class 'content'
-  scriptElements = div.getElementsByClassName('content')[0]
-                      .getElementsByTagName('script');
+  try {
+    scriptElements = div.getElementsByClassName('content')[0]
+                        .getElementsByTagName('script');
+  // some browsers (guess which...) don't support getElementsByClassName
+  // for Node objects either, so we just put in all the scripts and hope for
+  // the best
+  } catch (err) {
+    scriptElements = div.getElementsByTagName('script');
+  }
 
   $('head').append(scriptElements);
 }
