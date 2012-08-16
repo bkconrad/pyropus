@@ -51,6 +51,10 @@ Pyropus.startup(function () {
         $("#sample-id").val(data.id);
         $("#sample-name").val(data.name);
 
+        $("#maxParticles").val(data.max_particles);
+        $("#emitFrequency").val(data.emit_frequency);
+        $("input[name=boundaryAction][type=" + data.boundary_action + "]").checked = true;
+
         PfxEd.stop();
         PfxEd.start();
         PfxEd.run();
@@ -97,6 +101,9 @@ Pyropus.startup(function () {
         init_function: $("#init-function").val(),
         draw_function: $("#draw-function").val(),
         update_function: $("#update-function").val(),
+        max_particles: $("#maxParticles").val(),
+        emit_frequency: $("#emitFrequency").val(),
+        boundary_action: $("input[name=boundaryAction]:checked").val(),
         name: $("#sample-name").val()
       }
     };
