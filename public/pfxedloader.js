@@ -53,7 +53,8 @@ Pyropus.startup(function () {
 
         $("#maxParticles").val(data.max_particles);
         $("#emitFrequency").val(data.emit_frequency);
-        $("input[name=boundaryAction][value=" + data.boundary_action + "]").checked = true;
+        $("input[name=boundaryAction][value=" + data.boundary_action + "]")[0].checked = true;
+        PfxEd.setBoundaryAction();
 
         PfxEd.stop();
         PfxEd.start();
