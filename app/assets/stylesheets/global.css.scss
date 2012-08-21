@@ -104,6 +104,8 @@ pre code {
 #wrapper {
   background-color: hsl(0,0,93);
   background-image: url(/assets/noise.png);
+  display: table;
+  min-width: 100%;
 }
 
 #header-wrap {
