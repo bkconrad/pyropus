@@ -109,9 +109,10 @@ pre code {
 #header-wrap {
   background-color: hsl($primary,0,15);
   background-image: url(/assets/pattern.png);
-  height: ($headerHeight - $trimHeight);
+  height: $headerHeight;
   border-bottom: $trimHeight solid $midBronze;
   box-shadow: 0 1px 4px white;
+  margin-bottom: $baseSize - $trimHeight;
 }
 
 #header, #content {
@@ -172,7 +173,6 @@ pre code {
 
 #content {
   min-height: 800px;
-  margin-top: $baseSize;
   > div {
     margin-bottom: $baseSize;
   }
@@ -295,7 +295,7 @@ pre code {
 }
 
 .post-title {
-  line-height: 2*$baseSize;
+  line-height: 2*$baseSize - 2px;
   font-size: 1.5*$fontSize;
   font-style: italic;
   font-weight: bold;
