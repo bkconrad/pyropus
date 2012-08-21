@@ -142,6 +142,15 @@ div#congress-display {
     </div>
     <h3><a href="#">Bill List <span id="bill-list-current-type">&nbsp;</span></a></h3>
     <div id="bill-list">
+        <select id="congress-session">
+          <%=
+          result = ""
+          NytCongress::CURRENT_SESSION.downto(NytCongress::MIN_SESSION) do |i|
+            result += "<option value=\"#{i}\">#{i}</option>\n"
+          end
+          raw result
+          %>
+        </select>
       <div id="bill-types">
         <input type="radio" id="introduced" name="radio" checked="checked" /><label for="introduced">Introduced</label>
         <input type="radio" id="updated" name="radio" /><label for="updated">Updated</label>

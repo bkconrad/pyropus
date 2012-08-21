@@ -13,9 +13,9 @@ class CongressController < ApplicationController
       # error
       return nil
     end
-    method_symbol = args[0].tr("-","_").to_sym
+    method_symbol = args.shift.tr("-","_").to_sym
     NytCongress.method_defined?(method_symbol)
-    result = self.method(method_symbol).call(args[1], args[2])
+    result = self.method(method_symbol).call(*args)
     if result
       render json: result
     else

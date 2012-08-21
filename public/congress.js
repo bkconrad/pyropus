@@ -1,5 +1,9 @@
 var $displayDiv;
 
+function selectedSession () {
+  return $("#congress-session").val();
+}
+
 function clearDisplay () {
   $displayDiv.html("");
 }
@@ -11,7 +15,8 @@ function formalizeBillId (str) {
 
 function billDetails (billId) {
   billId = formalizeBillId(billId);
-  $.ajax("/congress/query/bill-details/" + billId,
+  var session = selectedSession();
+  $.ajax("/congress/query/bill-details/" + billId + "/" + session,
       { "success" : showBillDetails,
         "error" : showError });
 }
@@ -55,6 +60,7 @@ function showBills (data, chamber) {
 /* gets recent bills for both chambers of the selected type */
 function getBills () {
   var type = $("#bill-types :checked").attr("id");
+  var session = selectedSession();
 
   // capitalize type for use in the title
   var titleType = type[0].toUpperCase() + type.slice(1);
@@ -65,19 +71,19 @@ function getBills () {
                     "Recently " + titleType + " Bills";
   $("#bill-list-current-type").html("- " + headerTitle);
 
-  $.ajax("/congress/query/recent-bills/house/" + type,
-      { "success" :
-        function (data) {
-          showBills (data, "house");
-        }
+  $.ajax("/congress/query/recent-bills/house/" + type + "/" + session,
+    { "success" :
+      function (data) {
+        showBills (data, "house");
       }
+    }
   );
-  $.ajax("/congress/query/recent-bills/senate/" + type,
-      { "success" :
-        function (data) {
-          showBills (data, "senate");
-        }
+  $.ajax("/congress/query/recent-bills/senate/" + type + "/" + session,
+    { "success" :
+      function (data) {
+        showBills (data, "senate");
       }
+    }
   );
 }
 
@@ -109,7 +115,7 @@ Pyropus.startup(function () {
   $displayDiv.tabs();
 
   $("#bill-types").buttonset();
-  $("#bill-types :radio").change(getBills);
+  $("#bill-types :radio, #congress-session").change(getBills);
 
   // TODO: move busy indicator code to global js
   $.ajaxSetup({ error: showError });
