@@ -127,33 +127,34 @@ pre code {
 }
 
 #toc {
-  border-radius: $baseSize;
-  width: 180px;
+  background: hsl(0,0,97);
+  border-radius: .5*$baseSize;
+  border: 1px solid $midBronze;
+  width: 270px;
   #toc-header {
-    background: hsl(0,0,99);
+    background: $midBronze;
     padding: .5*$baseSize;
-    margin-bottom: $baseSize;
     font-size: 1.2*$baseSize;
     font-weight: bold;
-    color: hsl(0,0,20);
-    border-top-left-radius: .6*$baseSize;
-    border-top-right-radius: .6*$baseSize;
+    color: hsl(0,0,100);
+    text-shadow: 1px 1px 1px hsl(0,0,40);
   }
-  @include bg(hsl(0,0,20), .4);
-  padding: .5*$baseSize;
+  #toc-content {
+    padding: .5*$baseSize;
+  }
   a {
-    color: hsl(0,0,95);
+    color: hsl(0,0,0);
     text-decoration: none;
   }
   a:hover {
-    color: hsl(0,0,99);
+    color: hsl(0,0,40);
     text-decoration: underline;
   }
   ul {
     margin-bottom: 0;
   }
   li {
-    color: hsl(0,0,90);
+    color: hsl(0,0,0);
     list-style-type: decimal;
     margin-left: $baseSize;
   }
@@ -191,7 +192,7 @@ pre code {
   a {
     display: block;
     font-weight: bold;
-    font-family: "Bebas Neue" "Verdana" sans-serif;
+    font-family: "Bebas Neue" sans-serif;
     text-transform: uppercase;
     font-size: 2*$fontSize;
     text-decoration: none;
@@ -202,7 +203,7 @@ pre code {
     /* -webkit-transition: background .3s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s; */
   }
   a:hover {
-    @include bg(hsl($primary, 60, 70), .3);
+    @include bg($highlight, .3);
     text-shadow: 1px 1px 0px hsl(0,0,20);
     color: hsl(0,0,97);
   }
