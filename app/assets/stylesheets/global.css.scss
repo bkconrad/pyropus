@@ -141,29 +141,29 @@ pre code {
   }
   #toc-content {
     padding: .5*$baseSize;
-  }
-  a {
-    color: hsl(0,0,0);
-    text-decoration: none;
-  }
-  a:hover {
-    color: hsl(0,0,40);
-    text-decoration: underline;
-  }
-  ul {
-    margin-bottom: 0;
-  }
-  li {
-    color: hsl(0,0,0);
-    list-style-type: decimal;
-    margin-left: $baseSize;
-  }
-  > ul > li {
-    list-style-type: decimal;
+    a {
+      color: hsl(0,0,0);
+      text-decoration: none;
+    }
+    a:hover {
+      color: hsl(0,0,40);
+      text-decoration: underline;
+    }
+    ul {
+      margin-bottom: 0;
+    }
+    li {
+      color: hsl(0,0,0);
+      list-style-type: decimal;
+      margin-left: $baseSize;
+    }
     > ul > li {
-      list-style-type: lower-latin;
+      list-style-type: decimal;
       > ul > li {
-        list-style-type: lower-roman;
+        list-style-type: lower-latin;
+        > ul > li {
+          list-style-type: lower-roman;
+        }
       }
     }
   }
