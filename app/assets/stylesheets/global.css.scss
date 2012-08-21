@@ -262,18 +262,16 @@ pre code {
   font-weight: bold;
   font-family: "Droid Serif" serif;
   display: inline-block;
-  float: right;
   padding: 0 $baseSize;
   color: hsl($primary,10,20);
   text-shadow: 1px 1px 0 hsl($secondary,90,80);
-  border-bottom-left-radius: $baseSize;
-  border-top-left-radius: $baseSize;
   box-shadow: 3px 3px 6px -2px hsl(0,0,30);
   display: block;
   margin-top: 0;
   margin-bottom: $baseSize;
   background: $midBronze;
   border: 1px solid $darkBronze;
+  display: none;
 }
 
 #footer {
@@ -297,8 +295,21 @@ pre code {
 }
 
 .post-title {
-  font-size: 3*$fontSize;
-  line-height: 3*$baseSize;
+  line-height: 2*$baseSize;
+  font-size: 1.5*$fontSize;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Droid Serif" serif;
+  display: inline-block;
+  padding: 0 $baseSize;
+  color: hsl($primary,10,20);
+  text-shadow: 1px 1px 0 hsl($secondary,90,80);
+  box-shadow: 3px 3px 6px -2px hsl(0,0,30);
+  display: block;
+  margin-top: 0;
+  margin-bottom: $baseSize;
+  background: $midBronze;
+  border: 1px solid $darkBronze;
 }
 
 .post-date {
