@@ -110,7 +110,7 @@ pre code {
   background-color: hsl($primary,0,15);
   background-image: url(/assets/pattern.png);
   height: ($headerHeight - $trimHeight);
-  border-bottom: $trimHeight solid $darkBronze;
+  border-bottom: $trimHeight solid $midBronze;
   box-shadow: 0 1px 4px white;
 }
 
@@ -275,7 +275,7 @@ pre code {
 }
 
 #footer {
-  border-top: $trimHeight solid $darkBronze;
+  border-top: $trimHeight solid $midBronze;
   position: relative;
   z-index: 2;
   min-height: 4*$baseSize;
