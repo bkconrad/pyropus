@@ -191,7 +191,7 @@ pre code {
   a {
     display: block;
     font-weight: bold;
-    font-family: "Bebas Neue" sans-serif;
+    font-family: "Bebas Neue" "Verdana" sans-serif;
     text-transform: uppercase;
     font-size: 2*$fontSize;
     text-decoration: none;
@@ -202,17 +202,15 @@ pre code {
     /* -webkit-transition: background .3s, color .3s, line-height .3s, box-shadow .3s, text-shadow .3s, height .3s; */
   }
   a:hover {
-    @include bg($bronze, .85);
+    @include bg(hsl($primary, 60, 70), .3);
     text-shadow: 1px 1px 0px hsl(0,0,20);
     color: hsl(0,0,97);
-    line-height: ($headerHeight + .5*$baseSize);
-    height: ($headerHeight + .5*$baseSize);
   }
   a:active, a:focus, a:visited, a {
     outline: none;
   }
   a:active {
-    background-color: hsl($primary, 60, 70);
+    line-height: ($headerHeight + .5*$baseSize);
   }
   li {
     display: inline-block;

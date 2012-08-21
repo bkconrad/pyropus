@@ -10,5 +10,9 @@
  *
  *= require_self
  *= require pagedown
- *= require_tree .
+ *= require defs
+ *= require global
+ *= require util
+ *= require navlogin
+ *= require jquery-ui-1.8.18.custom
 */
