@@ -21,7 +21,7 @@
   input, button, select {
     padding: (.125*$baseSize);
     line-height: $baseSize;
-    height: $baseSize;
+    height: ($baseSize - 1px);
     border-radius: 2px;
     display: block;
     border: 1px solid hsl($primary, 40, 80);
