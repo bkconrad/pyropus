@@ -19,10 +19,10 @@
     color: hsl(220, 70, 80);
   }
   input, button, select {
-    width: (90px - $baseSize);
+    width: (108px - .5 * $baseSize);
     padding: (.25*$baseSize - 1px);
     line-height: ($baseSize);
-    height: (.75*$baseSize);
+    height: (1.25*$baseSize);
     border-radius: 2px;
     display: block;
     margin-top: 2px;
@@ -35,7 +35,11 @@
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     float: left;
+  }
+
+  #username-text {
     margin-top: .5*$baseSize;
+    margin-bottom: .5*$baseSize;
   }
 
   input:last-child {
@@ -52,6 +56,7 @@
     line-height: ($headerHeight - 1.5*$baseSize);
     height: ($headerHeight - 1.5*$baseSize);
     margin: .5*$baseSize 0;
+    width: 3*$baseSize;
   }
   #login-button:hover, #login-button:focus {
     background-color: hsl($primary, 10, 99);

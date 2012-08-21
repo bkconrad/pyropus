@@ -102,15 +102,15 @@ pre code {
 }
 
 #wrapper {
-  background-color: hsl(0,0,90);
+  background-color: hsl(0,0,93);
   background-image: url(/assets/noise.png);
 }
 
 #header-wrap {
   background-color: hsl($primary,0,15);
   background-image: url(/assets/pattern.png);
-  height: ($headerHeight - 3px);
-  border-bottom: 3px solid $darkBronze;
+  height: ($headerHeight - $trimHeight);
+  border-bottom: $trimHeight solid $darkBronze;
   box-shadow: 0 1px 4px white;
 }
 
@@ -277,8 +277,7 @@ pre code {
 }
 
 #footer {
-  margin-top: -6px;
-  border-top: 3px solid $darkBronze;
+  border-top: $trimHeight solid $darkBronze;
   position: relative;
   z-index: 2;
   min-height: 4*$baseSize;
