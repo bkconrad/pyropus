@@ -127,18 +127,17 @@ pre code {
 }
 
 #toc {
-  border-top-left-radius: $baseSize;
-  border-bottom-right-radius: $baseSize;
+  border-radius: $baseSize;
   width: 180px;
   #toc-header {
     background: hsl(0,0,99);
     padding: .5*$baseSize;
     margin-bottom: $baseSize;
-    font-size: 1.5*$baseSize;
+    font-size: 1.2*$baseSize;
     font-weight: bold;
     color: hsl(0,0,20);
-    border-top-left-radius: .5*$baseSize;
-    border-bottom-right-radius: .5*$baseSize;
+    border-top-left-radius: .6*$baseSize;
+    border-top-right-radius: .6*$baseSize;
   }
   @include bg(hsl(0,0,20), .4);
   padding: .5*$baseSize;
@@ -159,13 +158,13 @@ pre code {
     margin-left: $baseSize;
   }
   > ul > li {
+    list-style-type: decimal;
     > ul > li {
+      list-style-type: lower-latin;
       > ul > li {
         list-style-type: lower-roman;
       }
-      list-style-type: lower-latin;
     }
-    list-style-type: decimal;
   }
 
   clear: right;
@@ -310,6 +309,7 @@ pre code {
   display: block;
   margin-top: 0;
   margin-bottom: $baseSize;
+  margin-left: -$baseSize;
   background: $midBronze;
   border: 1px solid $darkBronze;
 }
