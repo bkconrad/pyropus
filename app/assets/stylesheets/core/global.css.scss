@@ -137,7 +137,6 @@ pre code {
     font-family: "Bebas Neue" sans-serif;
     font-weight: bold;
     color: hsl(0,0,95);
-    text-shadow: 1px 1px 1px hsl(0,0,40);
   }
   #toc-content {
     padding: .5*$baseSize;
@@ -294,7 +293,7 @@ pre code {
   }
 }
 
-.post-title {
+.title {
   background: hsl(0,0,20);
   color: hsl(0,0,95);
   line-height: 2*$baseSize;

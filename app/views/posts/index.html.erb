@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <div class="post">
-    <h1 class="post-title"><%= post.title %></h1>
+    <h1 class="title"><%= post.title %></h1>
     <span class="post-date"><%= post.created_at.strftime "%b %d, %Y" %></span>
     <div class="post-content"><%= raw post.content %></div>
     <span class="actions">

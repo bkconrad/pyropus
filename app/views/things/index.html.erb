@@ -1,6 +1,6 @@
 <% @things.each do |thing| %>
   <div class="thing">
-    <h1><%= thing.name %></h1>
+    <h1 class="title"><%= thing.name %></h1>
     <p><%= raw thing.description %></p>
     <span class="actions">
         <%= ajax_link_to "View Thing", controller: thing.path %>
