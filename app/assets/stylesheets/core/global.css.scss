@@ -27,7 +27,7 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: $baseSize 0 0 0;
-  font-family: "Roboto";
+  font-family: "Bebas Neue" "Helvetica" "Verdana" sans-serif;
 }
 
 h1 {
@@ -128,15 +128,15 @@ pre code {
 
 #toc {
   background: hsl(0,0,97);
-  border-radius: .5*$baseSize;
-  border: 1px solid $midBronze;
+  border: 1px solid hsl(0,0,20);
   width: 270px;
   #toc-header {
-    background: $midBronze;
+    background: hsl(0,0,20);
     padding: .5*$baseSize;
     font-size: 1.2*$baseSize;
+    font-family: "Bebas Neue" sans-serif;
     font-weight: bold;
-    color: hsl(0,0,100);
+    color: hsl(0,0,95);
     text-shadow: 1px 1px 1px hsl(0,0,40);
   }
   #toc-content {
@@ -295,22 +295,15 @@ pre code {
 }
 
 .post-title {
-  line-height: 2*$baseSize - 2px;
-  font-size: 1.5*$fontSize;
-  font-style: italic;
+  background: hsl(0,0,20);
+  color: hsl(0,0,95);
+  line-height: 2*$baseSize;
+  font-size: 1.9*$fontSize;
   font-weight: bold;
-  font-family: "Droid Serif" serif;
-  display: inline-block;
+  font-family: "Bebas Neue" "Helvetica" serif;
   padding: 0 $baseSize;
-  color: hsl($primary,10,20);
-  text-shadow: 1px 1px 0 hsl($secondary,90,80);
-  box-shadow: 3px 3px 6px -2px hsl(0,0,30);
-  display: block;
-  margin-top: 0;
-  margin-bottom: $baseSize;
   margin-left: -$baseSize;
-  background: $midBronze;
-  border: 1px solid $darkBronze;
+  margin-bottom: $baseSize;
 }
 
 .post-date {
