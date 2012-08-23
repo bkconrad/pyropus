@@ -297,12 +297,15 @@ pre code {
   background: hsl(0,0,20);
   color: hsl(0,0,95);
   line-height: 2*$baseSize;
+  height: (2*$baseSize - 3px);
+  border-bottom: 3px solid $midBronze;
   font-size: 1.9*$fontSize;
   font-weight: bold;
   font-family: "Bebas Neue" "Helvetica" serif;
   padding: 0 $baseSize;
   margin-left: -$baseSize;
   margin-bottom: $baseSize;
+  width: 50%;
 }
 
 .post-date {
